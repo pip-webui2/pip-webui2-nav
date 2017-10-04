@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { PipAppbarModule, PipAppbarIconModule } from '../pip-webui2-nav';
+import { PipAppbarModule, PipAppbarIconModule, PipNavPartModule } from '../pip-webui2-nav';
 import { AppBarExampleComponent } from './appbar-example.component';
 
 @NgModule({
@@ -9,7 +9,8 @@ import { AppBarExampleComponent } from './appbar-example.component';
   ],
   imports: [
     PipAppbarModule,
-    PipAppbarIconModule
+    PipAppbarIconModule,
+    PipNavPartModule
   ],
   exports: [
     AppBarExampleComponent
