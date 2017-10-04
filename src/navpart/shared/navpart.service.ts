@@ -44,7 +44,7 @@ export class NavPartService {
     }
 
     public updatePart(newPart: NavPart) {
-        let index: number;
+        let index: number = _.findIndex(this._parts, {name: name});
         if (index > -1) {
             this._parts[index].name = newPart.name;
             this._parts[index].visible.next(newPart.visible.value);
@@ -55,7 +55,7 @@ export class NavPartService {
     }
 
     public updateProps(name: string, props: any) {
-        let index: number;
+        let index: number = _.findIndex(this._parts, {name: name});
         if (index > -1) {
             this._parts[index].properties.next(props);
         } else {
@@ -64,7 +64,7 @@ export class NavPartService {
     }
 
     public updateProp(name: string, propName: string, propValue: any) {
-        let index: number;
+        let index: number = _.findIndex(this._parts, {name: name});
         if (index > -1) {
             let props: any = this._parts[index].properties.value;
             props ? props[propName] = propValue : props = {propName: propValue};
@@ -75,7 +75,7 @@ export class NavPartService {
     }
 
     public changeVisibility(name: string, visible : boolean): void {
-        let index: number;
+        let index: number = _.findIndex(this._parts, {name: name});
         if (index > -1) {
              this._parts[index].visible.next(visible);
         } else {
