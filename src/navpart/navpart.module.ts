@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { NavPartService } from './shared/navpart.service';
 import { PipNavPartDirective } from './navpart.directive';
 
 @NgModule({
@@ -12,6 +13,8 @@ import { PipNavPartDirective } from './navpart.directive';
   exports: [  
     PipNavPartDirective
   ],
-  providers: [],
+  providers: [
+    NavPartService
+  ]
 })
 export class PipNavPartModule { }
