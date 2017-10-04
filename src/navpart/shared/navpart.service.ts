@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/catch';
 import { NavPart } from './navpart.model';
 
 @Injectable()
-export class NavPartService {
+export class PipNavPartService {
     private _parts: NavPart[];
 
     public constructor() {

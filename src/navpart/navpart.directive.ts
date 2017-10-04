@@ -6,7 +6,7 @@ export class PipNavPartDirective {
 
     constructor(
         private templateRef: TemplateRef<any>,
-        private viewContainer: ViewContainerRef,
+        private viewContainer: ViewContainerRef
     ) {
         this.viewContainer.createEmbeddedView(this.templateRef);
 
