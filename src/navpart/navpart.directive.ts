@@ -5,11 +5,13 @@ export class PipNavPartDirective {
     @Input() pipNavPart: string;
 
     constructor(
-        //private templateRef: TemplateRef<any>,
+        private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
     ) {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+
        //
-        // this.subscription = service.addPart('pipNavPart').getProp('visible').subscribe(visible => {
+        // this.subscription = service.addNewPart('pipNavPart').getProp('visible').subscribe(visible => {
         //     if (visible) {
         //         this.viewContainer.createEmbeddedView(this.templateRef);
         //     } else {
