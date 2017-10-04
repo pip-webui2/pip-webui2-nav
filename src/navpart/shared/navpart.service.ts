@@ -1,4 +1,4 @@
-import * as _ from "lodash";
+import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -31,17 +31,21 @@ export class PipNavPartService {
         this._parts = newParts;
     }
 
-    public addNewPartByName(name: string, visible: boolean, props: any): void {
+    public addNewPartByName(name: string, visible: boolean, props: any): NavPart {
         let newPart: NavPart = new NavPart();
         newPart.name = name;
         newPart.visible = new BehaviorSubject<boolean>(visible);
         newPart.properties = new BehaviorSubject<any>(props);
 
         this._parts ? this._parts.push(newPart) : this._parts = [newPart];
+
+        return this._parts[this._parts.length - 1];
     }
 
-    public addNewPart(newPart: NavPart) {
+    public addNewPart(newPart: NavPart): NavPart {
         this._parts ? this._parts.push(newPart) : this._parts = [newPart];
+
+        return this._parts[this._parts.length - 1];
     }
 
     public updatePart(newPart: NavPart) {

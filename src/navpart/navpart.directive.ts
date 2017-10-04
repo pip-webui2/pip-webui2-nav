@@ -1,22 +1,22 @@
-import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, Input, OnInit } from '@angular/core';
+import { PipNavPartService } from './shared/navpart.service';
+
+import { Subscription } from 'rxjs/Subscription';
 
 @Directive({ selector: '[pipNavPart]' })
-export class PipNavPartDirective {
+export class PipNavPartDirective implements OnInit {
+    private subscription: Subscription;
     @Input() pipNavPart: string;
 
     constructor(
         private templateRef: TemplateRef<any>,
-        private viewContainer: ViewContainerRef
-    ) {
-        this.viewContainer.createEmbeddedView(this.templateRef);
+        private viewContainer: ViewContainerRef,
+        private service: PipNavPartService
+    ) { }
 
-       //
-        // this.subscription = service.addNewPart('pipNavPart').getProp('visible').subscribe(visible => {
-        //     if (visible) {
-        //         this.viewContainer.createEmbeddedView(this.templateRef);
-        //     } else {
-        //         this.viewContainer.clear();
-        //     }
-        // });
-    }
+    public ngOnInit() {
+        this.subscription = this.service.addNewPartByName(this.pipNavPart, true, {}).visible.subscribe(visible => {
+            visible ? this.viewContainer.createEmbeddedView(this.templateRef) : this.viewContainer.clear();
+        });
+    } 
 }
