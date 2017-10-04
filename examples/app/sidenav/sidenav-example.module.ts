@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { PipSidenavModule } from '../pip-webui2-nav';
+import { PipSidenavModule, PipSidenavMenuModule } from '../pip-webui2-nav';
 import { SidenavExampleComponent } from './sidenav-example.component';
 
 @NgModule({
@@ -8,7 +8,8 @@ import { SidenavExampleComponent } from './sidenav-example.component';
     SidenavExampleComponent
   ],
   imports: [
-    PipSidenavModule
+    PipSidenavModule,
+    PipSidenavMenuModule
   ],
   exports: [
     SidenavExampleComponent
