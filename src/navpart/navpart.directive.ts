@@ -5,7 +5,7 @@ export class PipNavPartDirective {
     @Input() pipNavPart: string;
 
     constructor(
-        private templateRef: TemplateRef<any>,
+        //private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
     ) {
        //
