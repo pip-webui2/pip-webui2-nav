@@ -1,10 +1,8 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
-@Directive({ selector: '[myHighlight]' })
-export class HighlightDirective {
+@Directive({ selector: '[pipNavPart]' })
+export class PipNavPartDirective {
     constructor(el: ElementRef) {
        console.log('el', el);
     }
 }
-
-export class PipNavPartDirective {  }
