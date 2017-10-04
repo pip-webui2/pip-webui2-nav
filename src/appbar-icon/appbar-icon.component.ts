@@ -14,6 +14,12 @@ export class PipAppbarIconComponent implements OnInit {
 	public icon: AppbarIcon = DefaultIcon;
 
 	ngOnInit() {
+		let name = 'icon';
+		//this.subscription = this.service.getPart(name).getProp('iconName').subscribe()
+		//this.service.setProp(partName, name, val );
+	}
+
+	public constructor() { // private service: any
 
 	}
 
