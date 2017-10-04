@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  constructor() {
+    
+  }
+
+  public list: any[] = [
+    {
+      name: 'Appbar', id: 'appbar', route: 'appbar'
+    },
+    {
+      name: 'Sidenav', id: 'sidenav', route: 'sidenav'
+    }
+  ];
+
+  public listIndex: number = 0;
+
+  public onListItemIndexChanged(index: number) {
+    this.listIndex - index;
+    
+  }
 }

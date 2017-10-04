@@ -1,7 +1,7 @@
-<div fxLayout="column" >
-  <pip-appbar class="some-class">
-    <pip-appbar-icon></pip-appbar-icon>
-  </pip-appbar>
-
-  <pip-sidenav></pip-sidenav>
+<div fxLayout="row" class="content">
+  <examples-list [list]="list" [selectedItemIndex]="listIndex" (selectedItemIdChange)="onListItemIndexChanged($event)">
+  </examples-list>
+  <div fxFlex="grow">
+      <router-outlet ></router-outlet>
+  </div>
 </div>
