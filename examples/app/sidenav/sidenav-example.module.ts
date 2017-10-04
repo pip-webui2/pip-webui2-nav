@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PipSidenavModule, PipSidenavMenuModule } from '../pip-webui2-nav';
+import { PipSidenavContainerModule, PipSidenavModule, PipSidenavMenuModule } from '../pip-webui2-nav';
 import { SidenavExampleComponent } from './sidenav-example.component';
+
+import { MatSidenavModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -9,7 +11,9 @@ import { SidenavExampleComponent } from './sidenav-example.component';
   ],
   imports: [
     PipSidenavModule,
-    PipSidenavMenuModule
+    PipSidenavMenuModule,
+    PipSidenavContainerModule,
+    MatSidenavModule
   ],
   exports: [
     SidenavExampleComponent
