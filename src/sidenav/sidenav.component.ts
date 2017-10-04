@@ -8,5 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class PipSidenavComponent implements OnInit {
 
-	ngOnInit() { }
+	ngOnInit() {
+		
+	 }
 }
