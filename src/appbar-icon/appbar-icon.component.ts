@@ -11,7 +11,11 @@ import { Subscription } from 'rxjs/Subscription';
 })
 
 export class PipAppbarIconComponent implements OnInit {
-	@Input() pipNavPart: string;
+	@Input() public set pipNavPartName(partName: string) {
+		this.service.updatePartByName(partName, null, null).properties.subscribe((iconProps) => {
+			this.icon = iconProps;
+		});
+	}
 
 	private subscription: Subscription;
 	public icon: AppbarIcon = DefaultIcon;
@@ -20,16 +24,7 @@ export class PipAppbarIconComponent implements OnInit {
 		private service: PipNavPartService
 	) { }
 
-	ngOnInit() {
-		console.log('this.pipNavPart', this.pipNavPart);
-		console.log('this.service.getPart(this.pipNavPart)', this.service.getPart(this.pipNavPart));
-		if (this.pipNavPart != null && this.service.getPart(this.pipNavPart) != null) {
-			console.log('subsribed in appbar icon component');
-			this.subscription = this.service.updateProps(this.pipNavPart, this.icon).properties.subscribe((iconProps) => {
-				this.icon = iconProps;
-			});
-		}
-	}
+	ngOnInit() {}
 
 	public onClick() {
 		if (this.icon.action != null)
