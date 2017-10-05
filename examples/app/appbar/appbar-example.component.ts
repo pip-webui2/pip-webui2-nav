@@ -9,14 +9,21 @@ import { PipNavPartService } from '../pip-webui2-nav';
 export class AppBarExampleComponent {
   constructor(
     private service: PipNavPartService
-  ) { }
+  ) { 
+    this.service.updatePartByName(this.appbarIconPartName, this.isIconShown, {
+      icon: this.icon,
+      action: () => {
+        console.log('clicked on icon');
+      }
+    });
+  }
 
   public appbarIconPartName: string = 'appbar-icon';
-  private isIconShown: boolean = true;
+  private isIconShown: boolean = false;
   private icon: string = 'menu'; 
 
   public ngOnInit() {
-    
+    console.log('this.service.parts', this.service.parts);
   }
 
   public onToogleIcon(): void {
@@ -25,6 +32,7 @@ export class AppBarExampleComponent {
   }
 
   public onChangeIcon(): void {
-    this.service.updateProp(this.appbarIconPartName, 'icon', this.icon == 'menu' ? 'back' : 'menu')
+    this.icon = this.icon == 'menu' ? 'arrow_back' : 'menu';
+    this.service.updateProp(this.appbarIconPartName, 'icon', this.icon);
   }
 }
