@@ -1,0 +1,12 @@
+<div class="actions-container">
+  <div class="action" *ngFor="let action of config.actions">
+    <button md-icon-button [mdMenuTriggerFor]="menu" (click)="onActionClick(action)">
+        <md-icon>{{ action.icon }}</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item *ngFor="let subaction of action.subActions" (click)="onActionClick(action)">
+            {{ subaction.title }}
+      </button>
+    </md-menu>
+  </div>
+</div>
