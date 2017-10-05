@@ -70,7 +70,7 @@ describe('an pip nav part service', () => {
 	it('updatePart ', () => {
 
 		let newPart: NavPart = new NavPart(),
-		 	newPart2: NavPart = new NavPart();
+			newPart2: NavPart = new NavPart();
 		newPart.name = 'new part';
 		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
 		newPart.visible = new BehaviorSubject<boolean>(true);
@@ -87,6 +87,25 @@ describe('an pip nav part service', () => {
 
 		service.updatePart(newPart);
 		expect(service.parts.length).toEqual(2);
+	})
+
+	it('updatePart by Name', () => {
+
+		let newPart: NavPart = new NavPart();
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		expect(service.updatePartByName(newPart.name, newPart.visible.getValue(), newPart.properties.getValue())).toEqual(newPart);
+		expect(service.parts.length).toEqual(1);
+
+		newPart.visible.next(false);
+		expect(service.updatePartByName(newPart.name, newPart.visible.getValue(), newPart.properties.getValue())).toEqual(newPart);
+		expect(service.parts.length).toEqual(1);
+
+		newPart.name = 'new part2';	
+		expect(service.updatePartByName(newPart.name, newPart.visible.getValue(), newPart.properties.getValue())).toEqual(newPart);
+		expect(service.parts.length).toEqual(2);	
 	})
 
 });
