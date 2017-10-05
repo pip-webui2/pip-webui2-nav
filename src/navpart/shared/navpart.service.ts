@@ -36,7 +36,6 @@ export class PipNavPartService {
         newPart.name = name;
         newPart.visible = new BehaviorSubject<boolean>(visible);
         newPart.properties = new BehaviorSubject<any>(props);
-
         this._parts ? this._parts.push(newPart) : this._parts = [newPart];
 
         return this._parts[this._parts.length - 1];
@@ -54,24 +53,24 @@ export class PipNavPartService {
             this._parts[index].name = newPart.name;
             this._parts[index].visible.next(newPart.visible.value);
             this._parts[index].properties.next(newPart.properties.value);
-        } else {
-            this.addNewPart(newPart);
-        }
 
-        return this._parts[index];
+            return this._parts[index];
+        } else {
+            return this.addNewPart(newPart);
+        }
     }
 
     public updatePartByName(name: string, visible: boolean, props: any): NavPart {
         let index: number = _.findIndex(this._parts, { name: name });
         if (index > -1) {
             this._parts[index].name = name;
-            this._parts[index].visible.next(visible);
-            this._parts[index].properties.next(props);
-        } else {
-            this.addNewPartByName(name, visible, props);
-        }
+            if (visible != null) this._parts[index].visible.next(visible);
+            if (props != null) this._parts[index].properties.next(props);
 
-        return this._parts[index];
+            return this._parts[index];
+        } else {
+            return this.addNewPartByName(name, visible, props);
+        }
     }
 
     public updateProps(name: string, props: any): NavPart {
@@ -92,7 +91,7 @@ export class PipNavPartService {
 
             props ? props[propName] = propValue : props = { propName: propValue };
             this._parts[index].properties.next(props);
-
+           
             return this._parts[index];
         } else {
             console.log('Part not found');
