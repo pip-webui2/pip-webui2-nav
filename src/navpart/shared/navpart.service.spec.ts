@@ -166,4 +166,39 @@ describe('an pip nav part service', () => {
 		expect(service.updateProp('new part', 'prop', 'propVal')).toBeNull();
 	})
 
+	it('changeVisibility function should add change visibility if part found', () => {
+
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart;
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({});
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		expectPart = service.addNewPart(newPart);
+		expect(expectPart.visible.getValue()).toEqual(true);
+
+		expectPart = service.changeVisibility('new part', false);
+		expect(expectPart.visible.getValue()).toEqual(false);
+	})
+
+	it('changeVisibility function should return null in part not found', () => {
+		expect(service.changeVisibility('new part', false)).toBeNull();
+	})
+
+	it('getPart function should return part with correct name', () => {
+
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart;
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({});
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		service.addNewPart(newPart);
+		expect(service.getPart('new part')).toEqual(newPart);
+	})
+
+	it('getPart function should return null in part not found', () => {
+		expect(service.getPart('new part')).toBeNull();
+	})
+
 });
