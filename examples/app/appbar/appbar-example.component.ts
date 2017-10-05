@@ -12,7 +12,8 @@ export class AppBarExampleComponent {
   ) { }
 
   public appbarIconPartName: string = 'appbar-icon';
-  public isIconShown: boolean = true;
+  private isIconShown: boolean = true;
+  private icon: string = 'menu'; 
 
   public ngOnInit() {
     
@@ -21,5 +22,9 @@ export class AppBarExampleComponent {
   public onToogleIcon(): void {
     this.isIconShown = !this.isIconShown;
     this.service.changeVisibility(this.appbarIconPartName, this.isIconShown);
+  }
+
+  public onChangeIcon(): void {
+    this.service.updateProp(this.appbarIconPartName, 'icon', this.icon == 'menu' ? 'back' : 'menu')
   }
 }
