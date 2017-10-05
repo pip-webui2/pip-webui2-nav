@@ -1,3 +1,30 @@
-.pip-appbar-breadcrumb {
+.gt-xs-container {
+    padding-left: 8px;
+}
 
+.navigation-item, .search-container {
+    cursor: pointer;
+    .mat-icon {
+        margin-top: 9px;
+    }
+}
+
+.mat-button {
+    font-size: 20px;
+    line-height: 4px;
+    padding-left: 8px;
+    padding-right: 0px;
+    .mat-button-wrapper {
+        box-sizing: border-box;
+        max-height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+}
+
+.grey-text {
+    color: rgba(0, 0, 0, 0.4);
 }

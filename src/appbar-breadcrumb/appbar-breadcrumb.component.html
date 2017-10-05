@@ -1,3 +1,28 @@
-<div class="pip-breadcrumb-block">
-    
+<div class="gt-xs-container" fxLayout="row" fxLayoutAlign="space-around center" fxHide.xs>
+  <!-- Search criteria -->
+  <span class="search-container" *ngIf="config.criteria" (click)="onSearchClick()">{{ config.searchCriteria }} -</span>
+  <!-- Breadcrumb navigation -->
+  <span class="navigation-item" fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let item of config.items; let i = index" (click)="onItemClick(item)"
+    [ngStyle]="{ 'max-width' : (100 / config.items.length + 1) + '%' }">
+        <span >{{ item.title }}</span>
+        <div>
+            <md-icon *ngIf="i < config.items.length - 1">chevron_right</md-icon>
+        </div>
+  </span>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center" fxHide.gt-xs>
+  <!-- Search criteria -->
+  <span *ngIf="config.criteria" (click)="onSearchClick()">{{ config.searchCriteria }} -</span>
+  <!-- Breadcrumb navigation -->
+  <button md-button [mdMenuTriggerFor]="menu">
+        <span class="search-container" *ngIf="config.criteria" (click)="onSearchClick()">{{ config.searchCriteria }} -</span>
+        <span>{{ config.items[config.items.length - 1].title }}</span>
+        <md-icon>arrow_drop_down</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item *ngFor="let item of config.items; let i = index" [ngClass]="{'grey-text': i == config.items.length - 1}">
+        {{ item.title }}
+    </button>
+  </md-menu>
 </div>

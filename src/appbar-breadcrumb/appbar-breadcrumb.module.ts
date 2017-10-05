@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { MdMenuModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MdMenuModule, MdIconModule, MdButtonModule } from '@angular/material';
 
 import { PipAppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
 
@@ -11,7 +12,10 @@ import { PipAppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
   ],
   imports: [
     BrowserModule,
-    MdMenuModule
+    FlexLayoutModule,
+    MdMenuModule,
+    MdButtonModule,
+    MdIconModule
   ],
   exports: [
     PipAppbarBreadcrumbComponent
