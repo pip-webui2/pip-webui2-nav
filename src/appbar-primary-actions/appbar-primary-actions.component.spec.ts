@@ -1,21 +1,21 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AppbarPrimaryActionsComponent } from './appbar-primary-actions.component';
+import { PipAppbarPrimaryActionsComponent } from './appbar-primary-actions.component';
 
 describe('a appbar-primary-actions component', () => {
-	let component: AppbarPrimaryActionsComponent;
+	let component: PipAppbarPrimaryActionsComponent;
 
 	// register all needed dependencies
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
-				AppbarPrimaryActionsComponent
+				PipAppbarPrimaryActionsComponent
 			]
 		});
 	});
 
 	// instantiation through framework injection
-	beforeEach(inject([AppbarPrimaryActionsComponent], (AppbarPrimaryActionsComponent) => {
+	beforeEach(inject([PipAppbarPrimaryActionsComponent], (AppbarPrimaryActionsComponent) => {
 		component = AppbarPrimaryActionsComponent;
 	}));
 
