@@ -1,7 +1,8 @@
 <pip-appbar class="some-class">
   <pip-appbar-icon *pipNavPart="appbarIconPartName" [pipNavPartName]="appbarIconPartName"> </pip-appbar-icon>
-
   <pip-appbar-breadcrumb *pipNavPart="appbarBreadcrumbPartName" [pipNavPartName]="appbarBreadcrumbPartName"> </pip-appbar-breadcrumb>
+  <div fxFlex="grow"></div>
+  <pip-appbar-primary-actions *pipNavPart="appbarPrimaryActionsPartName" [pipNavPartName]="appbarPrimaryActionsPartName"> </pip-appbar-primary-actions>
 </pip-appbar>
 
 <div class="example-content">
@@ -20,4 +21,7 @@
   </form>
   <button md-button (click)="onToogleBreadcrumb()">Toogle breadcrumb visibility</button>
   <button md-button (click)="onChangeBreadcrumb()">Change breadcrumb</button>
+
+  <h3 style="font-family: Roboto">Primary actions config</h3>
+  <button md-button (click)="onTooglePrimaryActions()">Toogle primary actions visibility</button>
 </div>

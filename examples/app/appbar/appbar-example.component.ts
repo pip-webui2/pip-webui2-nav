@@ -9,11 +9,13 @@ import { PipNavPartService } from '../pip-webui2-nav';
 export class AppBarExampleComponent {
   public appbarIconPartName: string = 'appbar-icon';
   public appbarBreadcrumbPartName: string = 'appbar-breadcrumb';
+  public appbarPrimaryActionsPartName: string = 'appbar-primary-actions';
   public breadcrumbTitle1: string = 'Title 1';
   public breadcrumbTitle2: string = 'Title 2';
 
   private isIconShown: boolean = false;
   private isBreadcrumbShown: boolean = false;
+  private isPrimaryActionsShown: boolean = false;
   private icon: string = 'menu';
 
   constructor(
@@ -32,6 +34,24 @@ export class AppBarExampleComponent {
         { title: this.breadcrumbTitle2 }
       ]
     });
+
+    this.service.updatePartByName(this.appbarPrimaryActionsPartName, this.isPrimaryActionsShown, {
+      actions: [
+        {
+          icon: 'notifications', click: () => {
+            console.log('clicked on "Notifications"');
+          }
+        },
+        {
+          icon: 'cloud', subActions: [
+            { title: 'Upload', click: () => {
+              console.log('clicked on "Upload"');
+            } },
+            { title: 'Open cloud' }
+          ]
+        }
+      ]
+    });
   }
 
   public ngOnInit() {
@@ -46,6 +66,11 @@ export class AppBarExampleComponent {
   public onToogleBreadcrumb(): void {
     this.isBreadcrumbShown = !this.isBreadcrumbShown;
     this.service.changeVisibility(this.appbarBreadcrumbPartName, this.isBreadcrumbShown);
+  }
+
+  public onTooglePrimaryActions(): void {
+    this.isPrimaryActionsShown = !this.isPrimaryActionsShown;
+    this.service.changeVisibility(this.appbarPrimaryActionsPartName, this.isPrimaryActionsShown);
   }
 
   public onChangeIcon(): void {

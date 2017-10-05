@@ -1,6 +1,10 @@
-<div class="actions-container">
-  <div class="action" *ngFor="let action of config.actions">
-    <button md-icon-button [mdMenuTriggerFor]="menu" (click)="onActionClick(action)">
+<div class="actions-container" fxLayout="row" fxLayoutAlign="space-around center">
+  <div class="action" *ngFor="let action of config.actions" [ngSwitch]="!!(action.subActions && action.subActions.length > 0)">
+    <button md-icon-button (click)="onActionClick(action)" *ngSwitchCase="false">
+        <md-icon>{{ action.icon }}</md-icon>
+    </button>
+
+    <button md-icon-button [mdMenuTriggerFor]="menu" (click)="onActionClick(action)" *ngSwitchCase="true">
         <md-icon>{{ action.icon }}</md-icon>
     </button>
     <md-menu #menu="mdMenu">
