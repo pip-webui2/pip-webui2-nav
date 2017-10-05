@@ -108,23 +108,62 @@ describe('an pip nav part service', () => {
 		expect(service.parts.length).toEqual(2);
 	})
 
-
 	it('updateProps function should return null in part not found', () => {
-
 		expect(service.updateProps('new part', {})).toBeNull();
 	})
 
-
 	it('updateProps function should return navPart if part found', () => {
 
-		let newPart: NavPart = new NavPart(), expectPart: NavPart;
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart,
+			props: any = { 'prop': 'propValue' };
 		newPart.name = 'new part';
-		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.properties = new BehaviorSubject<any>(props);
 		newPart.visible = new BehaviorSubject<boolean>(true);
-		service.addNewPart(newPart);
+
+		expectPart = service.addNewPart(newPart);
+		expect(expectPart.properties.getValue()).toEqual(props);
+
 		expectPart = service.updateProps('new part', {});
-		expect(expectPart).toEqual(newPart);
 		expect(expectPart.properties.getValue()).toEqual({});
+	})
+
+
+	it('updateProp function should update parts in NavPartService', () => {
+
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart,
+			props: any = { 'prop': 'propValue' };
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>(props);
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		expectPart = service.addNewPart(newPart);
+		expect(expectPart.properties.getValue()).toEqual(props);
+
+		expectPart = service.updateProp('new part', 'prop', 'propValue2');
+		expect(expectPart.properties.getValue()['prop']).toEqual('propValue2');
+	})
+
+	it('updateProp function should add prop if part found and prop not found', () => {
+
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart,
+			props: any = { 'prop': 'propValue' };
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>(props);
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		expectPart = service.addNewPart(newPart);
+		expect(expectPart.properties.getValue()).toEqual(props);
+
+		expectPart = service.updateProp('new part', 'prop2', 'propValue2');
+		expect(expectPart.properties.getValue()['prop2']).toEqual('propValue2');
+		expect(expectPart.properties.getValue()['prop']).toEqual('propValue');
+	})
+
+	it('updateProp function should return null in part not found', () => {
+		expect(service.updateProp('new part', 'prop', 'propVal')).toBeNull();
 	})
 
 });
