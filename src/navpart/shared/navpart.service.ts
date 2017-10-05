@@ -48,44 +48,73 @@ export class PipNavPartService {
         return this._parts[this._parts.length - 1];
     }
 
-    public updatePart(newPart: NavPart) {
-        let index: number = _.findIndex(this._parts, {name: name});
+    public updatePart(newPart: NavPart): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
         if (index > -1) {
             this._parts[index].name = newPart.name;
             this._parts[index].visible.next(newPart.visible.value);
             this._parts[index].properties.next(newPart.properties.value);
         } else {
-            console.log('Part not found');
+            this.addNewPart(newPart);
         }
+
+        return this._parts[index];
     }
 
-    public updateProps(name: string, props: any) {
-        let index: number = _.findIndex(this._parts, {name: name});
+    public updatePartByName(name: string, visible: boolean, props: any): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
         if (index > -1) {
+            this._parts[index].name = name;
+            this._parts[index].visible.next(visible);
             this._parts[index].properties.next(props);
         } else {
+            this.addNewPartByName(name, visible, props);
+        }
+
+        return this._parts[index];
+    }
+
+    public updateProps(name: string, props: any): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
+        if (index > -1) {
+            this._parts[index].properties.next(props);
+            return this._parts[index];
+        } else {
             console.log('Part not found');
+            return null;
         }
     }
 
-    public updateProp(name: string, propName: string, propValue: any) {
-        let index: number = _.findIndex(this._parts, {name: name});
+    public updateProp(name: string, propName: string, propValue: any): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
         if (index > -1) {
             let props: any = this._parts[index].properties.value;
-            props ? props[propName] = propValue : props = {propName: propValue};
-            this.updateProps(name, props);
+
+            props ? props[propName] = propValue : props = { propName: propValue };
+            this._parts[index].properties.next(props);
+
+            return this._parts[index];
         } else {
             console.log('Part not found');
+            return null;
         }
     }
 
-    public changeVisibility(name: string, visible : boolean): void {
-        let index: number = _.findIndex(this._parts, {name: name});
+    public changeVisibility(name: string, visible: boolean): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
         if (index > -1) {
-             this._parts[index].visible.next(visible);
+            this._parts[index].visible.next(visible);
+            return this._parts[index];
         } else {
             console.log('Part not found');
+            return null;
         }
+    }
+
+    public getPart(name: string): NavPart {
+        let index: number = _.findIndex(this._parts, { name: name });
+
+        return index > -1 ? this._parts[index] : null;
     }
 
 }
