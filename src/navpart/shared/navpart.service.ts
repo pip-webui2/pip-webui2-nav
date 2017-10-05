@@ -48,8 +48,9 @@ export class PipNavPartService {
     }
 
     public updatePart(newPart: NavPart): NavPart {
-        let index: number = _.findIndex(this._parts, { name: name });
-        if (index > -1) {
+        let index: number = _.findIndex(this._parts, { name: newPart.name });
+
+        if (index != -1) {
             this._parts[index].name = newPart.name;
             this._parts[index].visible.next(newPart.visible.value);
             this._parts[index].properties.next(newPart.properties.value);
