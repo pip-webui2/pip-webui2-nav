@@ -103,9 +103,28 @@ describe('an pip nav part service', () => {
 		expect(service.updatePartByName(newPart.name, newPart.visible.getValue(), newPart.properties.getValue())).toEqual(newPart);
 		expect(service.parts.length).toEqual(1);
 
-		newPart.name = 'new part2';	
+		newPart.name = 'new part2';
 		expect(service.updatePartByName(newPart.name, newPart.visible.getValue(), newPart.properties.getValue())).toEqual(newPart);
-		expect(service.parts.length).toEqual(2);	
+		expect(service.parts.length).toEqual(2);
+	})
+
+
+	it('updateProps function should return null in part not found', () => {
+
+		expect(service.updateProps('new part', {})).toBeNull();
+	})
+
+
+	it('updateProps function should return navPart if part found', () => {
+
+		let newPart: NavPart = new NavPart(), expectPart: NavPart;
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.visible = new BehaviorSubject<boolean>(true);
+		service.addNewPart(newPart);
+		expectPart = service.updateProps('new part', {});
+		expect(expectPart).toEqual(newPart);
+		expect(expectPart.properties.getValue()).toEqual({});
 	})
 
 });
