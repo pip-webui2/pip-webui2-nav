@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+/*import { TestBed, inject } from '@angular/core/testing';
 
 import { AppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
 
@@ -22,4 +22,4 @@ describe('a appbar-breadcrumb component', () => {
 	it('should have an instance', () => {
 		expect(component).toBeDefined();
 	});
-});
+});*/
