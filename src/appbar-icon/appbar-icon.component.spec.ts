@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-
+/*
 import { PipAppbarIconComponent } from './appbar-icon.component';
 import { AppbarIcon } from './shared/appbar-icon.model';
 
@@ -28,4 +28,4 @@ describe('a appbar-icon component', () => {
 		expect(component).toBeDefined();
 	});
 });
-
+*/

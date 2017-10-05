@@ -41,16 +41,52 @@ describe('an pip nav part service', () => {
 	})
 
 	it('add new part by name', () => {
-	
-		let expectPart: NavPart = service.addNewPartByName('new part', true, { 'prop': 'propValue'}),
-			visible: boolean, 
+
+		let expectPart: NavPart = service.addNewPartByName('new part', true, { 'prop': 'propValue' }),
+			visible: boolean,
 			props: any;
 		expectPart.visible.subscribe(res => visible = res);
 		expectPart.properties.subscribe(res => props = res);
 
 		expect(expectPart.name).toEqual('new part');
 		expect(visible).toEqual(true);
-		expect(props).toEqual({ 'prop': 'propValue'});
+		expect(props).toEqual({ 'prop': 'propValue' });
+		expect(service.parts.length).toEqual(1);
+	})
+
+	it('add new part', () => {
+		let newPart: NavPart = new NavPart(),
+			expectPart: NavPart;
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		expectPart = service.addNewPart(newPart);
+
+		expect(expectPart).toEqual(newPart);
+		expect(service.parts.length).toEqual(1);
+	})
+
+	it('updatePart ', () => {
+
+		let newPart: NavPart = new NavPart(),
+		 	newPart2: NavPart = new NavPart();
+		newPart.name = 'new part';
+		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.visible = new BehaviorSubject<boolean>(true);
+
+		newPart2.name = 'new part2';
+		newPart.properties = new BehaviorSubject<any>({ 'prop': 'propValue' });
+		newPart.visible = new BehaviorSubject<boolean>(false);
+
+		expect(service.updatePart(newPart)).toEqual(newPart);
+		expect(service.parts.length).toEqual(1);
+
+		expect(service.updatePart(newPart2)).toEqual(newPart2);
+		expect(service.parts.length).toEqual(2);
+
+		service.updatePart(newPart);
+		expect(service.parts.length).toEqual(2);
 	})
 
 });
