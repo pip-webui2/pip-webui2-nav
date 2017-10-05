@@ -7,20 +7,32 @@ import { PipNavPartService } from '../pip-webui2-nav';
   styleUrls: ['./appbar-example.component.scss']
 })
 export class AppBarExampleComponent {
+  public appbarIconPartName: string = 'appbar-icon';
+  public appbarBreadcrumbPartName: string = 'appbar-breadcrumb';
+  public breadcrumbTitle1: string = 'Title 1';
+  public breadcrumbTitle2: string = 'Title 2';
+
+  private isIconShown: boolean = false;
+  private isBreadcrumbShown: boolean = false;
+  private icon: string = 'menu';
+
   constructor(
     private service: PipNavPartService
-  ) { 
+  ) {
     this.service.updatePartByName(this.appbarIconPartName, this.isIconShown, {
       icon: this.icon,
       action: () => {
         console.log('clicked on icon');
       }
     });
-  }
 
-  public appbarIconPartName: string = 'appbar-icon';
-  private isIconShown: boolean = false;
-  private icon: string = 'menu'; 
+    this.service.updatePartByName(this.appbarBreadcrumbPartName, this.isBreadcrumbShown, {
+      items: [
+        { title: this.breadcrumbTitle1 },
+        { title: this.breadcrumbTitle2 }
+      ]
+    });
+  }
 
   public ngOnInit() {
     console.log('this.service.parts', this.service.parts);
@@ -31,8 +43,20 @@ export class AppBarExampleComponent {
     this.service.changeVisibility(this.appbarIconPartName, this.isIconShown);
   }
 
+  public onToogleBreadcrumb(): void {
+    this.isBreadcrumbShown = !this.isBreadcrumbShown;
+    this.service.changeVisibility(this.appbarBreadcrumbPartName, this.isBreadcrumbShown);
+  }
+
   public onChangeIcon(): void {
     this.icon = this.icon == 'menu' ? 'arrow_back' : 'menu';
     this.service.updateProp(this.appbarIconPartName, 'icon', this.icon);
+  }
+
+  public onChangeBreadcrumb(): void {
+    this.service.updateProp(this.appbarBreadcrumbPartName, 'items', [
+      { title: this.breadcrumbTitle1 },
+      { title: this.breadcrumbTitle2 }
+    ]);
   }
 }

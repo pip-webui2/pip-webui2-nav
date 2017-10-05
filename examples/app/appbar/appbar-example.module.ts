@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MdButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { MdButtonModule, MdInputModule } from '@angular/material';
 
-import { PipAppbarModule, PipAppbarIconModule, PipNavPartModule } from '../pip-webui2-nav';
+import { PipAppbarModule, PipAppbarIconModule, PipNavPartModule, PipAppbarBreadcrumbModule } from '../pip-webui2-nav';
 import { AppBarExampleComponent } from './appbar-example.component';
 import { PipNavPartService } from '../pip-webui2-nav';
 
@@ -13,11 +14,15 @@ import { PipNavPartService } from '../pip-webui2-nav';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     MdButtonModule,
+    MdInputModule,
 
     PipAppbarModule,
     PipAppbarIconModule,
-    PipNavPartModule
+    PipNavPartModule,
+    PipAppbarBreadcrumbModule
   ],
   exports: [
     AppBarExampleComponent
