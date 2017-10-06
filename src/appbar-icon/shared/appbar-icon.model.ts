@@ -1,6 +1,6 @@
 export class AppbarIcon {
     icon: string;
-    action: () => void;
+    action?: () => void;
 }
 
 export const DefaultIcon: AppbarIcon = {
