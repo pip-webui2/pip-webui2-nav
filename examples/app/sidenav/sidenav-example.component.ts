@@ -17,7 +17,24 @@ export class SidenavExampleComponent {
 		private service: PipNavPartService
 	  ) {
 		this.service.updatePartByName(this.sidenavMenuPartName, this.isMenuShown, {
-		 
+			sections : [
+				{
+					title: 'Appbar',
+					icon: 'icons:goal',
+					links: [
+						{ name: 'Nav icons', title: 'Nav icons', state: 'nav_icons', icon: 'icons:archive', url: '/nav_icons', controller: 'IconsController', tooltipText: 'Nav icons' },
+						{ name: 'Titles', title: 'Titles', state: 'titles', icon: 'icons:list', url: '/titles', controller: 'TitlesController' },
+					]
+				},
+				{
+					title: 'SideNav',
+					icon: 'icons:area',
+					links: [
+						{ name: 'StickySideNav', title: 'StickySideNav', state: 'sticky_sidenav', icon: 'icons:submenu', url: '/sticky_sidenav', controller: 'StickySideNavController'},
+						//{ name: 'Navigations', title: 'Navigations', state: 'navigations', icon: 'icons:preview', url: '/navigations', controller: 'NavigationsController', templateUrl: 'navigations.html' }
+					]
+				}
+			]
 		});
 	  }
 	
@@ -25,3 +42,4 @@ export class SidenavExampleComponent {
 		console.log('this.service.parts', this.service.parts);
 	  }
 }
+
