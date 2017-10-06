@@ -7,7 +7,7 @@ import { PipAppbarBreadcrumbModule } from './appbar-breadcrumb.module';
 import { PipNavPartService } from '../navpart/shared/navpart.service';
 import { PipAppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
 
-describe('a appbar-breaPipAppbarBreadcrumbComponentdcrumb component', () => {
+describe('a PipAppbarBreadcrumbComponentd component', () => {
 	let component: PipAppbarBreadcrumbComponent;
 	let service: PipNavPartService;
 	let fixture: ComponentFixture<PipAppbarBreadcrumbComponent>;
