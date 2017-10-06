@@ -3,6 +3,7 @@
   <pip-appbar-breadcrumb *pipNavPart="appbarBreadcrumbPartName" [pipNavPartName]="appbarBreadcrumbPartName"> </pip-appbar-breadcrumb>
   <div fxFlex="grow"></div>
   <pip-appbar-primary-actions *pipNavPart="appbarPrimaryActionsPartName" [pipNavPartName]="appbarPrimaryActionsPartName"> </pip-appbar-primary-actions>
+  <pip-appbar-secondary-actions *pipNavPart="appbarSecondaryActionsPartName" [pipNavPartName]="appbarSecondaryActionsPartName"></pip-appbar-secondary-actions>
 </pip-appbar>
 
 <div class="example-content">
@@ -24,4 +25,6 @@
 
   <h3 style="font-family: Roboto">Primary actions config</h3>
   <button md-button (click)="onTooglePrimaryActions()">Toogle primary actions visibility</button>
+  <h3 style="font-family: Roboto">Secondary actions config</h3>
+  <button md-button (click)="onToogleSecondaryActions()">Toogle secondary actions visibility</button>
 </div>

@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 
-import { PipAppbarModule, PipAppbarIconModule, PipNavPartModule, PipAppbarBreadcrumbModule, PipAppbarPrimaryActionsModule } from '../pip-webui2-nav';
+import { PipAppbarModule, PipAppbarIconModule, PipNavPartModule, PipAppbarBreadcrumbModule, PipAppbarPrimaryActionsModule, PipAppbarSecondaryActionsModule } from '../pip-webui2-nav';
 import { AppBarExampleComponent } from './appbar-example.component';
 import { PipNavPartService } from '../pip-webui2-nav';
 
@@ -25,7 +25,8 @@ import { PipNavPartService } from '../pip-webui2-nav';
     PipAppbarIconModule,
     PipNavPartModule,
     PipAppbarBreadcrumbModule,
-    PipAppbarPrimaryActionsModule
+    PipAppbarPrimaryActionsModule,
+    PipAppbarSecondaryActionsModule
   ],
   exports: [
     AppBarExampleComponent

@@ -10,12 +10,14 @@ export class AppBarExampleComponent {
   public appbarIconPartName: string = 'appbar-icon';
   public appbarBreadcrumbPartName: string = 'appbar-breadcrumb';
   public appbarPrimaryActionsPartName: string = 'appbar-primary-actions';
+  public appbarSecondaryActionsPartName: string = 'appbar-secondary-actions';
   public breadcrumbTitle1: string = 'Title 1';
   public breadcrumbTitle2: string = 'Title 2';
 
   private isIconShown: boolean = false;
   private isBreadcrumbShown: boolean = false;
   private isPrimaryActionsShown: boolean = false;
+  private isSecondaryActionsShown: boolean = false;
   private icon: string = 'menu';
 
   constructor(
@@ -52,6 +54,13 @@ export class AppBarExampleComponent {
         }
       ]
     });
+
+    this.service.updatePartByName(this.appbarSecondaryActionsPartName, this.isSecondaryActionsShown, {
+      actions: [
+        {title: 'Title 1'},
+        {title: 'Title 2'}
+      ]
+    });
   }
 
   public ngOnInit() {
@@ -71,6 +80,11 @@ export class AppBarExampleComponent {
   public onTooglePrimaryActions(): void {
     this.isPrimaryActionsShown = !this.isPrimaryActionsShown;
     this.service.changeVisibility(this.appbarPrimaryActionsPartName, this.isPrimaryActionsShown);
+  }
+
+  public onToogleSecondaryActions(): void {
+    this.isSecondaryActionsShown = !this.isSecondaryActionsShown;
+    this.service.changeVisibility(this.appbarSecondaryActionsPartName, this.isSecondaryActionsShown);
   }
 
   public onChangeIcon(): void {
