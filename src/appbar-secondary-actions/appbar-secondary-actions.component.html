@@ -1,0 +1,10 @@
+<div class="secondary-actions-container">
+  <button md-icon-button [mdMenuTriggerFor]="menu" (click)="onOpenActionsMenu()">
+     <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item *ngFor="let action of config.actions" (click)="onActionClick(action)">
+        {{ action.title }}
+    </button>
+  </md-menu>
+</div>
