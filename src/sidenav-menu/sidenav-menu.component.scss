@@ -1,3 +1,358 @@
-.sidenav-menu {
+// Sizes
+//-----------
 
+$nav-menu-padding: 23px;
+$nav-menu-padding-sm: 16px;
+$nav-menu-selected-color: rgba(0, 0, 0, 0.08);
+
+.sidenav-icon-tooltip {
+    margin-left: 24px;
 }
+
+.pip-sticky-nav-expanded-button {
+    .mat-button {
+        .pip-sticky-nav-menu-icon {
+            margin-left: 0;
+        }
+    }
+}
+
+@-moz-document url-prefix()
+{
+    .pip-button-block {
+        display: block;
+    }
+    .pip-sticky-nav-menu-icon-block, .pip-sticky-nav-menu-title{
+        display: inline-table;
+    }
+}
+
+.pip-sticky-nav-menu {
+    width: 100%;
+    position: relative;
+
+    md-list-item.md-no-proxy, md-list-item .md-no-style {
+        padding: 0px;
+    }
+    
+    .sidenav-list {
+        padding-top: 0px!important;
+    }
+    .md-subheader {
+        line-height: 48px;
+        //background: $sidenav-bg;
+        .md-subheader-inner {
+            padding: 0px 23px;
+        }
+    }
+    .pip-section {
+        padding-bottom: 8px;
+
+        md-divider {
+            margin-bottom: 8px;
+        }
+    }
+
+    .pip-sticky-nav-menu-item.active {
+        background-color: $nav-menu-selected-color;
+    }
+    .pip-sticky-nav-menu-item {
+        .mat-button {
+            padding-left: $nav-menu-padding !important;
+            padding-right: $nav-menu-padding !important;
+
+            line-height: 48px;
+            height: 48px;
+            margin: 0px;
+            width: 100%;
+
+            -webkit-border-radius: 0px;
+            -moz-border-radius:    0px;
+            border-radius:         0px;
+            -moz-background-clip:    padding;
+            -webkit-background-clip: padding-box;
+            background-clip:         padding-box;
+
+            .pip-sticky-nav-menu-title {
+                padding-right: 0px 24px 0px 0px;
+                margin-left: 2px;
+                width: 200px;
+                //text-overflow: 
+                text-transform: none;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                // animation: title-animation 0.35s ease;
+                text-align: left;
+            }
+
+            .section-title.pip-sticky-nav-menu-title {
+                margin-left: 0px;
+            }
+            .pip-sticky-nav-menu-icon-block {
+                width: 47px;
+                padding-right: $nav-menu-padding !important;
+                .pip-sticky-nav-menu-icon {
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                }
+            }
+
+            .pip-sticky-nav-menu-badge {
+                position: relative;
+                margin: 12px 0px;
+                font-size: 12px !important;
+                min-width: 22px !important;
+                height: 22px !important;
+                border-radius: 14px;
+                line-height: 22px;
+                vertical-align: middle;
+                text-align: center;
+                //color: $color-content;
+                //background-color:  $color-error;
+            }
+        }
+    }
+}
+
+.pip-sticky-sidenav.sidenav-mobile {
+    .pip-sticky-nav-menu {    
+        .pip-sticky-nav-menu-item {
+            .mat-button {
+                .pip-sticky-nav-menu-title {
+                    width: 100%;
+                }                
+            }
+        }
+    }    
+}
+
+.sidenav-smalldesktop {
+    .pip-sticky-nav-menu {
+        .pip-sticky-nav-menu-item {
+            .mat-button {
+                .pip-sticky-nav-menu-title {
+                    width: 140px;
+                    // animation: title-animation-sm 0.35s ease;
+                }
+            }
+        }
+    }    
+} 
+
+.pip-sticky-nav-small.sidenav-desktop {
+    .pip-sticky-nav-menu {
+        overflow: hidden;
+        .pip-sticky-nav-menu-item {
+            .mat-button {
+                margin-right: 0px;
+
+                .pip-sticky-nav-menu-badge {
+                    position: absolute;
+                    top: 5px;
+                    left: 32px;
+                    margin: 0px;
+                }
+
+                .pip-sticky-nav-menu-title {
+                    opacity: 0;
+                    // animation: title-animation-back 0.35s ease;
+                }
+
+                .pip-sticky-nav-menu-icon-block {
+                    .pip-sticky-nav-menu-icon {
+                        margin-left: 0px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.pip-sticky-nav-small.sidenav-smalldesktop {
+    .pip-sticky-nav-menu {
+        overflow: hidden;
+        .pip-sticky-nav-menu-item {
+            .mat-button {
+                margin-right: 0px;
+                min-width: 72px;
+
+                .pip-sticky-nav-menu-badge {
+                    position: absolute;
+                    top: 5px;
+                    left: 32px;
+                    margin: 0px;
+                }
+
+                .pip-sticky-nav-menu-title {
+                    opacity: 0;
+                    // animation: title-animation-sm-back 0.35s ease;
+                }
+
+                .pip-sticky-nav-menu-icon-block {
+                    .pip-sticky-nav-menu-icon {
+                        margin-left: 0px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.sidenav-animate {
+    .pip-sticky-nav-menu {
+        .pip-sticky-nav-menu-item {
+            .mat-button {
+                .pip-sticky-nav-menu-title {
+                    animation: title-animation 0.35s ease;
+                }
+            }
+        }
+    }
+}
+    .sidenav-animate.sidenav-smalldesktop {
+        .pip-sticky-nav-menu {
+            .pip-sticky-nav-menu-item {
+                .mat-button {
+                    .pip-sticky-nav-menu-title {
+                        animation: title-animation-sm 0.35s ease;
+                    }
+                }
+            }
+        }    
+    } 
+
+    .sidenav-animate.pip-sticky-nav-small.sidenav-desktop {
+        .pip-sticky-nav-menu {
+            .pip-sticky-nav-menu-item {
+                .mat-button {
+                    .pip-sticky-nav-menu-title {
+                        animation: title-animation-back 0.35s ease;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidenav-animate.pip-sticky-nav-small.sidenav-smalldesktop {
+        .pip-sticky-nav-menu {
+            .pip-sticky-nav-menu-item {
+                .mat-button {
+                    .pip-sticky-nav-menu-title {
+                        animation: title-animation-sm-back 0.35s ease;
+                    }
+                }
+            }
+        }
+    }    
+
+@keyframes title-animation {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    50%{
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+        width: 200px;
+    }
+}
+
+@keyframes title-animation-back {
+    0% {
+        opacity: 1;
+        width: 200px;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0;
+        width: 0px;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+// $keyframes badge-animation {
+//     0% {
+//         top: 5px;
+//         left: 32px;
+//     }
+//     100% {
+//         left: 274px;
+//         top: 13px;
+//     }
+// }
+
+// $keyframes badge-animation-back {
+//     0% {
+//         left: 274px;
+//         top: 13px;
+//     }
+//     100% {
+//         top: 5px;
+//         left: 32px;
+//     }
+// }
+
+
+@keyframes title-animation-sm {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    50%{
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+        width: 140px;
+    }
+}
+
+@keyframes title-animation-sm-back {
+    0% {
+        opacity: 1;
+        width: 140px;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0;
+        width: 0px;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+// $keyframes badge-animation-sm {
+//     0% {
+//         top: 5px;
+//         left: 32px;
+//     }
+//     100% {
+//         left: 194px;
+//         top: 13px;
+//     }
+// }
+
+// $keyframes badge-animation-sm-back {
+//     0% {
+//         left: 194px;
+//         top: 13px;
+//     }
+//     100% {
+//         top: 5px;
+//         left: 32px;
+//     }
+// }

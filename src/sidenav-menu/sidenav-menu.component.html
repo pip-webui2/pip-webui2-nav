@@ -1,8 +1,8 @@
-<div *ngIf="menuProps && menuProps.sections && menuProps.sections.length">
+<div *ngIf="menuProps && menuProps.sections && menuProps.sections.length" class="pip-sticky-nav-menu">
     <md-nav-list class="sidenav-list">
         <md-list-item class="no-border pip-sticky-nav-menu-item pip-sticky-nav-expanded-button" tabindex="-1" *ngIf="expandedButton">
 
-                <md-icon class="pip-sticky-nav-menu-icon"  *ngIf="expanded">chevron_left</md-icon>
+            <md-icon class="pip-sticky-nav-menu-icon"  *ngIf="expanded">chevron_left</md-icon>
             <!--<md-icon class="pip-sticky-nav-menu-icon" *ngIf="expanded">
             </md-icon>
             <md-icon class="pip-sticky-nav-menu-icon" md-svg-icon="icons:chevron-right" *ngIf="!expanded">
@@ -18,7 +18,7 @@
             <md-divider *ngShow="$index > 0 && !isSectionEmpty(section.links)"></md-divider>
         *ngIf="expanded"    
         -->
-            <div *ngIf="section.title" style="height: 48px;">
+            <div *ngIf="section.title" style="height: 48px;" class="md-subheader">
                 <span  class="pip-sticky-nav-menu-title section-title">
                     {{ section.title }}
                 </span>
