@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PipAppbarService } from './shared/appbar.service';
 
 @Component({
 	selector: 'pip-appbar',
@@ -7,7 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class PipAppbarComponent implements OnInit {
-	@Input() class: string;
+	public class: string;
+	
+	constructor(
+		private service: PipAppbarService
+	) { }
 
-	ngOnInit() { }
+	ngOnInit() { 
+		this.service.class.subscribe(classes => this.class = classes);
+		this.service.shadowVisibility.subscribe((shadowVisibility) => {
+			shadowVisibility ? this.class = this.service.class.getValue() + ' appbar-shadow' : this.service.class.getValue();
+		});
+	}
 }
