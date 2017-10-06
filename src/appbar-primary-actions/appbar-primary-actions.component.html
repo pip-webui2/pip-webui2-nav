@@ -8,7 +8,7 @@
         <md-icon>{{ action.icon }}</md-icon>
     </button>
     <md-menu #menu="mdMenu">
-      <button md-menu-item *ngFor="let subaction of action.subActions" (click)="onActionClick(action)">
+      <button md-menu-item *ngFor="let subaction of action.subActions" (click)="onActionClick(subaction)">
             {{ subaction.title }}
       </button>
     </md-menu>
