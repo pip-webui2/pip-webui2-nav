@@ -62,8 +62,11 @@ export class PipNavPartService {
     }
 
     public updatePartByName(name: string, visible: boolean, props: any): NavPart {
-        let index: number = _.findIndex(this._parts, { name: name });
+        let index: number = _.findIndex(this._parts, (part: NavPart) => {
+            return part.name == name;
+        });
         if (index > -1) {
+            console.log(index);
             this._parts[index].name = name;
             if (visible != null) this._parts[index].visible.next(visible);
             if (props != null) this._parts[index].properties.next(props);

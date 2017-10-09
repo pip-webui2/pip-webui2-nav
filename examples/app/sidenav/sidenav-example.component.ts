@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
 
@@ -22,7 +23,7 @@ export class SidenavExampleComponent {
 		this.header.title = 'Kate Negrienko';
 		this.header.subtitle = 'frontend developer';
 
-		this.service.updatePartByName(this.sidenavHeaderPartName, this.isHeaderShown, this.header);
+		this.service.updatePartByName(this.sidenavHeaderPartName, this.isHeaderShown,  _.cloneDeep(this.header));
 		this.service.updatePartByName(this.sidenavMenuPartName, this.isMenuShown, {
 			sections : [
 				{
@@ -61,6 +62,7 @@ export class SidenavExampleComponent {
 		}
 
 		public changeHeaderSubtitle() {
+			this.service.updateProps(this.sidenavHeaderPartName, _.cloneDeep(this.header));	
 		}
 }
 
