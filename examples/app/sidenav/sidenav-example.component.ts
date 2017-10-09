@@ -20,17 +20,17 @@ export class SidenavExampleComponent {
 			sections : [
 				{
 					title: 'Appbar',
-					icon: 'icons:goal',
+					icon: 'goal',
 					links: [
-						{ name: 'Nav icons', title: 'Nav icons', state: 'nav_icons', icon: 'icons:archive', url: '/nav_icons', controller: 'IconsController', tooltipText: 'Nav icons' },
-						{ name: 'Titles', title: 'Titles', state: 'titles', icon: 'icons:list', url: '/titles', controller: 'TitlesController' },
+						{ name: 'Nav icons', title: 'Nav icons', state: 'nav_icons', icon: 'archive', url: '/nav_icons', controller: 'IconsController', tooltipText: 'Nav icons' },
+						{ name: 'Titles', title: 'Titles', state: 'titles', icon: 'list', url: '/titles', controller: 'TitlesController' },
 					]
 				},
 				{
 					title: 'SideNav',
-					icon: 'icons:area',
+					icon: 'area',
 					links: [
-						{ name: 'StickySideNav', title: 'StickySideNav', state: 'sticky_sidenav', icon: 'icons:submenu', url: '/sticky_sidenav', controller: 'StickySideNavController'},
+						{ name: 'StickySideNav', title: 'StickySideNav', state: 'sticky_sidenav', icon: 'submenu', url: '/sticky_sidenav', controller: 'StickySideNavController'},
 						//{ name: 'Navigations', title: 'Navigations', state: 'navigations', icon: 'icons:preview', url: '/navigations', controller: 'NavigationsController', templateUrl: 'navigations.html' }
 					]
 				}

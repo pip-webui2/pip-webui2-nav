@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,9 +22,13 @@ export class PipSidenavMenuComponent implements OnInit {
 	private subscription: Subscription;
 	public menuProps: NavMenuConfig;
 
+	public defaultIcon: string;
+	public isCollapsed: boolean;
+	public expanded: boolean;
+	public expandedButton: boolean;
+
 	public constructor(private service: PipNavPartService) { }
 
 	ngOnInit() {}
 
-	public onClick() {}
 }
