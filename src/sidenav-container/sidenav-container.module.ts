@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material'
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { PipSidenavContainerComponent } from './sidenav-container.component';
 
 @NgModule({
@@ -15,6 +17,7 @@ import { PipSidenavContainerComponent } from './sidenav-container.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     MatSidenavModule
   ],

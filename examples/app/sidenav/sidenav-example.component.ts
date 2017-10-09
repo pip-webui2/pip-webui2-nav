@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { PipNavPartService } from '../pip-webui2-nav';
+import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
 
 @Component({
 	selector: 'sidenav-example',
-	templateUrl: 'sidenav-example.component.html'
+	templateUrl: 'sidenav-example.component.html',
+	styleUrls: ['./sidenav-example.component.scss']
 })
 
 export class SidenavExampleComponent {
@@ -11,11 +12,17 @@ export class SidenavExampleComponent {
 	public sidenavMenuPartName: string = 'sidenav-menu';
 	public sidenavHeaderPartName: string = 'sidenav-header';
 
-	public isMenuShown: boolean = true;
+	public isMenuShown: boolean = false;
+	public isHeaderShown: boolean = false;
 
-	constructor(
-		private service: PipNavPartService
-	  ) {
+	public header: SidenavHeader = new SidenavHeader();
+
+	constructor(private service: PipNavPartService) {
+
+		this.header.title = 'Kate Negrienko';
+		this.header.subtitle = 'frontend developer';
+
+		this.service.updatePartByName(this.sidenavHeaderPartName, this.isHeaderShown, this.header);
 		this.service.updatePartByName(this.sidenavMenuPartName, this.isMenuShown, {
 			sections : [
 				{
@@ -40,6 +47,20 @@ export class SidenavExampleComponent {
 	
 	  public ngOnInit() {
 		console.log('this.service.parts', this.service.parts);
-	  }
+		}
+		
+
+		public changeVisibleMenu() {
+			this.isMenuShown = !this.isMenuShown;
+			this.service.changeVisibility(this.sidenavMenuPartName, this.isMenuShown);
+		}
+
+		public changeVisibleHeader() {
+			this.isHeaderShown = !this.isHeaderShown;
+			this.service.changeVisibility(this.sidenavHeaderPartName, this.isHeaderShown);
+		}
+
+		public changeHeaderSubtitle() {
+		}
 }
 

@@ -1,0 +1,21 @@
+.example-content {
+    padding: 16px;
+}
+
+@mixin flex-element($grow, $shrink, $initialSize: auto) {
+    -webkit-box-flex: $grow $shrink $initialSize;
+    -moz-box-flex: $grow $shrink $initialSize;
+    -webkit-flex: $grow $shrink $initialSize;
+    -ms-flex: $grow $shrink $initialSize;
+    flex: $grow $shrink $initialSize;
+  }
+  
+  @mixin flex-fixed() {
+    @include flex-element(0, 0, auto);
+  }
+
+pip-sidenav {
+    display: block;
+    width: 250px;
+    @include flex-fixed(); 
+}

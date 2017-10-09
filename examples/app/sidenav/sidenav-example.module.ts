@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material';
-
-import { PipSidenavContainerModule, PipSidenavModule, PipSidenavMenuModule, PipNavPartModule } from '../pip-webui2-nav';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MdButtonModule, MdInputModule } from '@angular/material';
+import { FormsModule} from '@angular/forms';
+import { PipSidenavContainerModule, PipSidenavHeaderModule, PipSidenavModule, PipSidenavMenuModule, PipNavPartModule } from '../pip-webui2-nav';
 import { SidenavExampleComponent } from './sidenav-example.component';
 
 
@@ -11,7 +13,12 @@ import { SidenavExampleComponent } from './sidenav-example.component';
   ],
   imports: [
     MatSidenavModule,
+    FlexLayoutModule,
+    MdButtonModule,
+    MdInputModule,
+    FormsModule,
 
+    PipSidenavHeaderModule,
     PipSidenavModule,
     PipSidenavMenuModule,
     PipSidenavContainerModule,
