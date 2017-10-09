@@ -23,19 +23,16 @@ export class PipSidenavMenuComponent implements OnInit {
 	public menuProps: NavMenuConfig;
 	public selectedItemIndex: number;
 
-	public onItemSelect(index: number): void {
-		this.selectedItemIndex = index;
-		//this.selectedItemIndexChange.emit(index);
-    }
-
 	public constructor(private service: PipNavPartService) { 
 		this.selectedItemIndex = 0;
 	}
 
 	ngOnInit() {}
 
-	public isSectionEmpty(links: NavMenuLink[] ) {
-		return links.length > 0;
-	}
+	public onItemSelect(index: number): void {
+		this.selectedItemIndex = index;
+		//this.selectedItemIndexChange.emit(index);
+    }
+
 
 }
