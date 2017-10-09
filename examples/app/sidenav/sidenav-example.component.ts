@@ -30,7 +30,7 @@ export class SidenavExampleComponent {
 					title: 'Appbar',
 					icon: 'goal',
 					links: [
-						{ name: 'Nav icons', title: 'Nav icons', state: 'nav_icons', icon: 'archive', url: 'nav_icons', controller: 'IconsController', tooltipText: 'Nav icons' },
+						{ name: 'Nav icons', title: 'Nav icons', state: 'nav_icons', icon: 'archive', url: 'appbar', controller: 'IconsController', tooltipText: 'Nav icons' },
 						{ name: 'Titles', title: 'Titles', state: 'titles', icon: 'list', url: 'titles', controller: 'TitlesController' },
 					]
 				},
