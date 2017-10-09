@@ -5,7 +5,44 @@ $nav-menu-padding: 23px;
 $nav-menu-padding-sm: 16px;
 $nav-menu-selected-color: rgba(0, 0, 0, 0.08);
 $nav-menu-section-color: rgba(0,0,0, .56);
+$nav-menu-link-color: rgba(0, 0, 0, .87);
 
+.pip-nav-menu {
+
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.1);
+    display: block !important;
+    
+    /deep/ .mat-select-underline {
+        display: none;
+        background-color: none;
+        height: 0px;
+    }
+    
+    .selected {
+        background-color: rgba(0,0,0,0.1);
+    }
+    
+}
+.pip-icon {
+    margin-right: 16px;
+}
+
+.pip-link-title {
+    color: $nav-menu-section-color;
+    text-transform: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ i {
+    color: $nav-menu-section-color;
+ }
+
+ .w-stretch {
+    max-width: 100%;
+ }
 
 .pip-nav-menu-section-title {
     padding: $nav-menu-padding-sm;

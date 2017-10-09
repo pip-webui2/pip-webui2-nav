@@ -27,10 +27,10 @@ export class SidenavExampleComponent {
 					]
 				},
 				{
-					title: 'SideNav',
+					title: 'SideNav tvh ybhjnyubj nyukbygjbnyuhbjygbh',
 					icon: 'area',
 					links: [
-						{ name: 'StickySideNav', title: 'StickySideNav', state: 'sticky_sidenav', icon: 'submenu', url: 'sticky_sidenav', controller: 'StickySideNavController'},
+						{ name: 'StickySideNav', title: 'StickySideNav ghfvdb ygbh ghbnyujnyubj  yubhj', state: 'sticky_sidenav', icon: 'backup', url: 'sticky_sidenav', controller: 'StickySideNavController'},
 						//{ name: 'Navigations', title: 'Navigations', state: 'navigations', icon: 'icons:preview', url: '/navigations', controller: 'NavigationsController', templateUrl: 'navigations.html' }
 					]
 				}

@@ -1,18 +1,24 @@
-<div *ngIf="menuProps && menuProps.sections && menuProps.sections.length" class="pip-sticky-nav-menu">
+<div *ngIf="menuProps && menuProps.sections && menuProps.sections.length" class="pip-nav-menu w-stretch">
 
-    <div fxFlex="grow" fxLayout="column">
-         <div *ngFor="let section of menuProps.sections let sectionIndex = index" fxLayout="column">
+    <div fxFlex="grow" fxLayout="column" class="w-stretch">
+         <div *ngFor="let section of menuProps.sections let sectionIndex = index"
+         class="w-stretch" fxLayout="column">
              
             <div *ngIf="sectionIndex > 0" class="pip-section-divider"></div>
             <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
                 {{section.title}}
             </div> 
-            <div fxFlex="grow">
-                <md-nav-list dense>
+            <div fxFlex="grow" class="w-stretch">
+                <md-nav-list dense class="w-stretch">
                     <md-list-item *ngFor="let item of section.links; let i = index"
-                        [ngClass]="{ selected: i == selectedItemIndex }"
-                        (click)="onItemSelect(i)" routerLink="/{{ item.url }}">
-                        <h3 md-line>{{ item.title }}</h3>
+                        (click)="onItemSelect(i)" routerLink="/{{ item.url }}" class="w-stretch">
+                        <!--
+                            [ngClass]="{ selected: i + sectionIndex == selectedItemIndex  }"
+                        -->
+                        <div fxLayout="row" fxLayoutAlign="start center" class="w-stretch">
+                            <i class="material-icons pip-icon" *ngIf="item.icon">{{item.icon}}</i>
+                            <h3 md-line class="pip-link-title">{{ item.title }}</h3>
+                        </div>
                     </md-list-item>
                 </md-nav-list>
             </div>
