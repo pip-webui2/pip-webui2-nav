@@ -21,14 +21,21 @@ export class PipSidenavMenuComponent implements OnInit {
 
 	private subscription: Subscription;
 	public menuProps: NavMenuConfig;
+	public selectedItemIndex: number;
 
-	public defaultIcon: string;
-	public isCollapsed: boolean;
-	public expanded: boolean;
-	public expandedButton: boolean;
+	public onItemSelect(index: number): void {
+		this.selectedItemIndex = index;
+		//this.selectedItemIndexChange.emit(index);
+    }
 
-	public constructor(private service: PipNavPartService) { }
+	public constructor(private service: PipNavPartService) { 
+		this.selectedItemIndex = 0;
+	}
 
 	ngOnInit() {}
+
+	public isSectionEmpty(links: NavMenuLink[] ) {
+		return links.length > 0;
+	}
 
 }

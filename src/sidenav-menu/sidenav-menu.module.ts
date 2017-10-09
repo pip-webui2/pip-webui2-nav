@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdButtonModule, MdIconModule } from '@angular/material';
 import { MatListModule, MatOptionModule, MatGridListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router'
+import { CommonModule } from '@angular/common';
+import { MdListModule } from '@angular/material';
 
 import { PipSidenavMenuComponent } from './sidenav-menu.component';
 
@@ -18,6 +21,10 @@ import { PipSidenavMenuComponent } from './sidenav-menu.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    MdListModule,
     MdButtonModule,
     MdIconModule,
     MatOptionModule,

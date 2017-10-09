@@ -1,38 +1,24 @@
 <div *ngIf="menuProps && menuProps.sections && menuProps.sections.length" class="pip-sticky-nav-menu">
 
-    <md-list #sections>
-        <div *ngFor="let section of menuProps.sections">
-            <div *ngIf="section.title" style="height: 48px;" class="md-subheader"
-            fxLayout="row" fxLayoutAlign="start center">
-
-                <md-icon mdListIcon class="pip-sticky-nav-menu-icon section-icon" *ngIf="section.icon">
-                    {{ section.icon }}
-                </md-icon>
-
-                <div class="pip-sticky-nav-menu-title section-title">
-                    {{ section.title }}
-                </div>
+    <div fxFlex="grow" fxLayout="column">
+         <div *ngFor="let section of menuProps.sections let sectionIndex = index" fxLayout="column">
+             
+            <div *ngIf="sectionIndex > 0" class="pip-section-divider"></div>
+            <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
+                {{section.title}}
+            </div> 
+            <div fxFlex="grow">
+                <md-nav-list dense>
+                    <md-list-item *ngFor="let item of section.links; let i = index"
+                        [ngClass]="{ selected: i == selectedItemIndex }"
+                        (click)="onItemSelect(i)" routerLink="/{{ item.url }}">
+                        <h3 md-line>{{ item.title }}</h3>
+                    </md-list-item>
+                </md-nav-list>
             </div>
-
-            <md-list-item *ngFor="let link of section.links" fxLayout="row" fxLayoutAlign="start center">
-                <div class="pip-sticky-nav-menu-icon-block">
-                    <md-icon mdListIcon class="pip-sticky-nav-menu-icon flex-fixed" *ngIf="link.icon">
-                        {{ link.icon }}
-                    </md-icon>
-                </div>
-                <div class="pip-sticky-nav-menu-title">
-                    {{ link.title}}
-                </div>
-                <div class="pip-sticky-nav-menu-badge {{ link.badgeStyle ? link.badgeStyle : 'color-badge-bg' }} flex-fixed" *ngIf="link.count && link.count < 100">
-                    {{ link.count }}
-                </div>
-                <div class="pip-sticky-nav-menu-badge {{ link.badgeStyle ? link.badgeStyle : 'color-badge-bg' }} flex-fixed" *ngIf="link.count && link.count > 99">
-                    !
-                </div>
-            </md-list-item>
         </div>
 
-    </md-list>
+    </div>
 
 
 </div>
