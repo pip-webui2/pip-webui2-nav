@@ -1,6 +1,8 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
+import { AfterViewInit, ViewChild } from '@angular/core';
+import { MdSidenav } from '@angular/material';
 
 @Component({
 	selector: 'sidenav-example',
@@ -8,7 +10,9 @@ import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
 	styleUrls: ['./sidenav-example.component.scss']
 })
 
-export class SidenavExampleComponent {
+export class SidenavExampleComponent  implements AfterViewInit {
+
+	@ViewChild('sidenav') sidenav: MdSidenav;
 
 	public sidenavMenuPartName: string = 'sidenav-menu';
 	public sidenavHeaderPartName: string = 'sidenav-header';
@@ -22,6 +26,7 @@ export class SidenavExampleComponent {
 
 		this.header.title = 'Kate Negrienko';
 		this.header.subtitle = 'frontend developer';
+		this.header.picture = "1.png";
 
 		this.service.updatePartByName(this.sidenavHeaderPartName, this.isHeaderShown,  _.cloneDeep(this.header));
 		this.service.updatePartByName(this.sidenavMenuPartName, this.isMenuShown, {
@@ -51,6 +56,15 @@ export class SidenavExampleComponent {
 		}
 		
 
+		ngAfterViewInit() {
+			// Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
+			// but wait a tick first to avoid one-time devMode
+			// unidirectional-data-flow-violation error
+
+			console.log(this.sidenav);
+
+		}
+
 		public changeVisibleMenu() {
 			this.isMenuShown = !this.isMenuShown;
 			this.service.changeVisibility(this.sidenavMenuPartName, this.isMenuShown);
@@ -63,6 +77,12 @@ export class SidenavExampleComponent {
 
 		public changeHeaderSubtitle() {
 			this.service.updateProps(this.sidenavHeaderPartName, _.cloneDeep(this.header));	
+		}
+
+		public toggleNav() {
+			console.log(this.sidenav);
+			if (this.sidenav)
+				this.sidenav.toggle();	
 		}
 }
 

@@ -5,22 +5,25 @@
             <pip-sidenav-menu *pipNavPart="sidenavMenuPartName" [pipNavPartName]="sidenavMenuPartName"></pip-sidenav-menu>
         </pip-sidenav>
         <div fxFlex="grow">
+                <h3 style="font-family: Roboto">Nav</h3>
+                <button md-button (click)="toggleNav()">Nav toggle</button>
+
             <h3 style="font-family: Roboto">Header config</h3>
             <button md-button (click)="changeVisibleHeader()">Change visability</button>
 
             <form>
-                    <md-input-container>
-                      <input mdInput name="title1" [(ngModel)]="header.title">
-                    </md-input-container>
-                    <md-input-container>
-                      <input mdInput name="title2" [(ngModel)]="header.subtitle">
-                    </md-input-container>
-                  </form>
+                <md-input-container>
+                    <input mdInput name="title1" [(ngModel)]="header.title">
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput name="title2" [(ngModel)]="header.subtitle">
+                </md-input-container>
+            </form>
 
-                  
             <button md-button (click)="changeHeaderSubtitle() ">Change title or subtitle</button>
             <h3 style="font-family: Roboto">Menu config</h3>
             <button md-button (click)="changeVisibleMenu()">Change visability</button>
+            
         </div>
     </div>
 </pip-sidenav-container>

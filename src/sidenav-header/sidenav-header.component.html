@@ -1,10 +1,10 @@
 <md-toolbar color="primary">
 
-   <div fxLayout="column" class="pip-nav-content">
+    <img *ngIf="props.picture" src="{{props.picture}}">
+    <div fxLayout="column" class="pip-nav-content">
         <div>{{props.title}}</div>
 
         <div class="pip-nav-subtitle" *ngIf="props && props.subtitle">{{props.subtitle}}</div>
-   </div>
-    
+    </div>
 
 </md-toolbar>
