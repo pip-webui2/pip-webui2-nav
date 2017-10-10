@@ -1,7 +1,7 @@
 <md-sidenav-container class="pip-sidenav-container">
-    <md-sidenav #sidenav mode="{{service.side}}" opened="{{service.opened}}" class="pip-sidenav">
-        <ng-content select="[type=nav]"></ng-content>
-    </md-sidenav>
-    <ng-content select="[type=body]"></ng-content>
-</md-sidenav-container>
 
+  <md-sidenav #sidenav mode="{{side$ | async}}" opened="{{opened$ | async}}" class="pip-sidenav">
+    <ng-content select="[type=nav]"></ng-content>
+  </md-sidenav>
+  <ng-content select="[type=body]"></ng-content>
+</md-sidenav-container>

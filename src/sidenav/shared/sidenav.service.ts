@@ -10,12 +10,12 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-
 @Injectable()
 export class PipSidenavService {
     public _sidenav: MdSidenav;
-    private _side: string = 'side';
-    private _opened: boolean = true;
+    private _side$: BehaviorSubject<string> = new BehaviorSubject('side');
+    private _opened$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+    public mode: string = 'side';
 
     public constructor() { }
 
@@ -27,12 +27,21 @@ export class PipSidenavService {
         this._sidenav = sidenav;
     }
 
-    public get opened(): boolean {
-        return this._opened;
+    public get side() {
+        return this._side$;
     }
 
-    public set opened(open: boolean) {
-        this._opened = open;
+    public set side(s: BehaviorSubject<string>) {
+        this._side$ = s;
+        this.mode = this._side$.value;
+    }
+
+    public get opened(): BehaviorSubject<boolean> {
+        return this._opened$;
+    }
+
+    public set opened(open: BehaviorSubject<boolean>) {
+        this._opened$ = open;
     }
 
     public toggleNav(sidenav: MdSidenav = this._sidenav) {
@@ -65,12 +74,5 @@ export class PipSidenavService {
             console.log('Sidenav not found');
         }
     }
-    
-    public get side() {
-        return this._side;
-    }
 
-    public set side(sides: string) {
-        this.side = sides;
-    }
 }

@@ -1,6 +1,8 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PipNavPartService, SidenavHeader, PipSidenavService } from '../pip-webui2-nav';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
 
@@ -83,6 +85,14 @@ export class SidenavExampleComponent  implements AfterViewInit {
 			if (this.sidenav.sidenav) {
 				this.sidenav.sidenav.toggle();
 			}
+		}
+
+		public changeNav() {
+				if (this.sidenav.side.value == 'side') {
+					this.sidenav.side.next(null);
+				} else {
+					this.sidenav.side.next('side');
+				}
 		}
 }
 
