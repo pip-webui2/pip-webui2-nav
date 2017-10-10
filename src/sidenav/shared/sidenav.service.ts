@@ -39,4 +39,20 @@ export class PipSidenavService {
         }
 
     }
+
+    public closeNav(sidenav: MdSidenav = this._sidenav) {
+        if (sidenav) {
+            sidenav.close();
+        } else {
+            console.log('Sidenav not found');
+        }
+    }
+
+    public changeStateNav(sidenav: MdSidenav = this._sidenav) {
+        if (sidenav) {
+
+        } else {
+            console.log('Sidenav not found');
+        }
+    }
 }
