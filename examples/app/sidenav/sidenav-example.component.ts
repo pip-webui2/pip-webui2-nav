@@ -88,11 +88,13 @@ export class SidenavExampleComponent  implements AfterViewInit {
 		}
 
 		public changeNav() {
+				this.sidenav.sidenav.close();
 				if (this.sidenav.side.value == 'side') {
 					this.sidenav.side.next(null);
 				} else {
 					this.sidenav.side.next('side');
 				}
+				this.sidenav.sidenav.open();
 		}
 }
 
