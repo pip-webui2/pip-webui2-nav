@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material'
 
 import { PipSidenavComponent } from './sidenav.component';
+import {  PipSidenavService } from './shared/sidenav.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { PipSidenavComponent } from './sidenav.component';
   exports: [
     PipSidenavComponent
   ],
-  providers: [],
+  providers: [
+    PipSidenavService
+  ],
 })
 export class PipSidenavModule { }

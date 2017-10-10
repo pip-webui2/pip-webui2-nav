@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
-import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
+import { PipNavPartService, SidenavHeader, PipSidenavService } from '../pip-webui2-nav';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
 
@@ -12,7 +12,6 @@ import { MdSidenav } from '@angular/material';
 
 export class SidenavExampleComponent  implements AfterViewInit {
 
-	@ViewChild('sidenav') sidenav: MdSidenav;
 
 	public sidenavMenuPartName: string = 'sidenav-menu';
 	public sidenavHeaderPartName: string = 'sidenav-header';
@@ -22,7 +21,8 @@ export class SidenavExampleComponent  implements AfterViewInit {
 
 	public header: SidenavHeader = new SidenavHeader();
 
-	constructor(private service: PipNavPartService) {
+	constructor(private service: PipNavPartService,
+		private sidenav: PipSidenavService) {
 
 		this.header.title = 'Kate Negrienko';
 		this.header.subtitle = 'frontend developer';
@@ -80,9 +80,9 @@ export class SidenavExampleComponent  implements AfterViewInit {
 		}
 
 		public toggleNav() {
-			console.log(this.sidenav);
-			if (this.sidenav)
-				this.sidenav.toggle();	
+			if (this.sidenav.sidenav) {
+				this.sidenav.sidenav.toggle();
+			}
 		}
 }
 
