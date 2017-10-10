@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer, ElementRef } from '@angular/core';
 
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
@@ -15,15 +15,14 @@ export class PipSidenavComponent implements OnInit, AfterViewInit {
 
 	public mode: string = 'side';
 	@ViewChild('sidenav') sidenav: MdSidenav;
-	
-	public constructor(private service: PipSidenavService) {
 
+	public constructor(
+		private service: PipSidenavService,
+		private renderer: Renderer,
+		private elRef: ElementRef) {
+		renderer.setElementClass(elRef.nativeElement, 'pip-sidenav', true);
 	}
-	ngOnInit() {
-
-	}
-
-
+	ngOnInit() { }
 	ngAfterViewInit() {
 		this.service.sidenav = this.sidenav;
 	}

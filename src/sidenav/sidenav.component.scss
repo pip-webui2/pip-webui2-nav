@@ -1,4 +1,16 @@
 md-sidenav {
+    max-width: 250px;
     width: 250px;
     background-color:   rgb(238, 238, 238);
+
+    //position: relative;
+}
+
+.pip-sidenav-container {
+    display: block;
+    height: 100%;
+}
+
+:host {
+    height: 100%;
 }

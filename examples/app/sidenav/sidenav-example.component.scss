@@ -16,6 +16,6 @@
 
 pip-sidenav {
     display: block;
-    width: 250px;
+    //width: 250px;
     @include flex-fixed(); 
 }

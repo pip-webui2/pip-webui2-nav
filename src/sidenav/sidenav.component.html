@@ -1,4 +1,7 @@
-<md-sidenav #sidenav mode="{{mode}}" opened="true" class="pip-sidenav">
+<md-sidenav-container class="pip-sidenav-container">
+    <md-sidenav #sidenav mode="side" opened="true" class="pip-sidenav">
+        <ng-content select="[type=nav]"></ng-content>
+    </md-sidenav>
+    <ng-content select="[type=body]"></ng-content>
+</md-sidenav-container>
 
-  <ng-content></ng-content>
-</md-sidenav>
