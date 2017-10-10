@@ -14,6 +14,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class PipSidenavService {
     public _sidenav: MdSidenav;
+    private _side: string = 'side';
+    private _opened: boolean = true;
 
     public constructor() { }
 
@@ -23,6 +25,14 @@ export class PipSidenavService {
 
     public set sidenav(sidenav: MdSidenav) {
         this._sidenav = sidenav;
+    }
+
+    public get opened(): boolean {
+        return this._opened;
+    }
+
+    public set opened(open: boolean) {
+        this._opened = open;
     }
 
     public toggleNav(sidenav: MdSidenav = this._sidenav) {
@@ -54,5 +64,13 @@ export class PipSidenavService {
         } else {
             console.log('Sidenav not found');
         }
+    }
+    
+    public get side() {
+        return this._side;
+    }
+
+    public set side(sides: string) {
+        this.side = sides;
     }
 }

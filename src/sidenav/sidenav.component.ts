@@ -12,8 +12,6 @@ import { PipSidenavService } from './shared/sidenav.service';
 })
 
 export class PipSidenavComponent implements OnInit, AfterViewInit {
-
-	public mode: string = 'side';
 	@ViewChild('sidenav') sidenav: MdSidenav;
 
 	public constructor(
@@ -22,6 +20,7 @@ export class PipSidenavComponent implements OnInit, AfterViewInit {
 		private elRef: ElementRef) {
 		renderer.setElementClass(elRef.nativeElement, 'pip-sidenav', true);
 	}
+
 	ngOnInit() { }
 	ngAfterViewInit() {
 		this.service.sidenav = this.sidenav;
