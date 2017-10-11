@@ -66,7 +66,6 @@ export class PipNavPartService {
             return part.name == name;
         });
         if (index > -1) {
-            console.log(index);
             this._parts[index].name = name;
             if (visible != null) this._parts[index].visible.next(visible);
             if (props != null) this._parts[index].properties.next(props);
