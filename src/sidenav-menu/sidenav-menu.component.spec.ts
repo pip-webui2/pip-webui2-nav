@@ -1,6 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { PipSidenavMenuComponent } from './sidenav-menu.component';
+import { PipNavPartService } from '../navpart/shared/navpart.service';
 
 describe('an sidenav-menu component', () => {
 	let component: PipSidenavMenuComponent;
@@ -9,7 +10,8 @@ describe('an sidenav-menu component', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
-				PipSidenavMenuComponent
+				PipSidenavMenuComponent,
+				PipNavPartService
 			]
 		});
 	});
