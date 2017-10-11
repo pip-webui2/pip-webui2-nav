@@ -89,10 +89,10 @@ export class SidenavExampleComponent  implements AfterViewInit {
 
 		public changeNav() {
 				this.sidenav.sidenav.close();
-				if (this.sidenav.side.value == 'side') {
-					this.sidenav.side.next(null);
+				if (this.sidenav.mode == 'side') {
+					this.sidenav.side = null;
 				} else {
-					this.sidenav.side.next('side');
+					this.sidenav.side = 'side';
 				}
 				this.sidenav.sidenav.open();
 		}
