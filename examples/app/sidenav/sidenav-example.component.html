@@ -1,35 +1,35 @@
 <!--<pip-sidenav-container> -->
-        <pip-sidenav>
-            <div type="nav">
-                    <pip-sidenav-header *pipNavPart="sidenavHeaderPartName" [pipNavPartName]="sidenavHeaderPartName"></pip-sidenav-header>
-                    <pip-sidenav-menu *pipNavPart="sidenavMenuPartName" [pipNavPartName]="sidenavMenuPartName"></pip-sidenav-menu>
-                    
-            </div>
-           <div type="body">
-                <h3 style="font-family: Roboto">Nav</h3>
-                <button md-button (click)="toggleNav()">Nav toggle</button>
+<pip-sidenav>
+    <div type="nav">
+        <pip-sidenav-header *pipNavPart="sidenavHeaderPartName" [pipNavPartName]="sidenavHeaderPartName"></pip-sidenav-header>
+        <pip-sidenav-menu *pipNavPart="sidenavMenuPartName" [pipNavPartName]="sidenavMenuPartName"></pip-sidenav-menu>
 
-                <!--<button md-button (click)="changeSize()">Change size</button> -->
-                <button md-button (click)="changeNav()">Change nav type</button>
-                <h3 style="font-family: Roboto">Header config</h3>
-                <button md-button (click)="changeVisibleHeader()">Change visability</button>
-    
-                <form>
-                    <md-input-container>
-                        <input mdInput name="title1" [(ngModel)]="header.title">
-                    </md-input-container>
-                    <md-input-container>
-                        <input mdInput name="title2" [(ngModel)]="header.subtitle">
-                    </md-input-container>
-                </form>
-    
-                <button md-button (click)="changeHeaderSubtitle() ">Change title or subtitle</button>
-                <h3 style="font-family: Roboto">Menu config</h3>
-                <button md-button (click)="changeVisibleMenu()">Change visability</button>
-                
-            </div>
-        
-        </pip-sidenav>
-      
+    </div>
+    <div type="body">
+        <h3 style="font-family: Roboto">Nav</h3>
+        <button md-button (click)="toggleNav()">Nav toggle</button>
+
+        <!--<button md-button (click)="changeSize()">Change size</button> -->
+        <button md-button (click)="changeNav()">Change nav type</button>
+        <h3 style="font-family: Roboto">Header config</h3>
+        <button md-button (click)="changeVisibleHeader()">Change visability</button>
+
+        <form>
+            <md-input-container>
+                <input mdInput name="title1" [(ngModel)]="header.title">
+            </md-input-container>
+            <md-input-container>
+                <input mdInput name="title2" [(ngModel)]="header.subtitle">
+            </md-input-container>
+        </form>
+
+        <button md-button (click)="changeHeaderSubtitle() ">Change title or subtitle</button>
+        <h3 style="font-family: Roboto">Menu config</h3>
+        <button md-button (click)="changeVisibleMenu()">Change visability</button>
+
+    </div>
+
+</pip-sidenav>
+
 
 <!--</pip-sidenav-container> -->
