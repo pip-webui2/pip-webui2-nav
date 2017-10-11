@@ -12,14 +12,12 @@ export class PipSidenavHeaderComponent {
     @Input() public set pipNavPartName(partName: string) {
         this.service.updatePartByName(partName, null, null).properties.subscribe((props) => {
             this.props = props;
-            console.log(props);
         });
     }
 
     public props: SidenavHeader;
 
-    public constructor(private service: PipNavPartService) { 
-    }
+    public constructor(private service: PipNavPartService) { }
 
 
 }

@@ -24,6 +24,6 @@ import { PipSidenavService } from './shared/sidenav.service';
   ],
   providers: [
     PipSidenavService
-  ],
+  ]
 })
 export class PipSidenavModule { }
