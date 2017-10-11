@@ -1,5 +1,5 @@
 <md-sidenav-container class="pip-sidenav-container" [ngClass]="{'pip-small' : service.mode == 'side' && service.small}">
-  <md-sidenav #sidenav mode="{{side$ | async}}" opened="{{opened$ | async}}" class="pip-sidenav">
+  <md-sidenav #sidenav [mode]="side$ | async" [opened]="opened$ | async" class="pip-sidenav">
     <ng-content select="[type=nav]"></ng-content>
   </md-sidenav>
   <ng-content select="[type=body]"></ng-content>

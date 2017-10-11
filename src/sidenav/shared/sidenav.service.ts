@@ -28,21 +28,21 @@ export class PipSidenavService {
         this._sidenav = sidenav;
     }
 
-    public get side() {
+    public get side$(): Observable<string> {
         return this._side$;
     }
 
-    public set side(s: BehaviorSubject<string>) {
-        this._side$ = s;
-        this.mode = this._side$.value;
+    public set side(s: string) {
+        this._side$.next(s);
+        this.mode = s;
     }
 
-    public get opened(): BehaviorSubject<boolean> {
+    public get opened$(): Observable<boolean> {
         return this._opened$;
     }
 
-    public set opened(open: BehaviorSubject<boolean>) {
-        this._opened$ = open;
+    public set opened(open: boolean) {
+        this._opened$.next(open);
     }
 
     public toggleNav(sidenav: MdSidenav = this._sidenav) {
