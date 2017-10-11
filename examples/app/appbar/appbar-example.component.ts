@@ -14,10 +14,10 @@ export class AppBarExampleComponent {
   public breadcrumbTitle1: string = 'Title 1';
   public breadcrumbTitle2: string = 'Title 2';
 
-  private isIconShown: boolean = false;
-  private isBreadcrumbShown: boolean = false;
-  private isPrimaryActionsShown: boolean = false;
-  private isSecondaryActionsShown: boolean = false;
+  private isIconShown: boolean = true;
+  private isBreadcrumbShown: boolean = true;
+  private isPrimaryActionsShown: boolean = true;
+  private isSecondaryActionsShown: boolean = true;
   private icon: string = 'menu';
 
   constructor(

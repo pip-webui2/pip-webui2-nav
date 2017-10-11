@@ -18,8 +18,8 @@ export class SidenavExampleComponent  implements AfterViewInit {
 	public sidenavMenuPartName: string = 'sidenav-menu';
 	public sidenavHeaderPartName: string = 'sidenav-header';
 
-	public isMenuShown: boolean = false;
-	public isHeaderShown: boolean = false;
+	public isMenuShown: boolean = true;
+	public isHeaderShown: boolean = true;
 
 	public header: SidenavHeader = new SidenavHeader();
 
