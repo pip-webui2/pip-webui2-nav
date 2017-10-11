@@ -16,6 +16,7 @@ export class PipSidenavService {
     private _side$: BehaviorSubject<string> = new BehaviorSubject('side');
     private _opened$: BehaviorSubject<boolean> = new BehaviorSubject(true);
     public mode: string = 'side';
+    public small: boolean = false;
 
     public constructor() { }
 

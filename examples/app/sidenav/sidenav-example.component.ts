@@ -96,5 +96,8 @@ export class SidenavExampleComponent  implements AfterViewInit {
 				}
 				this.sidenav.sidenav.open();
 		}
+		public changeSize() {
+			this.sidenav.small = !this.sidenav.small;
+		}
 }
 
