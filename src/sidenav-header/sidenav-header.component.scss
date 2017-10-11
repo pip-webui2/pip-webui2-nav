@@ -4,7 +4,7 @@
     opacity: .56;
 }
 
-::ng-deep mat-toolbar-row, ::ng-deep .mat-toolbar-row {
+:host ::ng-deep mat-toolbar-row {
     height: initial !important;
     white-space: normal !important;
 }
