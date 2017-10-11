@@ -7,7 +7,6 @@ import { Subscription } from 'rxjs/Subscription';
 export class PipNavPartDirective {
     private subscription: Subscription;
     @Input() public set pipNavPart(partName: string) {
-        this.viewContainer.createEmbeddedView(this.templateRef);
         this.subscription = this.service.updatePartByName(partName, null, null).visible.subscribe(visible => {
             visible ? this.viewContainer.createEmbeddedView(this.templateRef) : this.viewContainer.clear();
         });
