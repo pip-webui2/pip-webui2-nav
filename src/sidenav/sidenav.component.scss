@@ -15,9 +15,10 @@ md-sidenav {
     md-sidenav {
         max-width: 64px;
         width: 64px;
+        min-width: 64px;
     }
     ::ng-deep .mat-drawer-content {
-        margin-left: 64px !important;
+        margin-left: 65px !important;
     }
 }
 

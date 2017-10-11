@@ -48,6 +48,9 @@ export class PipSidenavService {
     public toggleNav(sidenav: MdSidenav = this._sidenav) {
         if (sidenav) {
             sidenav.toggle();
+            /*if(!sidenav.opened) {
+                this.small = false;
+            }*/
         } else { console.log('Sidenav not found'); }
     }
 
