@@ -1,6 +1,6 @@
 <md-toolbar color="primary">
 
-    <!-- <img *ngIf="props.picture" src="{{props.picture}}"> -->
+    <img *ngIf="props.picture" [src]="props.picture" class="pip-pic">
     <div fxLayout="column" class="pip-nav-content">
         <div>{{props.title}}</div>
 
