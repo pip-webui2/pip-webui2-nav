@@ -27,6 +27,7 @@ export class PipAppbarIconComponent implements OnInit {
 	ngOnInit() {}
 
 	public onClick() {
+		console.log('click', this.icon);
 		if (this.icon.action != null)
 			this.icon.action();
 	}
