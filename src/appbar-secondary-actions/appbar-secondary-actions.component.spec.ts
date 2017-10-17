@@ -3,7 +3,7 @@ import { TestBed, inject, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MdMenuModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material';
 
 import { PipAppbarSecondaryActionsModule } from './appbar-secondary-actions.module';
 import { PipNavPartService } from '../navpart/shared/navpart.service';
@@ -24,7 +24,7 @@ describe('a pip-appbar-secondary-actions component', () => {
 			imports: [
 				PipAppbarSecondaryActionsModule,
 				BrowserAnimationsModule,
-				MdMenuModule
+				MatMenuModule
 			],
 			providers: [
 				PipAppbarSecondaryActionsComponent,
@@ -55,10 +55,10 @@ describe('a pip-appbar-secondary-actions component', () => {
 		service.updatePartByName(navPartName, true, props);
 		expect(component.config).toEqual(props);
 		fixture.detectChanges();
-// TODO: how to test md-menu
+// TODO: how to test mat-menu
 
 		//console.log('el', el);
-		//let actionItems = el.getElementsByTagName('md-icon');
+		//let actionItems = el.getElementsByTagName('mat-icon');
 		// expect(actionItems.length).toEqual(props.actions.length);
 		// for (let i = 0; i < props.actions.length; i++) {
 		// 	expect(actionItems[i].innerHTML).toEqual(props.actions[i]);

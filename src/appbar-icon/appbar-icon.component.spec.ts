@@ -49,7 +49,7 @@ describe('a pip-appbar-icon component', () => {
 		service.updatePartByName(navPartName, true, props);
 		expect(component.icon).toEqual(props);
 		fixture.detectChanges();
-		let iconItems = el.getElementsByTagName('md-icon');
+		let iconItems = el.getElementsByTagName('mat-icon');
 
 		expect(iconItems.length).toEqual(1);
 		expect(iconItems[0].innerHTML).toEqual(props.icon);

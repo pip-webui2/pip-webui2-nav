@@ -50,7 +50,7 @@ describe('a pip-appbar-primary-actions component', () => {
 		service.updatePartByName(navPartName, true, props);
 		expect(component.config).toEqual(props);
 		fixture.detectChanges();
-		let actionItems = el.getElementsByTagName('md-icon');
+		let actionItems = el.getElementsByTagName('mat-icon');
 
 		expect(actionItems.length).toEqual(props.actions.length);
 		for (let i = 0; i < props.actions.length; i++) {

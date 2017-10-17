@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdMenuModule, MdIconModule, MdButtonModule } from '@angular/material';
+import { MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 
 import { PipAppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
 
@@ -12,9 +12,9 @@ import { PipAppbarBreadcrumbComponent } from './appbar-breadcrumb.component';
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MdMenuModule,
-    MdButtonModule,
-    MdIconModule
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [
     PipAppbarBreadcrumbComponent

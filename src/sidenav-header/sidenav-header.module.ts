@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MdToolbarModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common'; 
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { PipSidenavHeaderComponent } from './sidenav-header.component';
     PipSidenavHeaderComponent
   ],
   imports: [
-    MdToolbarModule,
+    MatToolbarModule,
     FlexLayoutModule,
     CommonModule,
     BrowserModule

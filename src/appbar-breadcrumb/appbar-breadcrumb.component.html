@@ -6,21 +6,21 @@
     [ngStyle]="{ 'max-width' : (100 / config.items.length + 1) + '%' }">
         <span >{{ item.title }}</span>
         <div>
-            <md-icon *ngIf="i < config.items.length - 1">chevron_right</md-icon>
+            <mat-icon *ngIf="i < config.items.length - 1">chevron_right</mat-icon>
         </div>
   </span>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around center" fxHide.gt-xs>
   <!-- Breadcrumb navigation -->
-  <button md-button [mdMenuTriggerFor]="menu">
+  <button mat-button [matMenuTriggerFor]="menu">
         <span class="search-container" *ngIf="config.searchCriteria" (click)="onSearchClick()">{{ config.searchCriteria }} - </span>
         <span>{{ config.items[config.items.length - 1].title }}</span>
-        <md-icon>arrow_drop_down</md-icon>
+        <mat-icon>arrow_drop_down</mat-icon>
   </button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item *ngFor="let item of config.items; let i = index" [ngClass]="{'grey-text': i == config.items.length - 1}">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let item of config.items; let i = index" [ngClass]="{'grey-text': i == config.items.length - 1}">
         {{ item.title }}
     </button>
-  </md-menu>
+  </mat-menu>
 </div>

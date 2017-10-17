@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { MdButtonModule, MdIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 
 import { PipAppbarIconComponent } from './appbar-icon.component';
 
@@ -11,8 +11,8 @@ import { PipAppbarIconComponent } from './appbar-icon.component';
   ],
   imports: [
     BrowserModule,
-    MdButtonModule,
-    MdIconModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   exports: [
     PipAppbarIconComponent

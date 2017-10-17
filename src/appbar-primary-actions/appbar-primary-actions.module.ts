@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdIconModule, MdMenuModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 import { PipAppbarPrimaryActionsComponent } from './appbar-primary-actions.component';
 
@@ -13,9 +13,9 @@ import { PipAppbarPrimaryActionsComponent } from './appbar-primary-actions.compo
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MdButtonModule,
-    MdIconModule,
-    MdMenuModule
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule
   ],
   exports: [
     PipAppbarPrimaryActionsComponent

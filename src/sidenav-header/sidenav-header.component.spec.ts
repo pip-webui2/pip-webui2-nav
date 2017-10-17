@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import { MdToolbarModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,8 +12,8 @@ describe('PipSidenavHeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MdToolbarModule,
-        MdToolbarModule,
+        MatToolbarModule,
+        MatToolbarModule,
         FlexLayoutModule,
         CommonModule,
         BrowserModule
