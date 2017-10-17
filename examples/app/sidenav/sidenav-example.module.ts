@@ -3,7 +3,8 @@ import { MatSidenavModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 import { FormsModule} from '@angular/forms';
-import { PipSidenavContainerModule, PipSidenavHeaderModule, PipSidenavModule, PipSidenavMenuModule, PipNavPartModule } from '../pip-webui2-nav';
+import { PipSidenavContainerModule, PipSidenavHeaderModule, PipSidenavMenuModule, PipNavPartModule } from '../pip-webui2-nav';
+import { PipSidenavModule } from 'pip-webui2-layouts';
 import { SidenavExampleComponent } from './sidenav-example.component';
 
 

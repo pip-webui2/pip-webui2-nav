@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { PipTestModule } from './pip-webui2-nav';
-import { PipAppbarModule, PipAppbarIconModule } from './pip-webui2-nav';
-import { PipSidenavModule } from './pip-webui2-nav';
+import { PipTestModule, PipAppbarIconModule } from './pip-webui2-nav';
+import { PipAppbarModule, PipSidenavModule } from 'pip-webui2-layouts';
 import { AppbarExampleModule } from './appbar/appbar-example.module';
 import { SidenavExampleModule } from './sidenav/sidenav-example.module';
 import { AppBarExampleComponent } from './appbar/appbar-example.component';
