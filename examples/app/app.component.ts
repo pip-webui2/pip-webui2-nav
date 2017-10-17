@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PipMediaService } from 'pip-webui2-layouts';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {
-    
+  constructor(
+    public media: PipMediaService
+  ) {
+    media.activate();
   }
 
   public list: any[] = [
