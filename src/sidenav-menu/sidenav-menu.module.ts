@@ -9,7 +9,6 @@ import { MatListModule, MatOptionModule, MatGridListModule } from '@angular/mate
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material';
 
 import { PipSidenavMenuComponent } from './sidenav-menu.component';
 
