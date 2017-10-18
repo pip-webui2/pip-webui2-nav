@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { AppbarIcon, DefaultIcon } from './shared/appbar-icon.model';
 import { PipNavPartService } from '../navpart/shared/navpart.service';
+import { Observable } from 'rxjs/Observable';
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -10,10 +11,11 @@ import { Subscription } from 'rxjs/Subscription';
 	styleUrls: ['./appbar-icon.component.scss']
 })
 
-export class PipAppbarIconComponent implements OnInit {
+export class PipAppbarIconComponent implements OnInit, OnDestroy {
 	@Input() public set pipNavPartName(partName: string) {
-		this.service.updatePartByName(partName, null, null).properties.subscribe((iconProps) => {
+		this.subscription = this.service.updatePartByName(partName, null, null).properties.subscribe((iconProps) => {
 			this.icon = iconProps;
+			this.cd.detectChanges();
 		});
 	}
 
@@ -21,15 +23,19 @@ export class PipAppbarIconComponent implements OnInit {
 	public icon: AppbarIcon = DefaultIcon;
 
 	public constructor(
-		private service: PipNavPartService
+		private service: PipNavPartService,
+		private cd: ChangeDetectorRef
 	) { }
 
 	ngOnInit() {}
 
 	public onClick() {
-		console.log('click', this.icon);
 		if (this.icon.action != null)
 			this.icon.action();
+	}
+	
+	public ngOnDestroy() {
+		this.subscription.unsubscribe();
 	}
 
 }
