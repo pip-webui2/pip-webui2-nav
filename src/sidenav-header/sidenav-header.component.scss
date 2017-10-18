@@ -1,25 +1,32 @@
 .pip-nav-subtitle {
-    font-family: 'Roboto';
-    font-size: 14px;
-    opacity: .56;
+  font-family: 'Roboto';
+  font-size: 14px;
+  opacity: .56;
 }
 
 :host ::ng-deep mat-toolbar-row {
-    height: initial !important;
-    white-space: normal !important;
+  height: initial !important;
+  white-space: normal !important;
 }
 
 .mat-toolbar {
-    padding-top: 16px;
-    padding-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 12px;
 }
 
 .pip-nav-content {
+  overflow: hidden;
+  div {
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .pip-pic {
-    height: 40px;
-    width: 40px;
-    margin-right: 16px;
+  height: 40px;
+  width: 40px;
+  margin-right: 16px;
+  border-radius: 50%;
 }
