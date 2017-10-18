@@ -19,7 +19,8 @@
               <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
               <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
             </div>
-            <div type="body" fxFlex="grow" fxLayout="column" style="overflow: auto">
+            <div type="body" fxFlex="grow" fxLayout="column" style="overflow: hidden">
+                <pip-appbar-shadow></pip-appbar-shadow>
               <router-outlet></router-outlet>
             </div>
           </pip-sidenav>

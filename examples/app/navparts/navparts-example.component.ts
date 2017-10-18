@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
-import { PipSidenavService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
+import { PipSidenavService, PipAppbarService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
 
 @Component({
   selector: 'appbar-example',
@@ -33,10 +33,17 @@ export class NavPartsExampleComponent {
   constructor(
     private navparts: PipNavPartService,
     private sidenav: PipSidenavService,
-    private mainMedia: PipMediaService
+    private mainMedia: PipMediaService,
+    private appbar: PipAppbarService
   ) {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
-      this.navparts.changeVisibility(this.appbarIconPartName, change.aliases.includes('xs'));
+      this.navparts.changeVisibility(this.appbarIconPartName, change.aliases.includes('xs') || change.aliases.includes('md'));
+      this.appbar.changeShadowVisibility(change.aliases.includes('lt-lg'));
+      this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') ? this.icon : this.sidenav.small ? 'chevron_right' : 'chevron_left');
+    });
+
+    this.sidenav.small$.subscribe((small) => {
+      this.navparts.updateProp(this.appbarIconPartName, 'icon', small ? 'chevron_right' : 'chevron_left');
     });
 
     this.navparts.updatePartByName(this.appbarIconPartName, this.isIconShown, {
