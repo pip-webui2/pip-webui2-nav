@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 import { PipNavPartService } from '../navpart/shared/navpart.service';
 
 import { Subscription } from 'rxjs/Subscription';
+import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 
 @Component({
 	selector: 'pip-appbar-breadcrumb',
@@ -20,10 +21,18 @@ export class PipAppbarBreadcrumbComponent implements OnInit {
 	public config: any;
 
 	public constructor(
-		private service: PipNavPartService
+		private service: PipNavPartService,
+		private media: ObservableMedia,
+		private elRef: ElementRef,
+		private cd: ChangeDetectorRef
 	) { }
 
-	ngOnInit() { }
+	ngOnInit() { 
+		this.media.asObservable().subscribe((change: MediaChange) => {
+			this.elRef.nativeElement.classList[change.mqAlias == 'xs' ? 'add' : 'remove']('pip-mobile-appbar-breadcrumb');
+			this.cd.detectChanges();
+		});
+	}
 
 	public onSearchClick() {
 		if (this.config.searchClick)

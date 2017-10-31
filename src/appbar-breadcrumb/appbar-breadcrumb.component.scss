@@ -1,5 +1,25 @@
+:host {
+    &.pip-mobile-appbar-breadcrumb {
+        .gt-xs-container {
+            display: none !important;
+        }
+    }
+
+    &:not(.pip-mobile-appbar-breadcrumb) {
+        .xs-container {
+            display: none !important;
+        }
+    }
+}
+
+
+
 .gt-xs-container {
     padding-left: 8px;
+}
+
+.gt-xs-container, .xs-container {
+    margin-top: 4px;
 }
 
 .navigation-item, .search-container {
@@ -11,7 +31,6 @@
 
 .mat-button {
     font-size: 20px;
-    line-height: 4px;
     padding-left: 8px;
     padding-right: 0px;
     .mat-button-wrapper {
