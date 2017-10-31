@@ -1,28 +1,21 @@
-# PipWebui2SampleLib
+# <img src="https://github.com/pip-webui/pip-webui/raw/master/doc/Logo.png" alt="Pip.WebUI Logo" style="max-width:30%"> <br/> Navigation controls
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
+![](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Development server
+Good navigation in complex Line-of-Business applications is absolutely critical. It shall allow users to jump from one page to another and access features quickly and freely. Cumbersome navigation, unintuitive links and lots of clicks can ruin any application. Ease of use and productivity of users in the first place depend on it. Pip.WebUI.Nav module provides controls for global and local navigation.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Side navigation parts
 
-## Code scaffolding
+**Side navigation menu** shows navigation links with optional icons that can be combined into groups.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+**Side navigation header** may contain information about the user or application.
 
-## Build
+### Application bar parts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+**Application bar icon** shows main application icon and processes click on it.
 
-## Running unit tests
+**Application bar breadcrumb** shows title or several titles that reveals the user’s location in a website or Web application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Application bar primary actions** shows extra icons in application bar and processes click on its.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**Application bar secondary actions** shows icon and dropdown menu with links.
