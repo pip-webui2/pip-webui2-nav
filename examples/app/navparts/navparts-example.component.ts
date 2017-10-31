@@ -38,7 +38,7 @@ export class NavPartsExampleComponent {
   ) {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
       this.navparts.changeVisibility(this.appbarIconPartName, change.aliases.includes('xs') || change.aliases.includes('md'));
-      this.appbar.changeShadowVisibility(change.aliases.includes('lt-lg'));
+      this.appbar.shadowVisibility = change.aliases.includes('lt-lg');
       this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') ? this.icon : this.sidenav.small ? 'chevron_right' : 'chevron_left');
     });
 
