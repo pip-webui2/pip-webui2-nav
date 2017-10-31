@@ -20,7 +20,8 @@ export class NavPartsExampleComponent {
   private isBreadcrumbShown: boolean = true;
   private isPrimaryActionsShown: boolean = true;
   private isSecondaryActionsShown: boolean = true;
-  private icon: string = 'menu';
+  private xsIcon: string = 'menu';
+  private gtXsIcon: string = 'home';
 
   public sidenavMenuPartName: string = 'sidenav-menu';
   public sidenavHeaderPartName: string = 'sidenav-header';
@@ -37,9 +38,8 @@ export class NavPartsExampleComponent {
     private appbar: PipAppbarService
   ) {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
-      this.navparts.changeVisibility(this.appbarIconPartName, change.aliases.includes('xs') || change.aliases.includes('md'));
       this.appbar.shadowVisibility = change.aliases.includes('lt-lg');
-      this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') ? this.icon : this.sidenav.small ? 'chevron_right' : 'chevron_left');
+      this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') ? this.xsIcon : this.gtXsIcon);
     });
 
     this.sidenav.small$.subscribe((small) => {
@@ -47,7 +47,7 @@ export class NavPartsExampleComponent {
     });
 
     this.navparts.updatePartByName(this.appbarIconPartName, this.isIconShown, {
-      icon: this.icon,
+      icon: this.xsIcon,
       action: () => {
         this.sidenav.toggleNav();
       }
@@ -139,8 +139,8 @@ export class NavPartsExampleComponent {
   }
 
   public onChangeIcon(): void {
-    this.icon = this.icon == 'menu' ? 'arrow_back' : 'menu';
-    this.navparts.updateProp(this.appbarIconPartName, 'icon', this.icon);
+    this.xsIcon = this.xsIcon == 'menu' ? 'arrow_back' : 'menu';
+    this.navparts.updateProp(this.appbarIconPartName, 'icon', this.xsIcon);
   }
 
   public onChangeBreadcrumb(): void {
