@@ -16,6 +16,6 @@ Good navigation in complex Line-of-Business applications is absolutely critical.
 
 **Application bar breadcrumb** shows title or several titles that reveals the user’s location in a website or Web application.
 
-**Application bar primary actions** shows extra icons in application bar and processes click on its.
+**Application bar primary actions** shows extra icons in application bar and processes click on them.
 
 **Application bar secondary actions** shows icon and dropdown menu with links.
