@@ -1,31 +1,24 @@
-<div fxLayout="column" class="content" id="content-id">
-  <pip-mobile-sidenav>
-    <div type="nav" style="height: 100%">
-      <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
-      <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
-    </div>
-    <div type="body" fxFlexFill>
-      <pip-appbar>
-        <pip-appbar-icon *pipNavPart="'appbar-icon'" [pipNavPartName]="'appbar-icon'"> </pip-appbar-icon>
-        <pip-appbar-breadcrumb *pipNavPart="'appbar-breadcrumb'" [pipNavPartName]="'appbar-breadcrumb'"> </pip-appbar-breadcrumb>
-        <div fxFlex="grow"></div>
-        <pip-appbar-primary-actions *pipNavPart="'appbar-primary-actions'" [pipNavPartName]="'appbar-primary-actions'"> </pip-appbar-primary-actions>
-        <pip-appbar-secondary-actions *pipNavPart="'appbar-secondary-actions'" [pipNavPartName]="'appbar-secondary-actions'"></pip-appbar-secondary-actions>
-      </pip-appbar>
-      <pip-content>
-        <pip-main fxFlex="grow">
-          <pip-sidenav>
-            <div type="nav" style="height: 100%">
-              <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
-              <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
-            </div>
-            <div type="body" fxFlex="grow" fxLayout="column" style="overflow: hidden">
-                <pip-appbar-shadow></pip-appbar-shadow>
-              <router-outlet></router-outlet>
-            </div>
-          </pip-sidenav>
-        </pip-main>
-      </pip-content>
-    </div>
-  </pip-mobile-sidenav>
-</div>
+<pip-root>
+  <pip-floating-sidenav style="height: 100%">
+    <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
+    <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
+  </pip-floating-sidenav>
+  <pip-root-content>
+    <pip-appbar>
+      <pip-appbar-icon *pipNavPart="'appbar-icon'" [pipNavPartName]="'appbar-icon'"> </pip-appbar-icon>
+      <pip-appbar-breadcrumb *pipNavPart="'appbar-breadcrumb'" [pipNavPartName]="'appbar-breadcrumb'"> </pip-appbar-breadcrumb>
+      <div fxFlex="grow"></div>
+      <pip-appbar-primary-actions *pipNavPart="'appbar-primary-actions'" [pipNavPartName]="'appbar-primary-actions'"> </pip-appbar-primary-actions>
+      <pip-appbar-secondary-actions *pipNavPart="'appbar-secondary-actions'" [pipNavPartName]="'appbar-secondary-actions'"></pip-appbar-secondary-actions>
+    </pip-appbar>
+    <pip-main>
+      <pip-fixed-sidenav>
+        <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
+        <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
+      </pip-fixed-sidenav>
+      <pip-main-content>
+        <router-outlet></router-outlet>
+      </pip-main-content>
+    </pip-main>
+  </pip-root-content>
+</pip-root>

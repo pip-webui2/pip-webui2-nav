@@ -1,10 +1,10 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PipNavPartService, SidenavHeader } from '../pip-webui2-nav';
-import { PipSidenavService, PipAppbarService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
+import { PipSidenavService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
 
 @Component({
-  selector: 'appbar-example',
+  selector: 'navparts-example',
   templateUrl: './navparts-example.component.html',
   styleUrls: ['./navparts-example.component.scss']
 })
@@ -34,16 +34,10 @@ export class NavPartsExampleComponent {
   constructor(
     private navparts: PipNavPartService,
     private sidenav: PipSidenavService,
-    private mainMedia: PipMediaService,
-    private appbar: PipAppbarService
+    private mainMedia: PipMediaService
   ) {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
-      this.appbar.shadowVisibility = change.aliases.includes('lt-lg');
-      this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') ? this.xsIcon : this.gtXsIcon);
-    });
-
-    this.sidenav.small$.subscribe((small) => {
-      this.navparts.updateProp(this.appbarIconPartName, 'icon', small ? 'chevron_right' : 'chevron_left');
+      this.navparts.updateProp(this.appbarIconPartName, 'icon', change.aliases.includes('xs') || change.aliases.includes('sm') ? this.xsIcon : this.gtXsIcon);
     });
 
     this.navparts.updatePartByName(this.appbarIconPartName, this.isIconShown, {

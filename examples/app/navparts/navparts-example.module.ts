@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MatButtonModule, MatInputModule, MatToolbarModule } from '@angular/material';
 
 import { PipNavPartModule } from '../pip-webui2-nav';
-import { PipDocumentLayoutModule } from 'pip-webui2-layouts';
+import { PipDocumentLayoutModule, PipShadowModule } from 'pip-webui2-layouts';
 import { NavPartsExampleComponent } from './navparts-example.component';
 import { PipNavPartService } from '../pip-webui2-nav';
 
@@ -24,6 +24,7 @@ import { PipNavPartService } from '../pip-webui2-nav';
     MatToolbarModule,
 
     PipDocumentLayoutModule,
+    PipShadowModule,
 
     PipNavPartModule
   ],

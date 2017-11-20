@@ -1,17 +1,5 @@
-examples-list {
-    width: 300px;
-}
-
-.content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
-
-::ng-deep .pip-main-lt-lg {
-    /deep/ .pip-sidenav mat-sidenav {
-        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26);
-    }
+::ng-deep navparts-example {
+    flex: 1 1 100%;
+    max-width: 100%;
+    max-height: 100%;
 }

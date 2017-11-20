@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { PipAppbarModule, PipAppbarShadowModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipContentCanvasModule, PipMainLayoutModule } from 'pip-webui2-layouts';
+import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainModule, PipRootModule } from 'pip-webui2-layouts';
 import { PipAppbarBreadcrumbModule, PipAppbarIconModule, PipAppbarPrimaryActionsModule, PipAppbarSecondaryActionsModule, PipNavPartModule, PipSidenavHeaderModule, PipSidenavMenuModule } from './pip-webui2-nav';
 
 import { NavPartsExampleModule } from './navparts/navparts-example.module';
@@ -25,12 +25,11 @@ const appRoutes: Routes = [
     FlexLayoutModule,
 
     PipAppbarModule,
-    PipAppbarShadowModule,
     PipRightnavModule,
     PipMediaModule,
-    PipSidenavModule, 
-    PipContentCanvasModule, 
-    PipMainLayoutModule,
+    PipSidenavModule,
+    PipMainModule,
+    PipRootModule,
 
     PipAppbarBreadcrumbModule, 
     PipAppbarIconModule, 
@@ -45,6 +44,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
