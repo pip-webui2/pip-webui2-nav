@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PipNavPartService } from '../navpart/shared/navpart.service';
+import { PipNavService } from '../shared/nav.service';
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -10,24 +10,28 @@ import { Subscription } from 'rxjs/Subscription';
 })
 
 export class PipAppbarPrimaryActionsComponent implements OnInit {
-	@Input() public set pipNavPartName(partName: string) {
-		this.service.updatePartByName(partName, null, null).properties.subscribe((actionsProp) => {
-			this.config = actionsProp;
-		});
-	}
+	private partName: string = 'appbar-primary-actions';
 
 	private subscription: Subscription;
 	public config: any;
 
 	public constructor(
-		private service: PipNavPartService
+		private service: PipNavService
 	) { }
 
-	ngOnInit() { }
+	ngOnInit() { 
+		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((actionsProp) => {
+			this.config = actionsProp;
+		});
+	}
 
 	public onActionClick(action) {
 		if (action.click != null) {
 			action.click();
 		}
+	}
+
+	public ngOnDestroy() {
+		this.subscription.unsubscribe();
 	}
 }

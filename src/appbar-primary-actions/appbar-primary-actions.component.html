@@ -1,5 +1,5 @@
 <div class="actions-container" fxLayout="row" fxLayoutAlign="space-around center">
-  <div class="action" *ngFor="let action of config.actions" [ngSwitch]="!!(action.subActions && action.subActions.length > 0)">
+  <div class="action" *ngFor="let action of config?.actions" [ngSwitch]="!!(action.subActions && action.subActions.length > 0)">
     <button mat-icon-button (click)="onActionClick(action)" *ngSwitchCase="false">
         <mat-icon>{{ action.icon }}</mat-icon>
     </button>

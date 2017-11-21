@@ -1,20 +1,20 @@
 <pip-root>
   <pip-floating-sidenav style="height: 100%">
-    <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
-    <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
+    <pip-sidenav-header></pip-sidenav-header>
+    <pip-sidenav-menu ></pip-sidenav-menu>
   </pip-floating-sidenav>
   <pip-root-content>
     <pip-appbar>
-      <pip-appbar-icon *pipNavPart="'appbar-icon'" [pipNavPartName]="'appbar-icon'"> </pip-appbar-icon>
-      <pip-appbar-breadcrumb *pipNavPart="'appbar-breadcrumb'" [pipNavPartName]="'appbar-breadcrumb'"> </pip-appbar-breadcrumb>
+      <pip-appbar-icon> </pip-appbar-icon>
+      <pip-appbar-breadcrumb > </pip-appbar-breadcrumb>
       <div fxFlex="grow"></div>
-      <pip-appbar-primary-actions *pipNavPart="'appbar-primary-actions'" [pipNavPartName]="'appbar-primary-actions'"> </pip-appbar-primary-actions>
-      <pip-appbar-secondary-actions *pipNavPart="'appbar-secondary-actions'" [pipNavPartName]="'appbar-secondary-actions'"></pip-appbar-secondary-actions>
+      <pip-appbar-primary-actions > </pip-appbar-primary-actions>
+      <pip-appbar-secondary-actions ></pip-appbar-secondary-actions>
     </pip-appbar>
     <pip-main>
       <pip-fixed-sidenav>
-        <pip-sidenav-header *pipNavPart="'sidenav-header'" [pipNavPartName]="'sidenav-header'"></pip-sidenav-header>
-        <pip-sidenav-menu *pipNavPart="'sidenav-menu'" [pipNavPartName]="'sidenav-menu'"></pip-sidenav-menu>
+        <pip-sidenav-header ></pip-sidenav-header>
+        <pip-sidenav-menu ></pip-sidenav-menu>
       </pip-fixed-sidenav>
       <pip-main-content>
         <router-outlet></router-outlet>

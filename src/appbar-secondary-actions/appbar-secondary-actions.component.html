@@ -3,7 +3,7 @@
      <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let action of config.actions" (click)="onActionClick(action)">
+    <button mat-menu-item *ngFor="let action of config?.actions" (click)="onActionClick(action)">
         {{ action.title }}
     </button>
   </mat-menu>

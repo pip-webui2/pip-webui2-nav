@@ -6,5 +6,4 @@ export class SidenavHeader {
     public subtitle: string;
     public icon?: string;
     public picture?: string;
-
 }

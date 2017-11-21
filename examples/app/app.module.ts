@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainModule, PipRootModule } from 'pip-webui2-layouts';
-import { PipAppbarBreadcrumbModule, PipAppbarIconModule, PipAppbarPrimaryActionsModule, PipAppbarSecondaryActionsModule, PipNavPartModule, PipSidenavHeaderModule, PipSidenavMenuModule } from './pip-webui2-nav';
+import { PipAppbarBreadcrumbModule, PipAppbarIconModule, PipAppbarPrimaryActionsModule, PipAppbarSecondaryActionsModule, PipNavModule, PipSidenavHeaderModule, PipSidenavMenuModule } from './pip-webui2-nav';
 
 import { NavPartsExampleModule } from './navparts/navparts-example.module';
 import { NavPartsExampleComponent } from './navparts/navparts-example.component';
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     PipAppbarIconModule, 
     PipAppbarPrimaryActionsModule, 
     PipAppbarSecondaryActionsModule, 
-    PipNavPartModule, 
+    PipNavModule, 
     PipSidenavHeaderModule, 
     PipSidenavMenuModule,
 

@@ -1,8 +1,9 @@
 import { Component, ElementRef, ChangeDetectorRef, Input, OnInit } from '@angular/core';
-import { PipNavPartService } from '../navpart/shared/navpart.service';
+import { PipNavService } from '../shared/nav.service';
 
 import { Subscription } from 'rxjs/Subscription';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
+import { BreadcrumbConfig } from './shared/appbar-breadcrumb.model';
 
 @Component({
 	selector: 'pip-appbar-breadcrumb',
@@ -11,17 +12,13 @@ import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 })
 
 export class PipAppbarBreadcrumbComponent implements OnInit {
-	@Input() public set pipNavPartName(partName: string) {
-		this.service.updatePartByName(partName, null, null).properties.subscribe((breadcrumbProps) => {
-			this.config = breadcrumbProps;
-		});
-	}
+	private partName: string = 'appbar-breadcrumb';
 
 	private subscription: Subscription;
-	public config: any;
+	public config: BreadcrumbConfig;
 
 	public constructor(
-		private service: PipNavPartService,
+		private service: PipNavService,
 		private media: ObservableMedia,
 		private elRef: ElementRef,
 		private cd: ChangeDetectorRef
@@ -32,6 +29,11 @@ export class PipAppbarBreadcrumbComponent implements OnInit {
 			this.elRef.nativeElement.classList[change.mqAlias == 'xs' ? 'add' : 'remove']('pip-mobile-appbar-breadcrumb');
 			this.cd.detectChanges();
 		});
+
+		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((breadcrumbProps: BreadcrumbConfig) => {
+			this.config = breadcrumbProps;
+			this.cd.detectChanges();
+		});
 	}
 
 	public onSearchClick() {
@@ -40,7 +42,16 @@ export class PipAppbarBreadcrumbComponent implements OnInit {
 	}
 
 	public onItemClick(item) {
-		if (this.config.itemClick)
+		if (this.config.itemClick) {
 			this.config.itemClick(item)
+		} else {
+			if (item.click) {
+				item.click();
+			}
+		}
+	}
+
+	public ngOnDestroy() {
+		this.subscription.unsubscribe();
 	}
 }

@@ -1,9 +1,6 @@
-<div *ngIf="menuProps && menuProps.sections && menuProps.sections.length" class="pip-nav-menu w-stretch">
-
+<div class="pip-nav-menu w-stretch" >
     <div fxFlex="grow" fxLayout="column" class="w-stretch">
-         <div *ngFor="let section of menuProps.sections let sectionIndex = index"
-         class="w-stretch" fxLayout="column">
-             
+         <div *ngFor="let section of config?.sections; let sectionIndex = index" class="w-stretch" fxLayout="column">
             <div *ngIf="sectionIndex > 0" class="pip-section-divider"></div>
             <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
                 {{section.title}}

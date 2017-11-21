@@ -1,12 +1,12 @@
 <div class="gt-xs-container" fxLayout="row" fxLayoutAlign="space-around center" >
   <!-- Search criteria -->
-  <span class="search-container" *ngIf="config.searchCriteria" (click)="onSearchClick()">{{ config.searchCriteria }} - </span>
+  <span class="search-container" *ngIf="config?.searchCriteria" (click)="onSearchClick()">{{ config?.searchCriteria }} - </span>
   <!-- Breadcrumb navigation -->
-  <span class="navigation-item" fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let item of config.items; let i = index" (click)="onItemClick(item)"
-    [ngStyle]="{ 'max-width' : (100 / config.items.length + 1) + '%' }">
+  <span class="navigation-item" fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let item of config?.items; let i = index" (click)="onItemClick(item)"
+    [ngStyle]="{ 'max-width' : (100 / config?.items.length + 1) + '%' }">
         <span >{{ item.title }}</span>
         <div>
-            <mat-icon *ngIf="i < config.items.length - 1">chevron_right</mat-icon>
+            <mat-icon *ngIf="i < config?.items.length - 1">chevron_right</mat-icon>
         </div>
   </span>
 </div>
@@ -14,12 +14,12 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" class="xs-container">
   <!-- Breadcrumb navigation -->
   <button mat-button [matMenuTriggerFor]="menu">
-        <span class="search-container" *ngIf="config.searchCriteria" (click)="onSearchClick()">{{ config.searchCriteria }} - </span>
-        <span>{{ config.items[config.items.length - 1].title }}</span>
+        <span class="search-container" *ngIf="config?.searchCriteria" (click)="onSearchClick()">{{ config?.searchCriteria }} - </span>
+        <span>{{ config?.items[config?.items.length - 1].title }}</span>
         <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let item of config.items; let i = index" [ngClass]="{'grey-text': i == config.items.length - 1}">
+    <button mat-menu-item *ngFor="let item of config?.items; let i = index" [ngClass]="{'grey-text': i == config?.items.length - 1}">
         {{ item.title }}
     </button>
   </mat-menu>

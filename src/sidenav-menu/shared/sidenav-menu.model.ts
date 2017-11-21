@@ -44,7 +44,7 @@ export class NavMenuSection {
     public access?: (section: NavMenuSection) => boolean;
 }
 
-export class NavMenuConfig {
+export class SidenavMenuConfig {
     sections: NavMenuSection[];
-    defaultIcon: string;
+    defaultIcon?: string;
 }

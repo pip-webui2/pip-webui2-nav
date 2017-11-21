@@ -8,4 +8,4 @@ export * from './appbar-secondary-actions/index';
 export * from './sidenav-menu/index';
 export * from './sidenav-header/index';
 
-export * from './navpart/index';
+export * from './shared/index';

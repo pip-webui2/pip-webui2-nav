@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { PipNavPartService } from '../navpart/shared/navpart.service';
+import { PipNavService } from '../shared/nav.service';
 import { SidenavHeader } from './shared/sidenav-header.model';
-
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'pip-sidenav-header',
@@ -9,15 +9,23 @@ import { SidenavHeader } from './shared/sidenav-header.model';
     styleUrls: ['./sidenav-header.component.scss']
 })
 export class PipSidenavHeaderComponent {
-    @Input() public set pipNavPartName(partName: string) {
-        this.service.updatePartByName(partName, null, null).properties.subscribe((props) => {
+    private partName: string = 'sidenav-header';
+
+    private subscription: Subscription;
+
+    public props: SidenavHeader;
+
+    public constructor(
+        private service: PipNavService
+    ) { }
+
+    public ngOnInit() {
+        this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((props: SidenavHeader) => {
             this.props = props;
         });
     }
 
-    public props: SidenavHeader;
-
-    public constructor(private service: PipNavPartService) { }
-
-
+    public ngOnDestroy() {
+		this.subscription.unsubscribe();
+	}
 }

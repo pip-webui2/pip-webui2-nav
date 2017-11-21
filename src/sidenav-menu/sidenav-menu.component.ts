@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { PipNavPartService } from '../navpart/shared/navpart.service';
-import {  NavMenuLink, NavMenuSection, NavMenuConfig  } from './shared/sidenav-menu.model';
+import { PipNavService } from '../shared/nav.service';
+import { NavMenuLink, NavMenuSection, SidenavMenuConfig } from './shared/sidenav-menu.model';
 
 @Component({
 	selector: 'pip-sidenav-menu',
@@ -12,27 +12,33 @@ import {  NavMenuLink, NavMenuSection, NavMenuConfig  } from './shared/sidenav-m
 })
 
 export class PipSidenavMenuComponent implements OnInit {
-
-	@Input() public set pipNavPartName(partName: string) {
-		this.service.updatePartByName(partName, null, null).properties.subscribe((menuProps) => {
-			this.menuProps = menuProps;
-		});
-	}
+	private partName: string = 'sidenav-menu';
 
 	private subscription: Subscription;
-	public menuProps: NavMenuConfig;
+	public config: SidenavMenuConfig;
 	public selectedItemIndex: number;
 
-	public constructor(private service: PipNavPartService) { 
+	public constructor(
+		private service: PipNavService,
+		private cd: ChangeDetectorRef
+	) {
 		this.selectedItemIndex = 0;
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((newConfig: SidenavMenuConfig) => {
+			this.config = newConfig;
+			this.cd.detectChanges();
+			console.log('this.menuProps', this.config);
+		});
+	}
 
 	public onItemSelect(index: number): void {
 		this.selectedItemIndex = index;
-		//this.selectedItemIndexChange.emit(index);
-    }
+	}
 
+	public ngOnDestroy() {
+		this.subscription.unsubscribe();
+	}
 
 }
