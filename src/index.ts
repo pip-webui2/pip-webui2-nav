@@ -1,11 +1,11 @@
 export * from './test/index';
 
-export * from './appbar-icon/index';
-export * from './appbar-breadcrumb/index';
-export * from './appbar-primary-actions/index';
-export * from './appbar-secondary-actions/index';
+export * from './nav-icon/index';
+export * from './breadcrumb/index';
+export * from './primary-actions/index';
+export * from './secondary-actions/index';
 
-export * from './sidenav-menu/index';
-export * from './sidenav-header/index';
+export * from './nav-menu/index';
+export * from './nav-header/index';
 
 export * from './shared/index';

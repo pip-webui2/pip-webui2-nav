@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { NavPart } from './navpart.model';
 
-import { BreadcrumbConfig } from '../appbar-breadcrumb/shared/appbar-breadcrumb.model';
-import { AppbarIcon } from '../appbar-icon/shared/appbar-icon.model';
-import { AppbarPrimaryActionsConfig } from '../appbar-primary-actions/shared/appbar-primary-actions.model';
-import { AppbarSecondaryActionsConfig } from '../appbar-secondary-actions/shared/appbar-secondary-action.model';
-import { SidenavHeader } from '../sidenav-header/shared/sidenav-header.model';
-import { SidenavMenuConfig } from '../sidenav-menu/shared/sidenav-menu.model';
+import { BreadcrumbConfig } from '../breadcrumb/shared/breadcrumb.model';
+import { NavIcon } from '../nav-icon/shared/nav-icon.model';
+import { PrimaryActionsConfig } from '../primary-actions/shared/primary-actions.model';
+import { SecondaryActionsConfig } from '../secondary-actions/shared/secondary-action.model';
+import { NavHeader } from '../nav-header/shared/nav-header.model';
+import { NavMenuConfig } from '../nav-menu/shared/nav-menu.model';
 
 @Injectable()
 export class PipNavService {
@@ -99,7 +99,7 @@ export class PipNavService {
     }
 
     public showBreadcrumb(config: BreadcrumbConfig) {
-        this.updatePartByName('appbar-breadcrumb', config);
+        this.updatePartByName('breadcrumb', config);
     }
 
     public showTitle(title: string) {
@@ -108,26 +108,26 @@ export class PipNavService {
                 title: title
             }]
         };
-        this.updatePartByName('appbar-breadcrumb', config);
+        this.updatePartByName('breadcrumb', config);
     }
 
-    public showAppbarIcon(icon: AppbarIcon) {
-        this.updatePartByName('appbar-icon', icon);
+    public showNavIcon(icon: NavIcon) {
+        this.updatePartByName('nav-icon', icon);
     }
 
-    public showPrimaryActions(primaryActionsConfig: AppbarPrimaryActionsConfig) {
-        this.updatePartByName('appbar-primary-actions', primaryActionsConfig);
+    public showPrimaryActions(primaryActionsConfig: PrimaryActionsConfig) {
+        this.updatePartByName('primary-actions', primaryActionsConfig);
     }
 
-    public showSecondaryActions(secondaryActionsConfig: AppbarSecondaryActionsConfig) {
-        this.updatePartByName('appbar-secondary-actions', secondaryActionsConfig);
+    public showSecondaryActions(secondaryActionsConfig: SecondaryActionsConfig) {
+        this.updatePartByName('secondary-actions', secondaryActionsConfig);
     }
 
-    public showSidenavHeader(sidenavHeader: SidenavHeader) {
-        this.updatePartByName('sidenav-header', sidenavHeader);
+    public showNavHeader(NavHeader: NavHeader) {
+        this.updatePartByName('nav-header', NavHeader);
     }
 
-    public showSidenavMenu(sidenavMenuConfig: SidenavMenuConfig) {
-        this.updatePartByName('sidenav-menu', sidenavMenuConfig);
+    public showNavMenu(NavMenuConfig: NavMenuConfig) {
+        this.updatePartByName('nav-menu', NavMenuConfig);
     }
 }

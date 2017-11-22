@@ -1,21 +1,21 @@
 <pip-root>
-  <pip-floating-sidenav style="height: 100%">
-    <pip-sidenav-header></pip-sidenav-header>
-    <pip-sidenav-menu ></pip-sidenav-menu>
-  </pip-floating-sidenav>
+  <pip-sidenav-floating style="height: 100%">
+    <pip-nav-header></pip-nav-header>
+    <pip-nav-menu ></pip-nav-menu>
+  </pip-sidenav-floating>
   <pip-root-content>
     <pip-appbar>
-      <pip-appbar-icon> </pip-appbar-icon>
-      <pip-appbar-breadcrumb > </pip-appbar-breadcrumb>
+      <pip-nav-icon> </pip-nav-icon>
+      <pip-breadcrumb > </pip-breadcrumb>
       <div fxFlex="grow"></div>
-      <pip-appbar-primary-actions > </pip-appbar-primary-actions>
-      <pip-appbar-secondary-actions ></pip-appbar-secondary-actions>
+      <pip-primary-actions > </pip-primary-actions>
+      <pip-secondary-actions ></pip-secondary-actions>
     </pip-appbar>
     <pip-main>
-      <pip-fixed-sidenav>
-        <pip-sidenav-header ></pip-sidenav-header>
-        <pip-sidenav-menu ></pip-sidenav-menu>
-      </pip-fixed-sidenav>
+      <pip-sidenav-fixed>
+        <pip-nav-header ></pip-nav-header>
+        <pip-nav-menu ></pip-nav-menu>
+      </pip-sidenav-fixed>
       <pip-main-content>
         <router-outlet></router-outlet>
       </pip-main-content>

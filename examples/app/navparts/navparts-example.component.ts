@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
-import { PipNavService, SidenavHeader } from '../pip-webui2-nav';
+import { PipNavService, NavHeader } from '../pip-webui2-nav';
 import { PipSidenavService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
 
 @Component({
@@ -29,7 +29,7 @@ export class NavPartsExampleComponent {
   public isMenuShown: boolean = true;
   public isHeaderShown: boolean = true;
 
-  public header: SidenavHeader = new SidenavHeader();
+  public header: NavHeader = new NavHeader();
 
   constructor(
     private navService: PipNavService,
@@ -37,7 +37,7 @@ export class NavPartsExampleComponent {
     private mainMedia: PipMediaService
   ) {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
-      this.navService.showAppbarIcon({
+      this.navService.showNavIcon({
         icon: change.aliases.includes('xs') || change.aliases.includes('sm') ? this.xsIcon : this.gtXsIcon,
         action: () => {
           this.sidenav.toggleNav();
@@ -45,7 +45,7 @@ export class NavPartsExampleComponent {
       });
     });
 
-    this.navService.showAppbarIcon({
+    this.navService.showNavIcon({
       icon: this.xsIcon,
       action: () => {
         this.sidenav.toggleNav();
@@ -91,8 +91,8 @@ export class NavPartsExampleComponent {
     this.header.subtitle = 'frontend developer';
     this.header.picture = "/assets/1.png";
 
-    this.navService.showSidenavHeader(_.cloneDeep(this.header));
-    this.navService.showSidenavMenu({
+    this.navService.showNavHeader(_.cloneDeep(this.header));
+    this.navService.showNavMenu({
       sections: [
         {
           name: 'appbar',
@@ -141,7 +141,7 @@ export class NavPartsExampleComponent {
 
   public onChangeIcon(): void {
     this.xsIcon = this.xsIcon == 'menu' ? 'arrow_back' : 'menu';
-    this.navService.showAppbarIcon({
+    this.navService.showNavIcon({
       icon: this.xsIcon, action: () => {
         this.sidenav.toggleNav();
       }
@@ -168,6 +168,6 @@ export class NavPartsExampleComponent {
   }
 
   public changeHeaderSubtitle() {
-    this.navService.showSidenavHeader(_.cloneDeep(this.header));
+    this.navService.showNavHeader(_.cloneDeep(this.header));
   }
 }
