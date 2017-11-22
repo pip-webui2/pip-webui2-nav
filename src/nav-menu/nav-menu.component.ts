@@ -17,6 +17,7 @@ export class PipNavMenuComponent implements OnInit {
 	private subscription: Subscription;
 	public config: NavMenuConfig;
 	public selectedItemIndex: number;
+	public sections: any[] = [];
 
 	public constructor(
 		private service: PipNavService,
@@ -26,10 +27,10 @@ export class PipNavMenuComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
+		this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
 			this.config = newConfig;
+			if (this.config && this.config.sections) this.sections = this.config.sections;
 			this.cd.detectChanges();
-			console.log('this.menuProps', this.config);
 		});
 	}
 
