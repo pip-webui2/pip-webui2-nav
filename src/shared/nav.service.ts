@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { NavPart } from './navpart.model';
 
 import { BreadcrumbConfig } from '../breadcrumb/shared/breadcrumb.model';
-import { NavIcon } from '../nav-icon/shared/nav-icon.model';
+import { NavIconConfig } from '../nav-icon/shared/nav-icon.model';
 import { PrimaryActionsConfig } from '../primary-actions/shared/primary-actions.model';
-import { SecondaryActionsConfig } from '../secondary-actions/shared/secondary-action.model';
-import { NavHeader } from '../nav-header/shared/nav-header.model';
+import { SecondaryActionsConfig } from '../secondary-actions/shared/secondary-actions.model';
+import { NavHeaderConfig } from '../nav-header/shared/nav-header.model';
 import { NavMenuConfig } from '../nav-menu/shared/nav-menu.model';
 
 @Injectable()
@@ -111,7 +111,7 @@ export class PipNavService {
         this.updatePartByName('breadcrumb', config);
     }
 
-    public showNavIcon(icon: NavIcon) {
+    public showNavIcon(icon: NavIconConfig) {
         this.updatePartByName('nav-icon', icon);
     }
 
@@ -123,7 +123,7 @@ export class PipNavService {
         this.updatePartByName('secondary-actions', secondaryActionsConfig);
     }
 
-    public showNavHeader(NavHeader: NavHeader) {
+    public showNavHeader(NavHeader: NavHeaderConfig) {
         this.updatePartByName('nav-header', NavHeader);
     }
 

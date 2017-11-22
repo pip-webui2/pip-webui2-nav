@@ -1,9 +1,9 @@
-export class NavIcon {
+export class NavIconConfig {
     icon: string;
     action?: () => void;
 }
 
-export const DefaultIcon: NavIcon = {
+export const DefaultIcon: NavIconConfig = {
     icon: 'menu',
     action: () => {}
 }

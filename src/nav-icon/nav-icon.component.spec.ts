@@ -7,7 +7,7 @@ import { PipNavIconModule } from './nav-icon.module';
 import { PipNavPartService } from '../navpart/shared/navpart.service';
 
 import { PipNavIconComponent } from './nav-icon.component';
-import { NavIcon } from './shared/nav-icon.model';
+import { NavIconConfig } from './shared/nav-icon.model';
 
 describe('a pip-nav-icon component', () => {
 	let component: PipNavIconComponent;

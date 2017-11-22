@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
-import { NavIcon, DefaultIcon } from './shared/nav-icon.model';
+import { NavIconConfig, DefaultIcon } from './shared/nav-icon.model';
 import { PipNavService } from '../shared/nav.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,7 +15,7 @@ export class PipNavIconComponent implements OnInit, OnDestroy {
 	private partName: string = 'nav-icon';
 
 	private subscription: Subscription;
-	public icon: NavIcon = DefaultIcon;
+	public icon: NavIconConfig = DefaultIcon;
 
 	public constructor(
 		private service: PipNavService,

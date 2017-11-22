@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
-import { PipNavService, NavHeader } from '../pip-webui2-nav';
+import { PipNavService, NavHeaderConfig } from '../pip-webui2-nav';
 import { PipSidenavService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
 
 @Component({
@@ -29,7 +29,7 @@ export class NavPartsExampleComponent {
   public isMenuShown: boolean = true;
   public isHeaderShown: boolean = true;
 
-  public header: NavHeader = new NavHeader();
+  public header: NavHeaderConfig = new NavHeaderConfig();
 
   constructor(
     private navService: PipNavService,
