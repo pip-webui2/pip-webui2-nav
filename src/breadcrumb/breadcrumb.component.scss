@@ -18,8 +18,8 @@
     padding-left: 8px;
 }
 
-.gt-xs-container, .xs-container {
-    margin-top: 4px;
+.xs-container {
+    margin-top: -2px;    
 }
 
 .navigation-item, .search-container {
@@ -32,7 +32,8 @@
 .mat-button {
     font-size: 20px;
     padding-left: 8px;
-    padding-right: 0px;
+    padding-right: 8px;
+    min-width: 0;
     .mat-button-wrapper {
         box-sizing: border-box;
         max-height: 100%;
