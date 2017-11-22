@@ -30,7 +30,7 @@ export class PipBreadcrumbComponent implements OnInit {
 			this.cd.detectChanges();
 		});
 
-		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((breadcrumbProps: BreadcrumbConfig) => {
+		this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((breadcrumbProps: BreadcrumbConfig) => {
 			this.config = breadcrumbProps;
 			this.cd.detectChanges();
 		});

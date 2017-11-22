@@ -20,7 +20,7 @@ export class PipSecondaryActionsComponent implements OnInit {
 	) { }
 
 	ngOnInit() { 
-		this.subscription = this.service.addNewPartByName(this.partName, null).properties.subscribe((actionsProp) => {
+		this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((actionsProp) => {
 			this.config = actionsProp;
 		});
 	}
