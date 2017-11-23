@@ -9,22 +9,13 @@ import { PipThemesService, Theme } from 'pip-webui2-themes';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public themes: Theme[];
-  public selectedTheme: Theme;
 
   constructor(
     public media: PipMediaService,
     private themesService: PipThemesService
   ) {
     media.activate();
-
-    this.themes = this.themesService.themes;
-    this.selectTheme(this.themesService.themes[0]);
-  }
-
-  private selectTheme(selectedTheme) {
-    this.themesService.selectedTheme = selectedTheme;
-    this.selectedTheme = selectedTheme;
+    this.themesService.selectedTheme = this.themesService.themes[0];
   }
 
   public list: any[] = [
