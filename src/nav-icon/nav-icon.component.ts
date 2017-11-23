@@ -23,7 +23,7 @@ export class PipNavIconComponent implements OnInit, OnDestroy {
 	) { }
 
 	ngOnInit() {
-		this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((iconProps) => {
+		this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((iconProps) => {
 			this.icon = iconProps;
 			this.cd.detectChanges();
 		});

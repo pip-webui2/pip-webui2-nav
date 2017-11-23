@@ -27,7 +27,7 @@ export class PipNavMenuComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
+		this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
 			this.config = newConfig;
 			if (this.config && this.config.sections) this.sections = this.config.sections;
 			this.cd.detectChanges();

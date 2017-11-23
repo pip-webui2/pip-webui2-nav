@@ -20,7 +20,7 @@ export class PipNavHeaderComponent {
     ) { }
 
     public ngOnInit() {
-        this.subscription = this.service.updatePartByName(this.partName, null).properties.subscribe((props: NavHeaderConfig) => {
+        this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((props: NavHeaderConfig) => {
             this.props = props;
         });
     }
