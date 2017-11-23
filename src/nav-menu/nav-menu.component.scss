@@ -1,32 +1,27 @@
 // Sizes
 //-----------
-
 $nav-menu-padding: 23px;
 $nav-menu-padding-sm: 16px;
 $nav-menu-selected-color: rgba(0, 0, 0, 0.08);
-$nav-menu-section-color: rgba(0,0,0, .56);
+$nav-menu-section-color: rgba(0, 0, 0, .56);
 $nav-menu-link-color: rgba(0, 0, 0, .87);
-
-$color-window:                    rgb(238, 238, 238);
-$color-content:                   rgb(250, 250, 250);
+$color-window : rgb(238, 238, 238);
+$color-content : rgb(250, 250, 250);
 
 .pip-nav-menu {
     font-family: Roboto;
     border-radius: 4px;
-    background-color: $color-window;
     display: block !important;
-    
     /deep/ .mat-select-underline {
         display: none;
         background-color: none;
         height: 0px;
     }
-    
     .selected {
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0, 0, 0, 0.1);
     }
-    
 }
+
 .pip-icon {
     margin-right: 16px;
 }
@@ -38,16 +33,15 @@ $color-content:                   rgb(250, 250, 250);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    
 }
 
- i {
+i {
     color: $nav-menu-section-color;
- }
+}
 
- .w-stretch {
+.w-stretch {
     max-width: 100%;
- }
+}
 
 .pip-nav-menu-section-title {
     padding: $nav-menu-padding-sm;
@@ -62,9 +56,8 @@ $color-content:                   rgb(250, 250, 250);
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
 .pip-section-divider {
-border-bottom: 1px solid $nav-menu-selected-color;
-margin-bottom: 8px;
-margin-top: 8px;
+    border-bottom: 1px solid $nav-menu-selected-color;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }

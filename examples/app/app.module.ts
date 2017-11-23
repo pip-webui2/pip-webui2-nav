@@ -3,8 +3,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainModule, PipRootModule } from 'pip-webui2-layouts';
+import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainLayoutModule, PipRootLayoutModule } from 'pip-webui2-layouts';
 import { PipBreadcrumbModule, PipNavIconModule, PipPrimaryActionsModule, PipSecondaryActionsModule, PipNavModule, PipNavHeaderModule, PipNavMenuModule } from './pip-webui2-nav';
+
+import { PipThemesModule } from 'pip-webui2-themes';
 
 import { NavPartsExampleModule } from './navparts/navparts-example.module';
 import { NavPartsExampleComponent } from './navparts/navparts-example.component';
@@ -24,12 +26,14 @@ const appRoutes: Routes = [
     RouterModule,
     FlexLayoutModule,
 
+    PipThemesModule,
+
     PipAppbarModule,
     PipRightnavModule,
     PipMediaModule,
     PipSidenavModule,
-    PipMainModule,
-    PipRootModule,
+    PipMainLayoutModule,
+    PipRootLayoutModule,
 
     PipBreadcrumbModule, 
     PipNavIconModule, 
