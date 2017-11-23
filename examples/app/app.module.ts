@@ -5,7 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatToolbarModule } from '@angular/material';
 
-import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainLayoutModule, PipRootLayoutModule } from 'pip-webui2-layouts';
+import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainLayoutModule, PipRootLayoutModule, PipSidenavExpanderModule } from 'pip-webui2-layouts';
 import { PipBreadcrumbModule, PipNavIconModule, PipPrimaryActionsModule, PipSecondaryActionsModule, PipNavModule, PipNavHeaderModule, PipNavMenuModule } from './pip-webui2-nav';
 
 import { PipThemesModule } from 'pip-webui2-themes';
@@ -37,6 +37,7 @@ const appRoutes: Routes = [
     PipSidenavModule,
     PipMainLayoutModule,
     PipRootLayoutModule,
+    PipSidenavExpanderModule,
 
     PipBreadcrumbModule, 
     PipNavIconModule, 
