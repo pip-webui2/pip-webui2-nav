@@ -23,6 +23,7 @@ $color-content: rgb(250, 250, 250);
 
 .pip-icon {
     margin-right: 16px;
+    margin-left: 4px;
 }
 
 .pip-link-title {
@@ -74,6 +75,12 @@ i {
     }
 }
 
-:host /deep/ .mat-divider {
-    margin: 8px 0;
+:host /deep/ {
+    .mat-divider {
+        margin: 8px 0;
+    }
+
+    .mat-nav-list[dense] {
+        padding-top: 0;
+    }
 }
