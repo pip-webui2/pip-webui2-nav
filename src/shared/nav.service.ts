@@ -4,7 +4,7 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { NavPart } from './navpart.model';
+import { NavItem } from './nav-item.model';
 
 import { BreadcrumbConfig } from '../breadcrumb/shared/breadcrumb.model';
 import { NavIconConfig } from '../nav-icon/shared/nav-icon.model';
@@ -13,93 +13,104 @@ import { SecondaryActionsConfig } from '../secondary-actions/shared/secondary-ac
 import { NavHeaderConfig } from '../nav-header/shared/nav-header.model';
 import { NavMenuConfig } from '../nav-menu/shared/nav-menu.model';
 
+import { NavConfig } from './nav-config.model';
+
+class navConfigItems {
+    public static breadcrumb: 'breadcrumb';
+    public static navIcon: 'navIcon';
+    public static primaryActions: 'primaryActions';
+    public static secondaryActions: 'secondaryActions';
+    public static navHeader: 'navHeader';
+    public static navMenu: 'navMenu';
+}
+
 @Injectable()
 export class PipNavService {
-    private _parts: NavPart[];
+    private _items: NavItem[];
 
     public constructor(
     ) { }
 
-    public get parts(): NavPart[] {
-        return this._parts;
+    public get items(): NavItem[] {
+        return this._items;
     }
 
-    public addNewPartByName(name: string, props: any): NavPart {
-        let newPart: NavPart = new NavPart();
-        newPart.name = name;
-        newPart.properties = new BehaviorSubject<any>(props);
-        this._parts ? this._parts.push(newPart) : this._parts = [newPart];
+    public addNewItemByName(name: string, props: any): NavItem {
+        let newItem: NavItem = new NavItem();
+        newItem.name = name;
+        newItem.properties = new BehaviorSubject<any>(props);
+        this._items ? this._items.push(newItem) : this._items = [newItem];
 
-        return this._parts[this._parts.length - 1];
+        return this._items[this._items.length - 1];
     }
 
-    public addNewPart(newPart: NavPart): NavPart {
-        this._parts ? this._parts.push(newPart) : this._parts = [newPart];
+    public addNewItem(newItem: NavItem): NavItem {
+        this._items ? this._items.push(newItem) : this._items = [newItem];
 
-        return this._parts[this._parts.length - 1];
+        return this._items[this._items.length - 1];
     }
 
-    private updatePart(newPart: NavPart): NavPart {
-        let index: number = _.findIndex(this._parts, { name: newPart.name });
+    private updateItem(newItem: NavItem): NavItem {
+        let index: number = _.findIndex(this._items, { name: newItem.name });
 
         if (index != -1) {
-            this._parts[index].name = newPart.name;
-            this._parts[index].properties.next(newPart.properties.value);
+            this._items[index].name = newItem.name;
+            this._items[index].properties.next(newItem.properties.value);
 
-            return this._parts[index];
+            return this._items[index];
         } else {
-            return this.addNewPart(newPart);
+            return this.addNewItem(newItem);
         }
     }
 
-    public updatePartByName(name: string, props: any): NavPart {
-        let index: number = _.findIndex(this._parts, (part: NavPart) => {
-            return part.name == name;
+    public updateItemByName(name: string, props: any): NavItem {
+        let index: number = _.findIndex(this._items, (item: NavItem) => {
+            return item.name == name;
         });
         if (index > -1) {
-            this._parts[index].name = name;
-            if (props != null) this._parts[index].properties.next(props);
+            this._items[index].name = name;
+            if (props != null) this._items[index].properties.next(props);
 
-            return this._parts[index];
+            return this._items[index];
         } else {
-            return this.addNewPartByName(name, props);
+            return this.addNewItemByName(name, props);
         }
     }
 
-    private updateProps(name: string, props: any): NavPart {
-        let index: number = _.findIndex(this._parts, { name: name });
+    private updateProps(name: string, props: any): NavItem {
+        let index: number = _.findIndex(this._items, { name: name });
         if (index > -1) {
-            this._parts[index].properties.next(props);
-            return this._parts[index];
+            this._items[index].properties.next(props);
+            return this._items[index];
         } else {
-            console.log('Part not found');
+            console.log('Item not found');
             return null;
         }
     }
 
-    private updateProp(name: string, propName: string, propValue: any): NavPart {
-        let index: number = _.findIndex(this._parts, { name: name });
+    private updateProp(name: string, propName: string, propValue: any): NavItem {
+        let index: number = _.findIndex(this._items, { name: name });
         if (index > -1) {
-            let props: any = this._parts[index].properties.value;
+            let props: any = this._items[index].properties.value;
 
             props ? props[propName] = propValue : props = { propName: propValue };
-            this._parts[index].properties.next(props);
+            this._items[index].properties.next(props);
            
-            return this._parts[index];
+            return this._items[index];
         } else {
-            console.log('Part not found');
+            console.log('Item not found');
             return null;
         }
     }
 
-    public getPart(name: string): NavPart {
-        let index: number = _.findIndex(this._parts, { name: name });
+    public getItem(name: string): NavItem {
+        let index: number = _.findIndex(this._items, { name: name });
 
-        return index > -1 ? this._parts[index] : null;
+        return index > -1 ? this._items[index] : null;
     }
 
     public showBreadcrumb(config: BreadcrumbConfig) {
-        this.updatePartByName('breadcrumb', config);
+        this.updateItemByName('breadcrumb', config);
     }
 
     public showTitle(title: string) {
@@ -108,26 +119,57 @@ export class PipNavService {
                 title: title
             }]
         };
-        this.updatePartByName('breadcrumb', config);
+        this.updateItemByName('breadcrumb', config);
     }
 
     public showNavIcon(icon: NavIconConfig) {
-        this.updatePartByName('nav-icon', icon);
+        this.updateItemByName('nav-icon', icon);
     }
 
     public showPrimaryActions(primaryActionsConfig: PrimaryActionsConfig) {
-        this.updatePartByName('primary-actions', primaryActionsConfig);
+        this.updateItemByName('primary-actions', primaryActionsConfig);
     }
 
     public showSecondaryActions(secondaryActionsConfig: SecondaryActionsConfig) {
-        this.updatePartByName('secondary-actions', secondaryActionsConfig);
+        this.updateItemByName('secondary-actions', secondaryActionsConfig);
     }
 
-    public showNavHeader(NavHeader: NavHeaderConfig) {
-        this.updatePartByName('nav-header', NavHeader);
+    public showNavHeader(navHeader: NavHeaderConfig) {
+        this.updateItemByName('nav-header', navHeader);
     }
 
-    public showNavMenu(NavMenuConfig: NavMenuConfig) {
-        this.updatePartByName('nav-menu', NavMenuConfig);
+    public showNavMenu(navMenu: NavMenuConfig) {
+        this.updateItemByName('nav-menu', navMenu);
+    }
+
+    public configurateNav(navConfig: NavConfig) {
+        for (let item in navConfig) {
+            switch(item) {
+                case navConfigItems.breadcrumb: {
+                    this.showBreadcrumb(navConfig.breadcrumb);
+                    break;
+                }
+                case navConfigItems.navIcon: {
+                    this.showNavIcon(navConfig.navIcon);
+                    break;
+                }
+                case navConfigItems.primaryActions: {
+                    this.showPrimaryActions(navConfig.primaryActions);
+                    break;
+                }
+                case navConfigItems.secondaryActions: {
+                    this.showSecondaryActions(navConfig.secondaryActions);
+                    break;
+                }
+                case navConfigItems.navHeader: {
+                    this.showNavHeader(navConfig.navHeader);
+                    break;
+                }
+                case navConfigItems.navMenu: {
+                    this.showNavMenu(navConfig.navMenu);
+                    break;
+                }
+            }
+        }
     }
 }

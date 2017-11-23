@@ -1,3 +1,3 @@
 export { PipNavService } from './nav.service';
-export { NavPart } from './navpart.model';
+export { NavItem } from './nav-item.model';
 export { PipNavModule } from './nav.module';
