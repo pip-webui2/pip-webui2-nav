@@ -77,7 +77,8 @@ i {
 
 :host /deep/ {
     .mat-divider {
-        margin: 8px 0;
+        margin-top: 8px;
+        padding-bottom: 8px;
     }
 
     .mat-nav-list[dense] {
