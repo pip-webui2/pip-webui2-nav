@@ -1,12 +1,10 @@
 :host {
     overflow: hidden;
-
     &.pip-mobile-breadcrumb {
         .gt-xs-container {
             display: none !important;
         }
     }
-
     &:not(.pip-mobile-breadcrumb) {
         .xs-container {
             display: none !important;
@@ -14,22 +12,37 @@
     }
 }
 
-
-
 .gt-xs-container {
     padding-left: 8px;
+    span {
+        display: inline-block;
+        span, mat-icon {
+            display: inline-block;
+        }
+        span {
+            vertical-align: bottom;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &.with-icon {
+                width: calc(100% - 24px);
+            }
+        }
+        mat-icon {
+            vertical-align: text-bottom;
+        }
+    }
 }
 
 .xs-container {
-    margin-top: -2px;    
+    margin-top: -2px;
 }
 
-.navigation-item, .search-container {
+.navigation-item,
+.search-container {
     cursor: pointer;
-    margin-right: 4px;
-    .mat-icon {
-        margin-top: 9px;
-    }
+    margin-right: 8px;
 }
 
 .mat-button {
@@ -47,14 +60,18 @@
         align-items: center;
         max-width: 100%;
         display: inline-block;
-        .search-title-container {
-            display: inline-block;
-            width: calc(100% - 20px);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: inline-block;
-        }
+    }
+}
+
+.search-title-container {
+    display: inline-block;
+    width: calc(100% - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    &.without-icon {
+        width: 100%;
     }
 }
 
