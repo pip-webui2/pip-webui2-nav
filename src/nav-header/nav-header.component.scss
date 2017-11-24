@@ -20,10 +20,12 @@
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.12);
+    z-index: 4;
   }
 }
 
 .pip-nav-content {
+  z-index: 5;
   overflow: hidden;
   div {
     overflow: hidden;
@@ -33,6 +35,7 @@
 }
 
 .pip-pic {
+  z-index: 5;
   height: 40px;
   width: 40px;
   margin-right: 16px;
