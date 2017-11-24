@@ -161,9 +161,7 @@ export class NavPartsExampleComponent {
   public onChangeIcon(): void {
     this.xsIcon = this.xsIcon == 'menu' ? 'arrow_back' : 'menu';
     this.navService.showNavIcon({
-      icon: this.xsIcon, action: () => {
-        this.sidenav.toggleNav();
-      }
+      icon: this.xsIcon
     });
   }
 
