@@ -18,19 +18,11 @@ export class AppComponent {
     this.themesService.selectedTheme = this.themesService.themes[0];
   }
 
-  public list: any[] = [
-    {
-      name: 'Appbar', id: 'appbar', route: 'appbar'
-    },
-    {
-      name: 'Sidenav', id: 'sidenav', route: 'sidenav'
-    }
+  public messages: any[] = [
+    { image_src: '/assets/girl.png', subject: 'University', from: 'Marta', content: 'Tommorow you should visit university' },
+    { image_src: '/assets/boy2.png', subject: 'Party', from: 'Sam', content: 'We are going to have a party' },
+    { image_src: '/assets/girl2.png', subject: 'Cats', from: 'April', content: 'look at these kittens!!!' },
+    { image_src: '/assets/boy.png', subject: 'Football', from: 'Nick', content: 'Cup is ours' }
   ];
 
-  public listIndex: number = 0;
-
-  public onListItemIndexChanged(index: number) {
-    this.listIndex - index;
-    
-  }
 }
