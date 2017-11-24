@@ -1,4 +1,6 @@
 :host {
+    overflow: hidden;
+
     &.pip-mobile-breadcrumb {
         .gt-xs-container {
             display: none !important;
@@ -24,6 +26,7 @@
 
 .navigation-item, .search-container {
     cursor: pointer;
+    margin-right: 4px;
     .mat-icon {
         margin-top: 9px;
     }
@@ -34,7 +37,7 @@
     padding-left: 8px;
     padding-right: 8px;
     min-width: 0;
-    .mat-button-wrapper {
+    /deep/.mat-button-wrapper {
         box-sizing: border-box;
         max-height: 100%;
         display: flex;
@@ -42,6 +45,16 @@
         justify-content: space-around;
         align-content: center;
         align-items: center;
+        max-width: 100%;
+        display: inline-block;
+        .search-title-container {
+            display: inline-block;
+            width: calc(100% - 20px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+        }
     }
 }
 

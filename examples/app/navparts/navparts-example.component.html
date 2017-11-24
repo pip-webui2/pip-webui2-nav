@@ -11,6 +11,9 @@
     <h3 style="font-family: Roboto">Breadcrumb config</h3>
     <form>
       <mat-input-container>
+        <input matInput name="searchCriteria" [(ngModel)]="breadcrumbSearchCriteria">
+      </mat-input-container>
+      <mat-input-container>
         <input matInput name="title1" [(ngModel)]="breadcrumbTitle1">
       </mat-input-container>
       <mat-input-container>

@@ -26,7 +26,7 @@ export class PipBreadcrumbComponent implements OnInit {
 
 	ngOnInit() { 
 		this.media.asObservable().subscribe((change: MediaChange) => {
-			this.elRef.nativeElement.classList[change.mqAlias == 'xs' ? 'add' : 'remove']('pip-mobile-breadcrumb');
+			this.elRef.nativeElement.classList[change.mqAlias == 'xs' || change.mqAlias == 'sm' ? 'add' : 'remove']('pip-mobile-breadcrumb');
 			this.cd.detectChanges();
 		});
 
@@ -34,6 +34,13 @@ export class PipBreadcrumbComponent implements OnInit {
 			this.config = breadcrumbProps;
 			this.cd.detectChanges();
 		});
+
+		this.setClass();
+	}
+
+	private setClass() {
+		this.elRef.nativeElement.classList[this.media.isActive('xs') || this.media.isActive('sm') ? 'add' : 'remove']('pip-mobile-breadcrumb');
+		this.cd.detectChanges();
 	}
 
 	public onSearchClick() {

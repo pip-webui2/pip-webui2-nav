@@ -17,6 +17,7 @@ export class NavPartsExampleComponent {
   public appbarSecondaryActionsPartName: string = 'appbar-secondary-actions';
   public breadcrumbTitle1: string = 'Navigation';
   public breadcrumbTitle2: string = 'Nav items configuration';
+  public breadcrumbSearchCriteria: string = 'Search text';
 
   private isIconShown: boolean = true;
   private isBreadcrumbShown: boolean = true;
@@ -58,6 +59,7 @@ export class NavPartsExampleComponent {
     });
 
     this.navService.showBreadcrumb({
+      searchCriteria: this.breadcrumbSearchCriteria,
       items: [
         { title: this.breadcrumbTitle1 },
         { title: this.breadcrumbTitle2 }
@@ -167,6 +169,7 @@ export class NavPartsExampleComponent {
 
   public onChangeBreadcrumb(): void {
     this.navService.showBreadcrumb({
+      searchCriteria: this.breadcrumbSearchCriteria,
       items: [
         { title: this.breadcrumbTitle1 },
         { title: this.breadcrumbTitle2 }
