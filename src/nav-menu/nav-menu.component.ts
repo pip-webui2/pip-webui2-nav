@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { Component, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 

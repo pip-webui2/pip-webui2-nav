@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -51,7 +50,7 @@ export class PipNavService {
     }
 
     private updateItem(newItem: NavItem): NavItem {
-        let index: number = _.findIndex(this._items, { name: newItem.name });
+        let index: number = this._items.findIndex(item => { return item.name == name });
 
         if (index != -1) {
             this._items[index].name = newItem.name;
@@ -64,9 +63,7 @@ export class PipNavService {
     }
 
     public updateItemByName(name: string, props: any): NavItem {
-        let index: number = _.findIndex(this._items, (item: NavItem) => {
-            return item.name == name;
-        });
+        let index: number = this._items.findIndex(item => { return item.name == name });
         if (index > -1) {
             this._items[index].name = name;
             if (props != null) this._items[index].properties.next(props);
@@ -78,7 +75,7 @@ export class PipNavService {
     }
 
     private updateProps(name: string, props: any): NavItem {
-        let index: number = _.findIndex(this._items, { name: name });
+        let index: number = this._items.findIndex(item => { return item.name == name });
         if (index > -1) {
             this._items[index].properties.next(props);
             return this._items[index];
@@ -89,7 +86,7 @@ export class PipNavService {
     }
 
     private updateProp(name: string, propName: string, propValue: any): NavItem {
-        let index: number = _.findIndex(this._items, { name: name });
+        let index: number = this._items.findIndex(item => { return item.name == name });
         if (index > -1) {
             let props: any = this._items[index].properties.value;
 
@@ -104,7 +101,7 @@ export class PipNavService {
     }
 
     public getItem(name: string): NavItem {
-        let index: number = _.findIndex(this._items, { name: name });
+        let index: number = this._items.findIndex(item => { return item.name == name });
 
         return index > -1 ? this._items[index] : null;
     }
