@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { MatToolbarModule, MatListModule, MatButtonModule } from '@angular/material';
 
 import { PipAppbarModule, PipRightnavModule, PipMediaModule, PipSidenavModule, PipMainLayoutModule, PipRootLayoutModule, PipSidenavExpanderModule } from 'pip-webui2-layouts';
@@ -30,6 +30,8 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatListModule,
     MatButtonModule,
+
+    TranslateModule.forRoot(),
 
     PipThemesModule,
 

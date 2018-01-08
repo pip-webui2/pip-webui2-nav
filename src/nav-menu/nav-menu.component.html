@@ -3,7 +3,7 @@
          <div *ngFor="let section of config?.sections; let sectionIndex = index" class="w-stretch" fxLayout="column">
             <mat-divider *ngIf="sectionIndex > 0"></mat-divider>
             <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
-                {{section.title}}
+                {{section.title | translate }}
             </div> 
             <div fxFlex="grow" class="w-stretch">
                 <mat-nav-list dense class="w-stretch">
@@ -14,7 +14,7 @@
                         -->
                         <div fxLayout="row" fxLayoutAlign="start center" class="w-stretch">
                             <i class="material-icons pip-icon" *ngIf="item.icon">{{item.icon}}</i>
-                            <h3 mat-line class="pip-link-title">{{ item.title }}</h3>
+                            <h3 mat-line class="pip-link-title">{{ item.title | translate }}</h3>
                         </div>
                     </mat-list-item>
                 </mat-nav-list>

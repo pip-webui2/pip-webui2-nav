@@ -4,7 +4,7 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item *ngFor="let action of config?.actions" (click)="onActionClick(action)">
-        {{ action.title }}
+        {{ action.title | translate }}
     </button>
   </mat-menu>
 </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 
 import { PipBreadcrumbComponent } from './breadcrumb.component';
@@ -12,6 +13,7 @@ import { PipBreadcrumbComponent } from './breadcrumb.component';
   imports: [
     BrowserModule,
     FlexLayoutModule,
+    TranslateModule,
     MatMenuModule,
     MatButtonModule,
     MatIconModule

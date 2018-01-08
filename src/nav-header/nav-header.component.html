@@ -2,9 +2,9 @@
     <div class="shadow-block"></div>
     <img *ngIf="props?.picture" [src]="props?.picture" class="pip-pic">
     <div fxLayout="column" class="pip-nav-content">
-        <div>{{props?.title}}</div>
+        <div>{{props?.title | translate}}</div>
 
-        <div class="pip-nav-subtitle" *ngIf="props && props?.subtitle">{{props?.subtitle}}</div>
+        <div class="pip-nav-subtitle" *ngIf="props && props?.subtitle">{{props?.subtitle | translate}}</div>
     </div>
 
 </mat-toolbar>

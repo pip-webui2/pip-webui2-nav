@@ -25,7 +25,7 @@ class navConfigItems {
 
 @Injectable()
 export class PipNavService {
-    private _items: NavItem[];
+    private _items: NavItem[] = [];
 
     public constructor(
     ) { }
