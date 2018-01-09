@@ -84,8 +84,7 @@ export class NavPartsExampleComponent {
         { title: 'Settings' },
         { title: 'Sign out' }
       ]
-    }
-    );
+    });
 
     this.header.title = 'Kate Negrienko';
     this.header.subtitle = 'frontend developer';

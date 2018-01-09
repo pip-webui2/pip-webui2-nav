@@ -27,7 +27,7 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let item of config?.items; let i = index" [ngClass]="{'grey-text': i == config?.items.length - 1}">
+    <button mat-menu-item *ngFor="let item of config?.items; let i = index" (click)="onItemClick(item)" [ngClass]="{'grey-text': i == config?.items.length - 1}">
       {{ item.title | translate }}
     </button>
   </mat-menu>

@@ -228,6 +228,54 @@ class SecondaryActionsConfig {
     <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/secondary-actions.png"/>
 </a>
 
+## Services
+
+### Nav service
+
+**allows to configurate and control the navigation elements: nav header, nav menu, breadcrumb, nav icon, primary and secondary actions, etc.**
+
+**Using**
+
+```typescript
+import { PipNavService } from 'pip-webui2-nav';
+
+constructor(
+    private navService: PipNavService,
+) {
+    this.navService.showNavIcon({
+      icon: this.gtXsIcon
+    });
+
+    this.navService.showBreadcrumb({
+      searchCriteria: this.breadcrumbSearchCriteria,
+      items: [
+        { title: this.breadcrumbTitle1 },
+        { title: this.breadcrumbTitle2 }
+      ]
+    });
+
+    this.navService.showPrimaryActions({
+      actions: [
+        {
+          icon: 'notifications', click: () => {
+            this.rightnav.toggleRightnav();
+          }
+        },
+        {
+          icon: 'format_color_fill', subActions: this.generatePrimaryActionThemeList()
+        }
+      ]
+    });
+
+    this.navService.showSecondaryActions({
+      actions: [
+        { title: 'Settings' },
+        { title: 'Sign out' }
+      ]
+    });
+}
+```
+
 ## Installation
 
 To install this module using npm:
