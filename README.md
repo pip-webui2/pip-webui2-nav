@@ -72,6 +72,10 @@ class NavMenuConfig {
 
 **Example on the image**
 
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-menu.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-menu.png"/>
+</a>
+
 ### Side navigation header 
 **May contain information about the user or application**
 
@@ -93,6 +97,10 @@ class NavHeaderConfig {
 ```
 
 **Example on the image**
+
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-header.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-header.png"/>
+</a>
 
 ## Application bar parts
 
@@ -121,6 +129,10 @@ const DefaultIcon: NavIconConfig = {
 
 **Example on the image**
 
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-icon.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/nav-icon.png"/>
+</a>
+
 ### Application bar breadcrumb
 **Shows title or several titles that reveals the user’s location in a website or Web application**
 
@@ -148,6 +160,10 @@ class BreadcrumbConfig {
 ```
 
 **Example on the image**
+
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/breadcrumb.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/breadcrumb.png"/>
+</a>
 
 ### Application bar primary actions
 **Shows extra icons in application bar and processes click on them**
@@ -179,6 +195,10 @@ class PrimaryActionsConfig {
 
 **Example on the image**
 
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/primary-actions.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/primary-actions.png"/>
+</a>
+
 ### Application bar secondary actions
 **Shows icon and dropdown menu with links**
 
@@ -203,3 +223,19 @@ class SecondaryActionsConfig {
 ```
 
 **Example on the image**
+
+<a href="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/secondary-actions.png" style="display: block">
+    <img src="https://github.com/pip-webui2/pip-webui2-nav/raw/master/doc/images/secondary-actions.png"/>
+</a>
+
+## Installation
+
+To install this module using npm:
+
+```bash
+npm install pip-webui2-nav --save
+```
+
+## <a name="license"></a>License
+
+This module is released under [MIT license](License) and totally free for commercial and non-commercial use.
