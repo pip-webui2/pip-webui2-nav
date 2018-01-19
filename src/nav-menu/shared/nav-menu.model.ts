@@ -5,8 +5,9 @@ export class NavMenuLink {
     public title: string;
     // Tooltip text
     public tooltipText?: string;
-    // Icon name from $iconProvider
+    // Icon name and fontSet
     public icon?: string;
+    public fontSet?: string
     // Counter badge
     public count?: number;
     // class for badge style
@@ -31,13 +32,14 @@ export class NavMenuLink {
 
 export class NavMenuSection {
     // Name to refer to the section
-    public name: string;
+    public name?: string;
     // Section visible title
     public title?: string;
     // Tooltip text
     public tooltipText?: string;
-    // Icon name from $iconProvider
+    // Icon name and fontSet
     public icon?: string;
+    public fontSet?: string
     // Links shown in the section
     public links: NavMenuLink[];
     // Access function

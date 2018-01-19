@@ -5,8 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { MatButtonModule, MatIconModule } from '@angular/material';
-import { MatListModule, MatOptionModule, MatGridListModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatListModule, MatOptionModule, MatGridListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common';

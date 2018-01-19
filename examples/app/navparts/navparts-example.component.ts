@@ -24,7 +24,7 @@ export class NavPartsExampleComponent {
   private isPrimaryActionsShown: boolean = true;
   private isSecondaryActionsShown: boolean = true;
   private xsIcon: string = 'menu';
-  private gtXsIcon: string = 'apps';
+  private gtXsIcon: string = 'ice-cup';
 
   public sidenavMenuPartName: string = 'sidenav-menu';
   public sidenavHeaderPartName: string = 'sidenav-header';
@@ -47,6 +47,7 @@ export class NavPartsExampleComponent {
     this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
       let is = change.aliases.includes('xs') || change.aliases.includes('sm');
       this.navService.showNavIcon({
+        fontSet: 'ice',
         icon: is ? this.xsIcon : this.gtXsIcon,
         action: is ? () => {
           this.sidenav.toggleNav();

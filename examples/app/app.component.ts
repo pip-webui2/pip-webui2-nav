@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PipMediaService } from 'pip-webui2-layouts';
 
 import { PipThemesService, Theme } from 'pip-webui2-themes';
+import { MatIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,12 @@ export class AppComponent {
 
   constructor(
     public media: PipMediaService,
-    private themesService: PipThemesService
+    private themesService: PipThemesService,
+    private matIconRegistry: MatIconRegistry
   ) {
     media.activate();
     this.themesService.selectedTheme = this.themesService.themes[0];
+    matIconRegistry.registerFontClassAlias('ice', 'ice');
   }
 
   public messages: any[] = [
