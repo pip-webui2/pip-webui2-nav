@@ -3,7 +3,7 @@
   <span class="search-container" *ngIf="config?.searchCriteria" (click)="onSearchClick()">{{ config?.searchCriteria }} -</span>
   <!-- Breadcrumb navigation -->
   <span class="navigation-item" *ngFor="let item of config?.items; let i = index"
-    (click)="onItemClick(item)" [ngStyle]="{ 'max-width' : (100 / config?.items.length) + '%' }">
+    (click)="onItemClick(item)" [ngStyle]="{ 'max-width' : item.width + '%' }">
     <span [ngClass]="{ 'with-icon':  i < config?.items.length - 1 }">{{ item.title | translate }}</span>
     <mat-icon *ngIf="i < config?.items.length - 1">chevron_right</mat-icon>
   </span>

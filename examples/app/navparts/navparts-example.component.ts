@@ -63,7 +63,9 @@ export class NavPartsExampleComponent {
       searchCriteria: this.breadcrumbSearchCriteria,
       items: [
         { title: this.breadcrumbTitle1 },
-        { title: this.breadcrumbTitle2 }
+        { title: this.breadcrumbTitle2 },
+        { title: 'Sub tite items title' },
+        { title: 'Subsub tite items text last' }
       ]
     });
 

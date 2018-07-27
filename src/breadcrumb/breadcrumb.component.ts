@@ -31,12 +31,32 @@ export class PipBreadcrumbComponent implements OnInit {
 		});
 
 		this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((breadcrumbProps: BreadcrumbConfig) => {
-			this.config = breadcrumbProps;
+            this.config = breadcrumbProps;
+            this.calculateWidth();
 			this.cd.detectChanges();
 		});
 
 		this.setClass();
-	}
+    }
+    
+    private calculateWidth(): void {
+        if (!this.config || !this.config.items) return;
+
+        let breadcrumbWidth: number = 0;
+        let n: number = this.config.items.length;
+        // calculate total length
+        for (let i = 0; i < n; i++) {
+            let str = this.config.items[i].title || '';
+            breadcrumbWidth += this.config.items[i].width ? this.config.items[i].width : str.length;
+            // add 4 character for each level
+            breadcrumbWidth += 5;
+        }
+
+        for (let i = 0; i < n; i++) {
+            let str = this.config.items[i].title || '';
+            this.config.items[i].width = Math.trunc(str.length / breadcrumbWidth * 100);
+        }
+    }
 
 	private setClass() {
 		this.elRef.nativeElement.classList[this.media.isActive('xs') || this.media.isActive('sm') ? 'add' : 'remove']('pip-mobile-breadcrumb');
