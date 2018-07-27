@@ -1,4 +1,4 @@
-<div class="secondary-actions-container">
+<div class="secondary-actions-container" *ngIf="config?.actions && config.actions.length > 0">
   <button mat-icon-button [matMenuTriggerFor]="menu" (click)="onOpenActionsMenu()">
      <mat-icon>more_vert</mat-icon>
   </button>
