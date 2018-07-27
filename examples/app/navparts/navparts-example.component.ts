@@ -16,7 +16,7 @@ export class NavPartsExampleComponent {
   public appbarPrimaryActionsPartName: string = 'appbar-primary-actions';
   public appbarSecondaryActionsPartName: string = 'appbar-secondary-actions';
   public breadcrumbTitle1: string = 'Navigation';
-  public breadcrumbTitle2: string = 'Nav items configuration';
+  public breadcrumbTitle2: string = 'Nav items configuration long text';
   public breadcrumbSearchCriteria: string = 'Search text';
 
   private isIconShown: boolean = true;
