@@ -52,6 +52,10 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
         });
     }
 
+    public isFunction(val: any): boolean {
+        return typeof val === 'function';
+    }
+
     public onItemSelect(index: number): void {
         this.selectedItemIndex = index;
     }
