@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-import { PipMediaService } from 'pip-webui2-layouts-temp';
-import { PipThemesService } from 'pip-webui2-themes-temp';
+import { PipMediaService } from 'pip-webui2-layouts';
+import { PipThemesService } from 'pip-webui2-themes';
 
 import { AppTranslations } from './app.strings';
 

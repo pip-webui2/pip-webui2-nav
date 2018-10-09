@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatInputModule, MatToolbarModule, MatListModule } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipDocumentLayoutModule, PipShadowModule } from 'pip-webui2-layouts-temp';
+import { PipDocumentLayoutModule, PipShadowModule } from 'pip-webui2-layouts';
 import { PipNavModule } from 'pip-webui2-nav';
 
 import { NavpartsExampleComponent } from './navparts-example.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PipNavService } from '../shared/nav.service';
-
 import { Subscription } from 'rxjs';
+
+import { PipNavService } from '../shared/nav.service';
 
 @Component({
     selector: 'pip-primary-actions',

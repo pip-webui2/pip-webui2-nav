@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { cloneDeep, each } from 'lodash';
-import { PipSidenavService, PipMediaService, MediaMainChange, PipRightnavService } from 'pip-webui2-layouts-temp';
+import { PipSidenavService, PipMediaService, MediaMainChange, PipRightnavService } from 'pip-webui2-layouts';
 import { PipNavService, NavHeaderConfig } from 'pip-webui2-nav';
-import { PipThemesService, Theme } from 'pip-webui2-themes-temp';
+import { PipThemesService, Theme } from 'pip-webui2-themes';
 
 @Component({
   selector: 'app-navparts-example',

@@ -1,9 +1,9 @@
 import { Component, ElementRef, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
-import { PipNavService } from '../shared/nav.service';
-
-import { Subscription } from 'rxjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs';
+
 import { BreadcrumbConfig } from './shared/breadcrumb.model';
+import { PipNavService } from '../shared/nav.service';
 
 @Component({
     selector: 'pip-breadcrumb',

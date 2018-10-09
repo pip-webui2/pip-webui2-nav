@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { PipNavService } from '../shared/nav.service';
 import { NavHeaderConfig } from './shared/nav-header.model';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'pip-nav-header',

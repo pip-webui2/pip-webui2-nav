@@ -12,7 +12,7 @@ import {
   PipMainLayoutModule,
   PipRootLayoutModule,
   PipSidenavExpanderModule
-} from 'pip-webui2-layouts-temp';
+} from 'pip-webui2-layouts';
 import {
   PipBreadcrumbModule,
   PipNavIconModule,
@@ -23,7 +23,7 @@ import {
   PipNavMenuModule
 } from 'pip-webui2-nav';
 
-import { PipThemesModule } from 'pip-webui2-themes-temp';
+import { PipThemesModule } from 'pip-webui2-themes';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
