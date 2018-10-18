@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -13,6 +13,8 @@ import { NavMenuConfig } from './shared/nav-menu.model';
 
 export class PipNavMenuComponent implements OnInit, OnDestroy {
     private partName = 'nav-menu';
+
+    @Output() select = new EventEmitter<number>();
 
     private subscription: Subscription;
     public config: NavMenuConfig;
@@ -58,6 +60,7 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
 
     public onItemSelect(index: number): void {
         this.selectedItemIndex = index;
+        this.select.emit(index);
     }
 
     public ngOnDestroy() {
