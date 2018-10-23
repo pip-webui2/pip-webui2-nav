@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PipSidenavService } from 'pip-webui2-layouts';
 import { Subscription } from 'rxjs';
 
@@ -27,6 +27,7 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
 
     public constructor(
         private router: Router,
+        private route: ActivatedRoute,
         private service: PipNavService,
         private sidenav: PipSidenavService,
         private cd: ChangeDetectorRef
@@ -40,13 +41,18 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
             this.config = newConfig;
             if (this.config && this.config.sections) { this.sections = this.config.sections; }
             if (this.sections && this.sections.length) {
-                const url = this.router.url.replace(/^\//, '');
+                const url = '/' + (this.route.snapshot.firstChild && this.route.snapshot.firstChild.url.length
+                 ? this.route.snapshot.firstChild.url[0].path
+                 : '');
                 const selectIndex = () => {
                     for (let sk = 0; sk < this.sections.length; sk++) {
                         for (let lk = 0; lk < this.sections[sk].links.length; lk++) {
-                            if (this.sections[sk].links[lk].url === url) {
+                            if (this.sections[sk].links[lk].url === url || this.sections[sk].links[lk].href === url) {
                                 this.selectedSectionIndex = sk;
                                 this.selectedItemIndex = lk;
+                                if (!this.sections[sk].links[lk].disableTitleChange) {
+                                    this.service.showTitle(this.sections[sk].links[lk].title);
+                                }
                                 return;
                             }
                         }
