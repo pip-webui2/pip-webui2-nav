@@ -1,10 +1,13 @@
 {
   "name": "pip-webui2-nav",
-  "version": "1.0.1-beta.2",
+  "version": "1.0.1-beta.3",
   "license": "MIT",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/pip-webui2/pip-webui2-nav"
+  },
+  "dependencies": {
+    "pip-webui2-layouts": "^1.0.2-beta.4"
   },
   "peerDependencies": {
     "@angular/cdk": "^6.4.7",

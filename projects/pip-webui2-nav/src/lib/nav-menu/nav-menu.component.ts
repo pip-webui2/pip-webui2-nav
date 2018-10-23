@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { PipSidenavService } from 'pip-webui2-layouts';
 import { Subscription } from 'rxjs';
 
 import { PipNavService } from '../shared/nav.service';
-import { NavMenuConfig } from './shared/nav-menu.model';
+import { NavMenuConfig, NavMenuSection, NavMenuLink } from './shared/nav-menu.model';
 
 @Component({
     selector: 'pip-nav-menu',
@@ -14,17 +15,20 @@ import { NavMenuConfig } from './shared/nav-menu.model';
 export class PipNavMenuComponent implements OnInit, OnDestroy {
     private partName = 'nav-menu';
 
+    @Input() disableDefaultSelectActions = false;
+
     @Output() select = new EventEmitter<number>();
 
     private subscription: Subscription;
     public config: NavMenuConfig;
     public selectedSectionIndex: number;
     public selectedItemIndex: number;
-    public sections: any[] = [];
+    public sections: NavMenuSection[] = [];
 
     public constructor(
         private router: Router,
         private service: PipNavService,
+        private sidenav: PipSidenavService,
         private cd: ChangeDetectorRef
     ) {
         this.selectedSectionIndex = 0;
@@ -58,8 +62,16 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
         return typeof val === 'function';
     }
 
-    public onItemSelect(index: number): void {
+    public onItemSelect(index: number, item: NavMenuLink): void {
         this.selectedItemIndex = index;
+        if (!this.disableDefaultSelectActions) {
+            if (this.sidenav.isUniversal && !item.disableNavbarClose) {
+                this.sidenav.closeNav();
+            }
+            if (!item.disableTitleChange) {
+                this.service.showTitle(item.title);
+            }
+        }
         this.select.emit(index);
     }
 

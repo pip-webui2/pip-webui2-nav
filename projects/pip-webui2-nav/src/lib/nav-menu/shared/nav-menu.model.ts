@@ -8,6 +8,9 @@ export class NavMenuLink {
     // Icon name and fontSet
     public icon?: string;
     public fontSet?: string;
+    // Flags for disabling standart behaviour
+    public disableNavbarClose?: boolean;
+    public disableTitleChange?: boolean;
     // Counter badge
     public count?: number;
     // class for badge style
