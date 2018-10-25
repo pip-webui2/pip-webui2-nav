@@ -42,8 +42,8 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
             if (this.config && this.config.sections) { this.sections = this.config.sections; }
             if (this.sections && this.sections.length) {
                 const url = '/' + (this.route.snapshot.firstChild && this.route.snapshot.firstChild.url.length
-                 ? this.route.snapshot.firstChild.url[0].path
-                 : '');
+                    ? this.route.snapshot.firstChild.url[0].path
+                    : '');
                 const selectIndex = () => {
                     for (let sk = 0; sk < this.sections.length; sk++) {
                         for (let lk = 0; lk < this.sections[sk].links.length; lk++) {
@@ -71,8 +71,12 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
     public onItemSelect(index: number, item: NavMenuLink): void {
         this.selectedItemIndex = index;
         if (!this.disableDefaultSelectActions) {
-            if (this.sidenav.isUniversal && !item.disableNavbarClose) {
-                this.sidenav.closeNav();
+            if (!item.disableNavbarClose) {
+                if (this.sidenav.isUniversal) {
+                    this.sidenav.closeNav();
+                } else if (this.sidenav.isFloating()) {
+                    this.sidenav.closeFloatingNav();
+                }
             }
             if (!item.disableTitleChange) {
                 this.service.showTitle(item.title);

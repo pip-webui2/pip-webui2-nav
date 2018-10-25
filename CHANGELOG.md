@@ -36,7 +36,7 @@ No breaking changes in this version
 ### Bug Fixes
 No fixes in this version
 
-## <a name="1.0.1"></a> ~1.0.1-beta.1 (2017-10-18)
+## <a name="1.0.1"></a> ~1.0.1-beta.5 (2017-10-18)
 
 Improvements
 
@@ -52,7 +52,8 @@ Improvements
 No breaking changes in this version
 
 ### Bug Fixes
-No fixes in this version
+* close floating and universal sidenav when item selected
+* syncronize current item with appbar title
 
 ### Improvements
 Event for selection item in **nav menu**
