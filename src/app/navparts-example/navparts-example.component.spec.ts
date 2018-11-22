@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { PipMediaService, PipSidenavService, PipRightnavService } from 'pip-webui2-layouts';
+import { PipThemesService } from 'pip-webui2-themes';
 
+import { NavpartsExampleModule } from './navparts-example.module';
 import { NavpartsExampleComponent } from './navparts-example.component';
 
 describe('NavpartsExampleComponent', () => {
@@ -8,9 +13,19 @@ describe('NavpartsExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavpartsExampleComponent ]
+      imports: [
+        NoopAnimationsModule,
+        NavpartsExampleModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        PipMediaService,
+        PipSidenavService,
+        PipRightnavService,
+        PipThemesService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

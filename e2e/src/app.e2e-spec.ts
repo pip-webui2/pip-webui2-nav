@@ -7,8 +7,8 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display "Search text -" in first span in breadcrumb', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to pip-webui2-nav-app!');
+    expect(page.getParagraphText()).toEqual('Search text -');
   });
 });

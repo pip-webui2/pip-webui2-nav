@@ -15,7 +15,7 @@ import { NavpartsExampleComponent } from './navparts-example.component';
     FlexLayoutModule,
     FormsModule, ReactiveFormsModule,
     MatButtonModule, MatInputModule, MatToolbarModule, MatListModule,
-    TranslateModule,
+    TranslateModule.forChild(),
     PipDocumentLayoutModule, PipShadowModule,
     PipNavModule
   ],

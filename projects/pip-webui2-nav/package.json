@@ -1,23 +1,23 @@
 {
   "name": "pip-webui2-nav",
-  "version": "1.0.1-beta.6",
+  "version": "1.1.0",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/pip-webui2/pip-webui2-nav"
+    "type": "git",
+    "url": "https://github.com/pip-webui2/pip-webui2-nav"
   },
   "dependencies": {
-    "pip-webui2-layouts": "^1.0.2-beta.4"
+    "pip-webui2-layouts": "^1.1.0"
   },
   "peerDependencies": {
-    "@angular/cdk": "^6.4.7",
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/flex-layout": "^6.0.0-beta.18",
-    "@angular/forms": "^6.1.0",
-    "@angular/material": "^6.4.7",
-    "@angular/router": "^6.1.0",
-    "@ngx-translate/core": "^10.0.2",
-    "rxjs": "~6.2.0"
+    "@angular/cdk": "^7.1.0",
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0",
+    "@angular/flex-layout": "^7.0.0-beta.19",
+    "@angular/forms": "^7.1.0",
+    "@angular/material": "^7.1.0",
+    "@angular/router": "^7.1.0",
+    "@ngx-translate/core": "^11.0.1",
+    "rxjs": "~6.3.3"
   }
 }
