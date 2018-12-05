@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PipSidenavService } from 'pip-webui2-layouts';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +19,7 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
 
     @Output() select = new EventEmitter<number>();
 
-    private subscription: Subscription;
+    private subscriptions: Subscription;
     public config: NavMenuConfig;
     public selectedSectionIndex: number;
     public selectedItemIndex: number;
@@ -34,34 +34,23 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
     ) {
         this.selectedSectionIndex = 0;
         this.selectedItemIndex = 0;
+        this.subscriptions = new Subscription();
     }
 
     ngOnInit() {
-        this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
+        this.subscriptions.add(this.service.updateItemByName(this.partName, null).properties.subscribe((newConfig: NavMenuConfig) => {
             this.config = newConfig;
             if (this.config && this.config.sections) { this.sections = this.config.sections; }
             if (this.sections && this.sections.length) {
-                const url = '/' + (this.route.snapshot.firstChild && this.route.snapshot.firstChild.url.length
-                    ? this.route.snapshot.firstChild.url[0].path
-                    : '');
-                const selectIndex = () => {
-                    for (let sk = 0; sk < this.sections.length; sk++) {
-                        for (let lk = 0; lk < this.sections[sk].links.length; lk++) {
-                            if (this.sections[sk].links[lk].url === url || this.sections[sk].links[lk].href === url) {
-                                this.selectedSectionIndex = sk;
-                                this.selectedItemIndex = lk;
-                                if (!this.sections[sk].links[lk].disableTitleChange) {
-                                    this.service.showTitle(this.sections[sk].links[lk].title);
-                                }
-                                return;
-                            }
-                        }
-                    }
-                };
-                selectIndex();
+                this.selectIndex();
             }
             this.cd.detectChanges();
-        });
+        }));
+        this.subscriptions.add(this.router.events.subscribe(e => {
+            if (e instanceof NavigationEnd) {
+                this.selectIndex();
+            }
+        }));
     }
 
     public isFunction(val: any): boolean {
@@ -86,7 +75,25 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy() {
-        this.subscription.unsubscribe();
+        this.subscriptions.unsubscribe();
     }
 
+    private selectIndex() {
+        const url = (this.route.snapshot.firstChild && this.route.snapshot.firstChild.url.length
+            ? this.route.snapshot.firstChild.url[0].path
+            : '');
+        const urls = [url, '/' + url];
+        for (let sk = 0; sk < this.sections.length; sk++) {
+            for (let lk = 0; lk < this.sections[sk].links.length; lk++) {
+                if (urls.includes(this.sections[sk].links[lk].url) || urls.includes(this.sections[sk].links[lk].href)) {
+                    this.selectedSectionIndex = sk;
+                    this.selectedItemIndex = lk;
+                    if (!this.sections[sk].links[lk].disableTitleChange) {
+                        this.service.showTitle(this.sections[sk].links[lk].title);
+                    }
+                    return;
+                }
+            }
+        }
+    }
 }

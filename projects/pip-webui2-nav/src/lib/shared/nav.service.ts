@@ -21,7 +21,9 @@ class NavConfigItems {
     public static navMenu: 'navMenu';
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class PipNavService {
     private _items: NavItem[] = [];
 

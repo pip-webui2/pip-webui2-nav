@@ -40,7 +40,7 @@ import { NavpartsExampleModule } from './navparts-example/navparts-example.modul
     MatToolbarModule, MatListModule, MatButtonModule,
     TranslateModule.forRoot(),
 
-    PipThemesModule,
+    PipThemesModule.forRoot(),
     PipAppbarModule,
     PipRightnavModule,
     PipMediaModule,

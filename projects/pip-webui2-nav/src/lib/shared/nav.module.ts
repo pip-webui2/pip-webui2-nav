@@ -1,19 +1,15 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { PipNavService } from './nav.service';
 
-@NgModule({
-  declarations: [
-
-  ],
-  imports: [
-
-  ],
-  exports: [
-
-  ],
-  providers: [
-    PipNavService
-  ]
-})
-export class PipNavModule { }
+@NgModule()
+export class PipNavModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: PipNavModule,
+      providers: [
+        PipNavService
+      ]
+    };
+  }
+}
