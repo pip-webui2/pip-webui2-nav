@@ -42,9 +42,9 @@ import { NavpartsExampleModule } from './navparts-example/navparts-example.modul
 
     PipThemesModule.forRoot(),
     PipAppbarModule,
-    PipRightnavModule,
-    PipMediaModule,
-    PipSidenavModule,
+    PipRightnavModule.forRoot(),
+    PipMediaModule.forRoot(),
+    PipSidenavModule.forRoot(),
     PipMainLayoutModule,
     PipRootLayoutModule,
     PipSidenavExpanderModule,
