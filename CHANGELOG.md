@@ -18,7 +18,7 @@ No breaking changes in this version
 ### Bug Fixes
 No fixes in this version
 
-## <a name="1.0.0"></a> 1.0.0 (2017-10-04)
+## <a name="1.0.0"></a> 1.0.0 (2018-10-04)
 
 Upgrade to Angular 6.
 
@@ -36,7 +36,7 @@ No breaking changes in this version
 ### Bug Fixes
 No fixes in this version
 
-## <a name="1.0.1"></a> ~1.0.1-beta.5 (2017-10-18)
+## <a name="1.0.1"></a> ~1.0.1-beta.5 (2018-10-18)
 
 Improvements
 
@@ -58,7 +58,7 @@ No breaking changes in this version
 ### Improvements
 Event for selection item in **nav menu**
 
-## <a name="1.1.0"></a> 1.1.0 (2017-11-22)
+## <a name="1.1.0"></a> 1.1.0 (2018-11-22)
 
 Update to stable Angular 7 and fix the tests.
 
@@ -78,7 +78,7 @@ No breaking changes in this version
 * Example tests works now. Run `npm run test` to check it out;
 * E2E tests works too. Run `npm run e2e` to check it out.
 
-## <a name="1.1.1"></a> 1.1.1 (2017-12-05)
+## <a name="1.1.1"></a> 1.1.1 (2018-12-05)
 
 Angular 7 minor updates and nav module.
 
