@@ -1,7 +1,7 @@
 <div class="actions-container" fxLayout="row" fxLayoutAlign="space-around center">
   <div class="action" *ngFor="let action of config?.actions" [ngSwitch]="!!(action.subActions && action.subActions.length > 0)">
     <button mat-icon-button *ngSwitchCase="false">
-      <mat-icon matBadge="action?.count" [matBadgeHidden]="!action?.count" (click)="onActionClick(action)">{{ action.icon }}</mat-icon>
+      <mat-icon [matBadge]="action?.count" [matBadgeHidden]="!action?.count" matBadgeColor="warn" (click)="onActionClick(action)">{{ action.icon }}</mat-icon>
     </button>
 
     <button matIconButton [matMenuTriggerFor]="menu" (click)="onActionClick(action)" *ngSwitchCase="true">
