@@ -1,5 +1,6 @@
 export class PrimaryAction {
     icon: string;
+    count?: number;
     click?: any;
     subActions?: PrimarySubAction[];
 }
