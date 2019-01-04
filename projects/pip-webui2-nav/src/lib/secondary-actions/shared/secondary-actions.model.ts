@@ -1,5 +1,6 @@
 export class SecondaryAction {
     title: string;
+    name?: string;
     click?: any;
 }
 
