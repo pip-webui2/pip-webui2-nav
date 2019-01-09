@@ -131,3 +131,39 @@ No breaking changes in this version
 
 ### Bug Fixes
 No fixes in this version
+
+## <a name="1.1.4"></a> 1.1.4 (2019-01-06)
+
+Dependency updates
+
+### Features
+* **nav icon**: main app icon
+* **nav menu**: main navigation menu with list of links
+* **nav header**: navigation toolbar that contains key nav information
+* **breadcrumb**: contains title of each section where was the user
+* **primary actions**: list of primary links that places in app bar
+* **secondary actions**: menu of secondry links
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+No fixes in this version
+
+## <a name="1.1.5"></a> 1.1.5 (2019-01-09)
+
+Expandable nav menu
+
+### Features
+* **nav icon**: main app icon
+* **nav menu**: main navigation menu with list of links
+* **nav header**: navigation toolbar that contains key nav information
+* **breadcrumb**: contains title of each section where was the user
+* **primary actions**: list of primary links that places in app bar
+* **secondary actions**: menu of secondry links
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+No fixes in this version

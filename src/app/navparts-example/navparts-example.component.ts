@@ -129,13 +129,25 @@ export class NavpartsExampleComponent implements OnInit {
                     ]
                 },
                 {
+                    name: 'collapsable',
+                    title: 'Actions',
+                    icon: 'label_important',
+                    isCollapsable: true,
+                    links: [
+                        // tslint:disable-next-line:max-line-length
+                        { name: 'create', title: 'Create', icon: 'add', url: 'navparts', tooltipText: 'Create' },
+                        { name: 'edit', title: 'Edit', icon: 'create', url: 'navparts', tooltipText: 'Edit' },
+                        { name: 'delete', title: 'Delete', icon: 'delete', url: 'navparts', tooltipText: 'Delete' },
+                    ]
+                },
+                {
                     name: 'sidenav',
                     title: 'SideNav and something else',
                     icon: 'area',
                     links: [
                         {
                             name: 'StickySideNav',
-                            title: 'StickySideNav ghfvdb ygbh ghbnyujnyubj  yubhj',
+                            title: 'StickySideNav',
                             state: 'sticky_sidenav',
                             icon: 'backup',
                             url: 'navparts'

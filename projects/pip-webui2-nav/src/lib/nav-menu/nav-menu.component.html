@@ -2,35 +2,28 @@
     <div fxFlex="grow" fxLayout="column" class="w-stretch">
         <div *ngFor="let section of config?.sections; let sectionIndex = index" class="w-stretch" fxLayout="column">
             <mat-divider *ngIf="sectionIndex > 0"></mat-divider>
-            <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
-                {{ section.title | translate }}
-            </div>
-            <div fxFlex="grow" class="w-stretch">
-                <mat-nav-list dense class="w-stretch">
-                    <ng-container *ngFor="let item of section.links; let itemIndex = index">
-                        <ng-container *ngIf="!(item?.href)">
-                            <mat-list-item (click)="item?.click && isFunction(item?.click) ? item.click($event, onItemSelect) : onItemSelect(itemIndex, item)"
-                                           routerLink="/{{ item?.url }}" class="w-stretch" [ngClass]="{selected: itemIndex === selectedItemIndex && sectionIndex === selectedSectionIndex}">
-                                <div fxLayout="row" fxLayoutAlign="start center" class="w-stretch">
-                                    <mat-icon *ngIf="item && !item.fontSet">{{ item?.icon || 'menu' }}</mat-icon>
-                                    <mat-icon *ngIf="item && item.fontSet" [fontSet]="item?.fontSet" [fontIcon]="item?.icon"></mat-icon>
-                                    <h3 mat-line class="pip-link-title">{{ item.title | translate }}</h3>
-                                </div>
-                            </mat-list-item>
-                        </ng-container>
-                        <ng-container *ngIf="!(item?.url) && item?.href">
-                            <a mat-list-item (click)="item?.click && isFunction(item?.click) ? item.click($event, onItemSelect) : onItemSelect(itemIndex, item)"
-                               [attr.href]="item?.href" class="w-stretch" [ngClass]="{selected: itemIndex === selectedItemIndex && sectionIndex === selectedSectionIndex}">
-                                <div fxLayout="row" fxLayoutAlign="start center" class="w-stretch">
-                                    <mat-icon *ngIf="item && !item.fontSet">{{ item?.icon || 'menu' }}</mat-icon>
-                                    <mat-icon *ngIf="item && item.fontSet" [fontSet]="item?.fontSet" [fontIcon]="item?.icon"></mat-icon>
-                                    <h3 mat-line class="pip-link-title">{{ item.title | translate }}</h3>
-                                </div>
-                            </a>
-                        </ng-container>
-                    </ng-container>
-                </mat-nav-list>
-            </div>
+            <ng-container *ngIf="!section.isCollapsable">
+                <div fxFlex="grow" *ngIf="section.title" class="pip-nav-menu-section-title">
+                    {{ section.title | translate }}
+                </div>
+                <div fxFlex="grow" class="w-stretch">
+                    <pip-nav-menu-section [section]="section" [sectionIndex]="sectionIndex" (select)="onItemSelect($event.index, $event.item)"
+                                          selectedSectionIndex="selectedSectionIndex" [selectedItemIndex]="selectedItemIndex"></pip-nav-menu-section>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="section.isCollapsable">
+                <mat-list-item>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px">
+                            <mat-icon *ngIf="!section.fontSet">{{ section?.icon || 'menu' }}</mat-icon>
+                            <mat-icon *ngIf="section.icon && section.fontSet" [fontSet]="section?.fontSet" [fontIcon]="section?.icon"></mat-icon>
+                            <h3 mat-line class="pip-link-title">{{ section.title | translate }}</h3>
+                        </mat-expansion-panel-header>
+                        <pip-nav-menu-section [section]="section" [sectionIndex]="sectionIndex" (select)="onItemSelect($event.index, $event.item)"
+                                              selectedSectionIndex="selectedSectionIndex" [selectedItemIndex]="selectedItemIndex"></pip-nav-menu-section>
+                    </mat-expansion-panel>
+                </mat-list-item>
+            </ng-container>
         </div>
 
     </div>

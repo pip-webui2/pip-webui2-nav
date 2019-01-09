@@ -43,6 +43,7 @@ export class NavMenuSection {
     // Icon name and fontSet
     public icon?: string;
     public fontSet?: string;
+    public isCollapsable?: boolean;
     // Links shown in the section
     public links: NavMenuLink[];
     // Access function

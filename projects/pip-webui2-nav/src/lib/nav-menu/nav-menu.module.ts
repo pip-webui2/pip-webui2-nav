@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatButtonModule, MatIconModule, MatListModule, MatOptionModule, MatGridListModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatListModule, MatOptionModule, MatGridListModule, MatExpansionModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { PipNavMenuComponent } from './nav-menu.component';
+import { PipNavMenuSectionComponent } from './nav-menu-section.component';
 
 @NgModule({
   declarations: [
-    PipNavMenuComponent
+    PipNavMenuComponent,
+    PipNavMenuSectionComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { PipNavMenuComponent } from './nav-menu.component';
     FormsModule,
     MatListModule,
     MatButtonModule,
+    MatExpansionModule,
     MatIconModule,
     MatOptionModule,
     MatGridListModule,
@@ -27,7 +30,8 @@ import { PipNavMenuComponent } from './nav-menu.component';
     ReactiveFormsModule
   ],
   exports: [
-    PipNavMenuComponent
+    PipNavMenuComponent,
+    PipNavMenuSectionComponent
   ],
   providers: [],
 })

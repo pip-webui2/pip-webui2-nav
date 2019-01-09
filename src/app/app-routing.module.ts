@@ -5,7 +5,7 @@ import { NavpartsExampleComponent } from './navparts-example/navparts-example.co
 
 const appRoutes: Routes = [
     { path: 'navparts', component: NavpartsExampleComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'navparts' }
+    { path: '**', redirectTo: 'navparts' }
 ];
 
 @NgModule({

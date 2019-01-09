@@ -88,4 +88,27 @@ mat-icon {
     .mat-nav-list[dense] {
         padding-top: 0;
     }
+
+    mat-list-item {
+        mat-expansion-panel {
+            box-shadow: none!important;
+            mat-expansion-panel-header {
+                margin: 0;
+                padding: 0 16px;
+                /deep/ .mat-content {
+                    align-items: center;
+                }
+            }
+            &:not(.mat-expanded) {
+                /deep/ .mat-expansion-indicator {
+                    margin-bottom: 6px;
+                }
+            }
+            &.mat-expanded {
+                /deep/ .mat-expansion-indicator {
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
 }
