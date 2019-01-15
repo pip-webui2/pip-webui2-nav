@@ -1,5 +1,5 @@
 import { Component, ElementRef, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 
 import { BreadcrumbConfig } from './shared/breadcrumb.model';
@@ -19,13 +19,13 @@ export class PipBreadcrumbComponent implements OnInit, OnDestroy {
 
     public constructor(
         private service: PipNavService,
-        private media: ObservableMedia,
+        private media: MediaObserver,
         private elRef: ElementRef,
         private cd: ChangeDetectorRef
     ) { }
 
     ngOnInit() {
-        this.media.asObservable().subscribe((change: MediaChange) => {
+        this.media.media$.subscribe((change: MediaChange) => {
             this.elRef.nativeElement.classList[change.mqAlias === 'xs' || change.mqAlias === 'sm'
                 ? 'add'
                 : 'remove']('pip-mobile-breadcrumb');

@@ -88,6 +88,10 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
                 if (urls.includes(this.sections[sk].links[lk].url) || urls.includes(this.sections[sk].links[lk].href)) {
                     this.selectedSectionIndex = sk;
                     this.selectedItemIndex = lk;
+                    // if (!this.sections[sk].links[lk].disableTitleChange) {
+                    //     this.service.showTitle(this.sections[sk].links[lk].title);
+                    // }
+                    return;
                 }
             }
         }
