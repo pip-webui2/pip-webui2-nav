@@ -86,6 +86,12 @@ export class NavpartsExampleComponent implements OnInit {
         this.navService.showPrimaryActions({
             actions: [
                 {
+                    name: 'custom_font_icon',
+                    icon: 'ice-run',
+                    fontSet: 'ice',
+                    click: () => { }
+                },
+                {
                     name: 'notifications',
                     icon: 'notifications',
                     click: () => {

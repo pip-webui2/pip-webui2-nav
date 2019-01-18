@@ -1,5 +1,6 @@
 export class PrimaryAction {
     icon: string;
+    fontSet?: string;
     name: string;
     count?: number;
     click?: any;

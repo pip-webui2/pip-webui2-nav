@@ -10,7 +10,7 @@ Initial release with navigation mechanisms: nav icon, nav menu, nav header, brea
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -28,7 +28,7 @@ Upgrade to Angular 6.
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -46,7 +46,7 @@ Improvements
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -68,7 +68,7 @@ Update to stable Angular 7 and fix the tests.
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -88,7 +88,7 @@ Angular 7 minor updates and nav module.
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 * **PipNavModule** should be **PipNavModule.forRoot()** now
@@ -106,7 +106,7 @@ Badges for primary actions
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -124,7 +124,7 @@ Primary and secondary actions now have names
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -142,7 +142,7 @@ Dependency updates
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -160,7 +160,7 @@ Expandable nav menu
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
@@ -178,7 +178,25 @@ ObservableMedia updated to MediaObserver
 * **nav header**: navigation toolbar that contains key nav information
 * **breadcrumb**: contains title of each section where was the user
 * **primary actions**: list of primary links that places in app bar
-* **secondary actions**: menu of secondry links
+* **secondary actions**: menu of secondary links
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+No fixes in this version
+
+## <a name="1.1.7"></a> 1.1.7 (2019-01-18)
+
+Support for icons from custom font sets for primary actions
+
+### Features
+* **nav icon**: main app icon
+* **nav menu**: main navigation menu with list of links
+* **nav header**: navigation toolbar that contains key nav information
+* **breadcrumb**: contains title of each section where was the user
+* **primary actions**: list of primary links that places in app bar
+* **secondary actions**: menu of secondary links
 
 ### Breaking Changes
 No breaking changes in this version
