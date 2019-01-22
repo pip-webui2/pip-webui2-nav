@@ -11,6 +11,9 @@
             display: none !important;
         }
     }
+    /deep/ .mat-button, .mat-raised-button, .mat-flat-button, .mat-stroked-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
+        text-transform: unset;
+    }
 }
 
 .gt-xs-container {
