@@ -8,12 +8,14 @@
     white-space: normal !important;
 }
 
-.mat-toolbar {
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 12px;
-    box-sizing: content-box;
+:host .mat-toolbar {
+    padding: 0;
+    height: auto;
     position: relative;
+    .pip-nav-content-wrapper {
+        margin: 16px auto 16px 12px;
+        display: flex;
+    }
     .shadow-block {
         position: absolute;
         top: 0;
