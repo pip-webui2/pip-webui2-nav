@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 import { NavItem } from './nav-item.model';
 
@@ -27,8 +27,12 @@ class NavConfigItems {
 export class PipNavService {
     private _items: NavItem[] = [];
 
+    public toggleSecondaryActions$: Subject<boolean>;
+
     public constructor(
-    ) { }
+    ) {
+        this.toggleSecondaryActions$ = new Subject();
+    }
 
     public get items(): NavItem[] {
         return this._items;
@@ -137,6 +141,10 @@ export class PipNavService {
 
     public showNavMenu(navMenu: NavMenuConfig) {
         this.updateItemByName('nav-menu', navMenu);
+    }
+
+    public toggleSecondaryActionsMenu(state: boolean = true) {
+        this.toggleSecondaryActions$.next(state);
     }
 
     public configurateNav(navConfig: NavConfig) {

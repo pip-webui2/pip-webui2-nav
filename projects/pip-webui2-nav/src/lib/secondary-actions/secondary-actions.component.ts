@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material';
 import { Subscription } from 'rxjs';
 
 import { PipNavService } from '../shared/nav.service';
@@ -12,17 +13,26 @@ import { PipNavService } from '../shared/nav.service';
 export class PipSecondaryActionsComponent implements OnInit, OnDestroy {
     private partName = 'secondary-actions';
 
-    private subscription: Subscription;
+    private subs: Subscription;
     public config: any;
+    @ViewChild('actionsMenuTrigger') actionsMenuTrigger: MatMenuTrigger;
 
     public constructor(
         private service: PipNavService
     ) { }
 
     public ngOnInit() {
-        this.subscription = this.service.updateItemByName(this.partName, null).properties.subscribe((actionsProp) => {
+        this.subs = new Subscription();
+        this.subs.add(this.service.updateItemByName(this.partName, null).properties.subscribe((actionsProp) => {
             this.config = actionsProp;
-        });
+        }));
+        this.subs.add(this.service.toggleSecondaryActions$.asObservable().subscribe(state => {
+            if (state) {
+                this.actionsMenuTrigger.openMenu();
+            } else {
+                this.actionsMenuTrigger.closeMenu();
+            }
+        }));
     }
 
     public onActionClick(action) {
@@ -38,6 +48,6 @@ export class PipSecondaryActionsComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy() {
-        this.subscription.unsubscribe();
+        this.subs.unsubscribe();
     }
 }

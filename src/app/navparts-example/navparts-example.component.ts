@@ -254,4 +254,8 @@ export class NavpartsExampleComponent implements OnInit {
         this.navService.showNavHeader(cloneDeep(this.header));
     }
 
+    public openSecondaryAction() {
+        this.navService.toggleSecondaryActionsMenu();
+    }
+
 }
