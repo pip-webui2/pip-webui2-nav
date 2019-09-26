@@ -16,6 +16,7 @@ export class PipNavMenuSectionComponent implements OnInit {
     @Input() selectedItemIndex: number;
 
     @Output() select: EventEmitter<{index: number, item: NavMenuLink}>;
+    public callOnSelectFn = (index: number, item: NavMenuLink) => this.onItemSelect(index, item);
 
     public constructor() {
         this.select = new EventEmitter();

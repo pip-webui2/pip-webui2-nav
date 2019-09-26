@@ -30,7 +30,8 @@ export class NavMenuLink {
     // $rootScope.broadcast(event)
     public event?: string;
     // Click callback
-    public click?: (link: NavMenuLink) => void;
+    public click?: (event: Event, itemIndex: number, item: NavMenuLink,
+        callOnItemSelect: (index: number, item: NavMenuLink) => void) => void;
 }
 
 export class NavMenuSection {
