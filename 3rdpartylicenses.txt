@@ -33,7 +33,7 @@ MIT
 
 lodash
 MIT
-Copyright JS Foundation and other contributors <https://js.foundation/>
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
 Based on Underscore.js, copyright Jeremy Ashkenas,
 DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
@@ -471,14 +471,23 @@ THE SOFTWARE.
 @angular/animations
 MIT
 
+@ngx-translate/core
+MIT
+
 @angular/forms
 MIT
 
 @angular/material/sidenav
 
-@angular/material/toolbar
-
 @angular/material/core
+
+@angular/material/form-field
+
+@angular/material/select
+
+@angular/material/tabs
+
+@angular/material/toolbar
 
 @angular/material/list
 
@@ -487,8 +496,6 @@ MIT
 @angular/material/button
 
 @angular/material/divider
-
-@angular/material/form-field
 
 pip-webui2-nav
 MIT
@@ -539,9 +546,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-@ngx-translate/core
-MIT
 
 @angular/material/menu
 
