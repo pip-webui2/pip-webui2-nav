@@ -41,7 +41,7 @@ import { NavpartsExampleModule } from './navparts-example/navparts-example.modul
     TranslateModule.forRoot(),
 
     PipThemesModule.forRoot(),
-    PipAppbarModule,
+    PipAppbarModule.forRoot(),
     PipRightnavModule.forRoot(),
     PipMediaModule.forRoot(),
     PipSidenavModule.forRoot(),

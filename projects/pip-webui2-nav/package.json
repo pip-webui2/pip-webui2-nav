@@ -1,6 +1,6 @@
 {
   "name": "pip-webui2-nav",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
-    "pip-webui2-layouts": "^1.1.17"
+    "pip-webui2-layouts": "^1.1.18"
   },
   "peerDependencies": {
     "@angular/cdk": "^7.2.1",
