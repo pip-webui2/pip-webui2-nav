@@ -11,7 +11,7 @@ $color-content: rgb(250, 250, 250);
     font-family: Roboto;
     border-radius: 4px;
     display: block !important;
-    /deep/ .mat-select-underline {
+    ::ng-deep .mat-select-underline {
         display: none;
         background-color: none;
         height: 0px;
@@ -79,7 +79,7 @@ mat-icon {
     }
 }
 
-:host /deep/ {
+:host ::ng-deep {
     .mat-divider {
         margin-top: 8px;
         padding-bottom: 8px;
@@ -95,17 +95,17 @@ mat-icon {
             mat-expansion-panel-header {
                 margin: 0;
                 padding: 0 16px;
-                /deep/ .mat-content {
+                ::ng-deep .mat-content {
                     align-items: center;
                 }
             }
             &:not(.mat-expanded) {
-                /deep/ .mat-expansion-indicator {
+                ::ng-deep .mat-expansion-indicator {
                     margin-bottom: 6px;
                 }
             }
             &.mat-expanded {
-                /deep/ .mat-expansion-indicator {
+                ::ng-deep .mat-expansion-indicator {
                     margin-top: 6px;
                 }
             }

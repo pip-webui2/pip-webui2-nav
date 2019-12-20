@@ -53,6 +53,7 @@ export class NavpartsExampleComponent implements OnInit {
         'mst-mono-theme': 'MST Mono',
         'mst-orange-theme': 'MST Orange',
         'mst-orange-dark-theme': 'MST Orange Dark',
+        'mst-elegant-theme': 'MST Elegant Dark'
     };
 
     constructor(

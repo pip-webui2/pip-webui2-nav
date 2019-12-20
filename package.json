@@ -1,6 +1,6 @@
 {
   "name": "pip-webui2-nav",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -34,8 +34,8 @@
     "@ngx-translate/core": "^11.0.1",
     "core-js": "^2.6.2",
     "lodash": "^4.17.11",
-    "pip-webui2-layouts": "^1.1.18",
-    "pip-webui2-themes": "^1.1.17",
+    "pip-webui2-layouts": "^1.1.21",
+    "pip-webui2-themes": "^1.1.24",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.27"
   },

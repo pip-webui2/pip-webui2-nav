@@ -11,7 +11,7 @@
             display: none !important;
         }
     }
-    /deep/ .mat-button, .mat-raised-button, .mat-flat-button, .mat-stroked-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
+    ::ng-deep .mat-button, .mat-raised-button, .mat-flat-button, .mat-stroked-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
         text-transform: unset;
     }
 }
@@ -57,7 +57,7 @@
     padding-left: 8px;
     padding-right: 8px;
     min-width: 0;
-    /deep/.mat-button-wrapper {
+    ::ng-deep.mat-button-wrapper {
         box-sizing: border-box;
         max-height: 100%;
         display: flex;
