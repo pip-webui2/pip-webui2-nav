@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry } from '@angular/material/icon';
 import { TranslateService } from '@ngx-translate/core';
 import { PipMediaService } from 'pip-webui2-layouts';
 import { PipThemesService } from 'pip-webui2-themes';
@@ -25,8 +25,6 @@ export class AppComponent {
     private matIconRegistry: MatIconRegistry,
     private translate: TranslateService,
   ) {
-    this.media.activate();
-    this.themesService.selectedTheme = this.themesService.themes[0];
     this.matIconRegistry.registerFontClassAlias('ice', 'ice');
     this.translate.use('en');
     this.translate.setTranslation('en', AppTranslations.en, true);

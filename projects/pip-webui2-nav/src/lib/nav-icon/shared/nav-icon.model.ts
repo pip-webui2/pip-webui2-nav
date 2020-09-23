@@ -1,10 +1,14 @@
-export class NavIconConfig {
-    icon: string;
-    action?: () => void;
+export class IconConfig {
     fontSet?: string;
+    fontIcon?: string;
+    svgIcon?: string;
 }
 
-export const DefaultIcon: NavIconConfig = {
-    icon: 'menu',
+export class NavIconConfig extends IconConfig {
+    action?: () => void;
+}
+
+export const defaultIcon: NavIconConfig = {
+    fontIcon: 'menu',
     action: () => { }
 };

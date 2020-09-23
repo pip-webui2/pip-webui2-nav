@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { cloneDeep, each } from 'lodash';
-import { PipSidenavService, PipMediaService, MediaMainChange, PipRightnavService } from 'pip-webui2-layouts';
+import { PipSidenavService, PipMediaService, MediaMainChange } from 'pip-webui2-layouts';
 import { PipNavService, NavHeaderConfig } from 'pip-webui2-nav';
 import { PipThemesService, Theme } from 'pip-webui2-themes';
 
@@ -17,7 +17,7 @@ export class NavpartsExampleComponent implements OnInit {
     private isPrimaryActionsShown = true;
     private isSecondaryActionsShown = true;
     private xsIcon = 'menu';
-    private gtXsIcon = 'ice-cup';
+    private gtXsIcon = 'commute';
 
     public appbarIconPartName = 'appbar-icon';
     public appbarBreadcrumbPartName = 'appbar-breadcrumb';
@@ -31,52 +31,41 @@ export class NavpartsExampleComponent implements OnInit {
     public isMenuShown = true;
     public isHeaderShown = true;
     public header: NavHeaderConfig = new NavHeaderConfig();
+
     public themes: Theme[];
     public theme: Theme;
-    public themesLocalNames: any = {
-        'candy-theme': 'Candy',
-        'unicorn-dark-theme': 'Unicorn Dark',
-        'pip-blue-theme': 'Blue',
-        'pip-grey-theme': 'Grey',
-        'pip-pink-theme': 'Pink',
-        'pip-green-theme': 'Green',
-        'pip-navy-theme': 'Navy',
-        'pip-amber-theme': 'Amber',
-        'pip-orange-theme': 'Orange',
-        'pip-dark-theme': 'Dark',
-        'pip-black-theme': 'Black',
-        'bootbarn-warm-theme': 'Bootbarn Warm',
-        'bootbarn-cool-theme': 'Bootbarn Cool',
-        'bootbarn-mono-theme': 'Bootbarn Mono',
-        'mst-black-theme': 'MST Black',
-        'mst-black-dark-theme': 'MST Black Dark',
-        'mst-mono-theme': 'MST Mono',
-        'mst-orange-theme': 'MST Orange',
-        'mst-orange-dark-theme': 'MST Orange Dark',
-        'mst-elegant-theme': 'MST Elegant Dark'
-    };
+    public languages = ['en', 'ru'];
+    public language: string;
+    public onBackClick: Function = null;
+    public listIndex = 0;
 
     constructor(
         private navService: PipNavService,
         private sidenav: PipSidenavService,
-        private rightnav: PipRightnavService,
         private mainMedia: PipMediaService,
         private themesService: PipThemesService,
         private translate: TranslateService
     ) {
+        this.themes = this.themesService.themesArray;
+        this.theme = this.themesService.currentTheme;
+        // Translations init
+        this.translate.addLangs(this.languages);
+        this.translate.setDefaultLang('en');
+        const browserLang = translate.getBrowserLang();
+        this.translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+        this.language = this.translate.currentLang;
+
         this.mainMedia.asObservableMain().subscribe((change: MediaMainChange) => {
             const is = change.aliases.includes('xs') || change.aliases.includes('sm');
             this.navService.showNavIcon({
-                fontSet: 'ice',
-                icon: is ? this.xsIcon : this.gtXsIcon,
-                action: is ? () => {
-                    this.sidenav.toggleNav();
-                } : null
+                fontIcon: is ? this.xsIcon : this.gtXsIcon,
+                action: () => this.sidenav.start.toggle()
             });
         });
 
         this.navService.showNavIcon({
-            icon: this.gtXsIcon
+            fontIcon: this.gtXsIcon,
+            action: () => this.sidenav.start.toggle()
         });
 
         this.navService.showBreadcrumb({
@@ -93,25 +82,24 @@ export class NavpartsExampleComponent implements OnInit {
             actions: [
                 {
                     name: 'custom_font_icon',
-                    icon: 'ice-run',
-                    fontSet: 'ice',
+                    icon: { fontIcon: 'gavel' },
                     click: () => { }
                 },
                 {
                     name: 'notifications',
-                    icon: 'notifications',
+                    icon: { fontIcon: 'notifications' },
                     click: () => {
-                        this.rightnav.toggleRightnav();
+                        this.sidenav.end.toggle();
                     }
                 },
                 {
                     name: 'translate',
-                    icon: 'translate',
+                    icon: { fontIcon: 'translate' },
                     subActions: this.generatePrimaryActionLanguageList()
                 },
                 {
                     name: 'theme',
-                    icon: 'format_color_fill',
+                    icon: { fontIcon: 'format_color_fill' },
                     subActions: this.generatePrimaryActionThemeList()
                 }
             ]
@@ -170,13 +158,16 @@ export class NavpartsExampleComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        this.selectTheme(this.themesService.selectedTheme);
+    ngOnInit() { }
+
+    public changeLanguage(language: string) {
+        this.language = language;
+        this.translate.use(language);
     }
 
-    private selectTheme(selectedTheme) {
-        this.themesService.selectedTheme = selectedTheme;
-        this.theme = selectedTheme;
+    public changeTheme(theme: Theme) {
+        this.theme = theme;
+        this.themesService.selectTheme(theme.name);
     }
 
     private generatePrimaryActionLanguageList() {
@@ -197,19 +188,11 @@ export class NavpartsExampleComponent implements OnInit {
     }
 
     private generatePrimaryActionThemeList() {
-        const list = [];
-
-        each(this.themesService.themes, (theme) => {
-            list.push({
-                title: this.themesLocalNames[theme.name],
-                name: theme.name,
-                click: () => {
-                    this.selectTheme(theme);
-                }
-            });
-        });
-
-        return list;
+        return this.themes.map(theme => ({
+            title: theme.displayName ?? theme.name,
+            name: theme.name,
+            click: () => this.changeTheme(theme)
+        }));
     }
 
     public onToogleIcon(): void {
@@ -231,7 +214,7 @@ export class NavpartsExampleComponent implements OnInit {
     public onChangeIcon(): void {
         this.xsIcon = this.xsIcon === 'menu' ? 'arrow_back' : 'menu';
         this.navService.showNavIcon({
-            icon: this.xsIcon
+            fontIcon: this.xsIcon
         });
     }
 

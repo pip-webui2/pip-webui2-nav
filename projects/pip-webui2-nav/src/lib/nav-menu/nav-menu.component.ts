@@ -61,11 +61,7 @@ export class PipNavMenuComponent implements OnInit, OnDestroy {
         this.selectedItemIndex = index;
         if (!this.disableDefaultSelectActions) {
             if (!item.disableNavbarClose) {
-                if (this.sidenav.isUniversal) {
-                    this.sidenav.closeNav();
-                } else if (this.sidenav.isFloating()) {
-                    this.sidenav.closeFloatingNav();
-                }
+                this.sidenav.start.close();
             }
             if (!item.disableTitleChange) {
                 this.service.showTitle(item.title);

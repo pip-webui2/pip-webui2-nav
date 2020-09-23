@@ -1,32 +1,26 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule, MatListModule, MatButtonModule } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   PipAppbarModule,
-  PipRightnavModule,
   PipMediaModule,
-  PipSidenavModule,
-  PipMainLayoutModule,
-  PipRootLayoutModule,
-  PipSidenavExpanderModule
+  PipRootLayoutModule, PipSidenavModule,
+  PipSidenavPosition
 } from 'pip-webui2-layouts';
 import {
   PipBreadcrumbModule,
-  PipNavIconModule,
-  PipPrimaryActionsModule,
-  PipSecondaryActionsModule,
-  PipNavModule,
-  PipNavHeaderModule,
-  PipNavMenuModule
+  PipNavHeaderModule, PipNavIconModule,
+  PipNavMenuModule, PipNavModule, PipPrimaryActionsModule,
+  PipSecondaryActionsModule
 } from 'pip-webui2-nav';
-
-import { PipThemesModule } from 'pip-webui2-themes';
-
-import { AppComponent } from './app.component';
+import { PipThemesModule, pipWebUI2ThemesList } from 'pip-webui2-themes';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NavpartsExampleModule } from './navparts-example/navparts-example.module';
 
 @NgModule({
@@ -40,20 +34,60 @@ import { NavpartsExampleModule } from './navparts-example/navparts-example.modul
     MatToolbarModule, MatListModule, MatButtonModule,
     TranslateModule.forRoot(),
 
-    PipThemesModule.forRoot(),
+    PipThemesModule.withConfig({
+      themes: pipWebUI2ThemesList
+    }),
     PipAppbarModule.forRoot(),
-    PipRightnavModule.forRoot(),
     PipMediaModule.forRoot(),
-    PipSidenavModule.forRoot(),
-    PipMainLayoutModule,
+    PipSidenavModule.withConfig({
+      start: {
+        views: [
+          {
+            name: 'default',
+            position: PipSidenavPosition.Main,
+            width: 300,
+          },
+          {
+            name: 'tablet',
+            alias: 'lt-md',
+            position: PipSidenavPosition.Root,
+            mode: 'side',
+            collapsed: true,
+            opened: true,
+            active: false
+          },
+          {
+            name: 'mobile',
+            alias: 'lt-sm',
+            position: PipSidenavPosition.Root,
+            mode: 'over'
+          }
+        ]
+      },
+      end: {
+        views: [
+          {
+            name: 'default',
+            position: PipSidenavPosition.Root,
+            mode: 'side',
+            width: 350
+          },
+          {
+            name: 'mobile',
+            alias: 'lt-sm',
+            position: PipSidenavPosition.Root,
+            mode: 'over'
+          }
+        ]
+      }
+    }),
     PipRootLayoutModule,
-    PipSidenavExpanderModule,
+    PipNavHeaderModule,
     PipBreadcrumbModule,
     PipNavIconModule,
     PipPrimaryActionsModule,
     PipSecondaryActionsModule,
     PipNavModule,
-    PipNavHeaderModule,
     PipNavMenuModule,
 
     AppRoutingModule,

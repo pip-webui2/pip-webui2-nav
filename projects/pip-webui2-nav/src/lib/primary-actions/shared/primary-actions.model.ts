@@ -1,6 +1,7 @@
+import { IconConfig } from '../../nav-icon/shared/nav-icon.model';
+
 export class PrimaryAction {
-    icon: string;
-    fontSet?: string;
+    icon: IconConfig;
     name: string;
     count?: number;
     click?: any;

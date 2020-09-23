@@ -2,9 +2,9 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { PipNavService } from './nav.service';
 
-@NgModule()
+@NgModule({})
 export class PipNavModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<PipNavModule> {
     return {
       ngModule: PipNavModule,
       providers: [

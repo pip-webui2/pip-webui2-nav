@@ -1,4 +1,6 @@
 <button mat-icon-button (click)="onClick()">
-    <mat-icon *ngIf="icon && !icon.fontSet">{{ icon?.icon || 'menu' }}</mat-icon>
-    <mat-icon *ngIf="icon && icon.fontSet" [fontSet]="icon?.fontSet" [fontIcon]="icon?.icon"></mat-icon>
+    <mat-icon *ngIf="icon?.fontIcon && !icon?.fontSet && !icon?.svgIcon"> {{ icon.fontIcon || 'menu'  }}</mat-icon>
+    <mat-icon *ngIf="icon?.fontIcon && icon?.fontSet && !icon?.svgIcon" [fontSet]="icon?.fontSet" [fontIcon]="icon?.fontIcon"></mat-icon>
+    <mat-icon *ngIf="!icon?.fontIcon && !icon?.fontSet && icon?.svgIcon" [svgIcon]="icon?.svgIcon">
+    </mat-icon>
 </button>
